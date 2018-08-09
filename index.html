@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>soccer</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+</head>
+<body>
+	<div id="game">
+		<div class="forms">	
+			<label>Manager</label>
+			<br>
+			<button id="btnManager" onClick="showManagerForm()">Create manager</button>
+			<div id="myManager" class="modal">
+				<div class="modal-content">
+					<span class="close" onClick="closeManagerModal()">&times;</span>
+					<form>
+						<label>Manager:</label><br>
+						<input type="text" name="manager" id="currentManager">
+						<button type="button" onClick="createFootballManager()">Create</button>
+					</form>
+				</div>
+			</div>	
+			<br><br>	
+			<label>Team</label>
+			<br>
+			<button id="btnTeam" onClick="showTeamForm()">Create team</button>
+			<div id="myTeam" class="modal">
+				<div class="modal-content">
+					<span class="close" onClick="closeTeamModal()">&times;</span>
+					<form>
+						<label>Team:</label><br>
+						<input type="text" name="team" id="currentTeam">
+						<br><br>
+						<label>Managers:</label><br>
+						<select name="choseManager" id="choseManager">
+						</select>
+						<br><br>
+						<button type="button" onClick="createSoccerTeam()">Create</button>
+					</form>
+				</div>
+			</div>	
+			<br><br>
+			<label>Player</label>
+			<br>
+			<button id="btnPlayer" onClick="showPlayerForm()">Create player</button>
+			<div id="myPlayer" class="modal">
+				<div class="modal-content">
+					<span class="close" onClick="closePlayerModal()">&times;</span>
+					<form>
+						<label>First name:</label>
+						<input type="text" name="firstname" id="first-name">
+						<label>Last name:</label>
+						<input type="text" name="lastname" id="last-name">
+						<label>Number:</label>
+						<input type="number" name="dress" min="1" max="23" id="number">
+						<label>Teams:</label>
+						<select name="choseTeam" id="choseTeam">
+						</select>
+						<label>Player position:</label>
+						<select name="position" id="position">
+							<option value="GK">GK</option>
+							<option value="RB">RB</option>
+							<option value="LB">LB</option>
+							<option value="RCB">RCB</option>
+							<option value="LCB">LCB</option>
+							<option value="RCM">RCM</option>
+							<option value="LCM">LCM</option>
+							<option value="RM">RM</option>
+							<option value="LM">LM</option>
+							<option value="RCF">RCF</option>
+							<option value="LCF">LCF</option>
+						</select>
+						<br>
+						<button type="button" onClick="createFootballer()">Create</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="football-pitch">
+			<div id="players">
+				<img src="Football pitch.jpg">			
+					<div id="LOWER-GK"></div>
+					<div id="LOWER-RB"></div>
+					<div id="LOWER-LB"></div>
+					<div id="LOWER-RCB"></div>
+					<div id="LOWER-LCB"></div>
+					<div id="LOWER-RCM"></div>
+					<div id="LOWER-LCM"></div>
+					<div id="LOWER-RM"></div>
+					<div id="LOWER-LM"></div>
+					<div id="LOWER-RCF"></div>
+					<div id="LOWER-LCF"></div>
+
+					<div id="UPPER-GK"></div>
+					<div id="UPPER-RB"></div>
+					<div id="UPPER-LB"></div>
+					<div id="UPPER-RCB"></div>
+					<div id="UPPER-LCB"></div>
+					<div id="UPPER-RCM"></div>
+					<div id="UPPER-LCM"></div>
+					<div id="UPPER-RM"></div>
+					<div id="UPPER-LM"></div>
+					<div id="UPPER-RCF"></div>
+					<div id="UPPER-LCF"></div>
+			</div>
+		</div>
+		<div class="chose-team">
+			<label>Lower half of the field:</label><br>
+			<select name="selectTeam" id="selectLowerTeam" onchange="selectLowerTeam()">
+			</select>
+			<label>Upper half of the field:</label><br>
+			<select name="selectTeam" id="selectUpperTeam" onchange="selectUpperTeam()">
+			</select>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

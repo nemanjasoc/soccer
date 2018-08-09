@@ -1,0 +1,341 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#game {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forms {
+    width: 10%;
+}
+
+.football-pitch {
+    width: 68%;
+}
+
+.football-pitch img {
+    max-width: 900px;
+    width: 100%;
+    max-height: 800px;
+    height: 100%;
+}
+
+.chose-team {
+    width: 18%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type=text] {
+    background: #aaa;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    width: 93%;
+    padding: 9px 0px 11px 0px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+input[type=number] {
+    background: #aaa;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    width: 93%;
+    padding: 9px 0px 11px 0px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+select[name=choseManager] {
+    background: #aaa;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    width: 93%;
+    padding: 9px 0px 11px 0px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+select[name=choseTeam] {
+    background: #aaa;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    width: 93%;
+    padding: 9px 0px 11px 0px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+button[type=button] {
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#btnManager {
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#btnTeam {
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#btnPlayer {
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+select[name=selectTeam] {
+    background: #aaa;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    width: 93%;
+    padding: 9px 0px 11px 0px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+select[name=position] {
+    background: #aaa;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    width: 93%;
+    padding: 9px 0px 11px 0px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+#players {
+    position: relative;
+}
+
+#LOWER-GK {
+    position: absolute;
+    top: 89%;
+    left: 44%;
+    font-size: 17px;
+}
+
+#LOWER-RB {
+    position: absolute;
+    top: 81%;
+    left: 86%;
+    font-size: 17px;
+}
+
+#LOWER-LB {
+    position: absolute;
+    top: 81%;
+    left: 9%;
+    font-size: 17px;
+}
+
+#LOWER-RCB {
+    position: absolute;
+    top: 85%;
+    left: 64%;
+    font-size: 17px;
+}
+
+#LOWER-LCB {
+    position: absolute;
+    top: 85%;
+    left: 30%;
+    font-size: 17px;
+}
+
+#LOWER-RCM {
+    position: absolute;
+    top: 76%;
+    left: 63%;
+    font-size: 17px;
+}
+
+#LOWER-LCM {
+    position: absolute;
+    top: 76%;
+    left: 32%;
+    font-size: 17px;
+}
+
+#LOWER-RM {
+    position: absolute;
+    top: 64%;
+    left: 86%;
+    font-size: 17px;
+}
+
+#LOWER-LM {
+    position: absolute;
+    top: 64%;
+    left: 9%;
+    font-size: 17px;
+}
+
+#LOWER-RCF {
+    position: absolute;
+    top: 55%;
+    left: 69%;
+    font-size: 17px;
+}
+
+#LOWER-LCF {
+    position: absolute;
+    top: 55%;
+    left: 24%;
+    font-size: 17px;
+}
+
+#UPPER-GK {
+    position: absolute;
+    top: 4%;
+    left: 44%;
+    font-size: 17px;
+}
+
+#UPPER-RB {
+    position: absolute;
+    top: 17%;
+    left: 9%;
+    font-size: 17px;
+}
+
+#UPPER-LB {
+    position: absolute;
+    top: 17%;
+    left: 86%;
+    font-size: 17px;
+}
+
+#UPPER-RCB {
+    position: absolute;
+    top: 13%;
+    left: 30%;
+    font-size: 17px;
+}
+
+#UPPER-LCB {
+    position: absolute;
+    top: 13%;
+    left: 65%;
+    font-size: 17px;
+}
+
+#UPPER-RCM {
+    position: absolute;
+    top: 22%;
+    left: 31%;
+    font-size: 17px;
+}
+
+#UPPER-LCM {
+    position: absolute;
+    top: 22%;
+    left: 63%;
+    font-size: 17px;
+}
+
+#UPPER-RM {
+    position: absolute;
+    top: 33%;
+    left: 9%;
+    font-size: 17px;
+}
+
+#UPPER-LM {
+    position: absolute;
+    top: 33%;
+    left: 86%;
+    font-size: 17px;
+}
+
+#UPPER-RCF {
+    position: absolute;
+    top: 43%;
+    left: 24%;
+    font-size: 17px;
+}
+
+#UPPER-LCF {
+    position: absolute;
+    top: 43%;
+    left: 69%;
+    font-size: 17px;
+}
+
+.number {
+    color: red;
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.name {
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.event-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.remove {
+    text-align: center;
+    cursor: pointer;
+}
+
+button.remove-button {
+    font-size: 17px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #aaa;
+    color: black;
+}
+
+
+
