@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Game Play</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <title>Game Play</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
 </head>
 <body>
-
-    <div class="football-pitch">
-        <div id="players">
-            <img src="img/football-pitch.jpg">			
+    <div class="soccer-background">
+        <div class="football-pitch">
+            <div id="players">
+                <img src="img/football-pitch.jpg">			
                 <div id="LOWER-GK"></div>
                 <div id="LOWER-RB"></div>
                 <div id="LOWER-LB"></div>
@@ -23,7 +23,7 @@
                 <div id="LOWER-LM"></div>
                 <div id="LOWER-RCF"></div>
                 <div id="LOWER-LCF"></div>
-
+                <img src="img/football-pitch.jpg">
                 <div id="UPPER-GK"></div>
                 <div id="UPPER-RB"></div>
                 <div id="UPPER-LB"></div>
@@ -35,18 +35,17 @@
                 <div id="UPPER-LM"></div>
                 <div id="UPPER-RCF"></div>
                 <div id="UPPER-LCF"></div>
+            </div>
+        </div>
+        <div class="chose-team">
+            <h4>Team one:</h4>
+            <select name="selectTeam" id="selectLowerTeam" onchange="selectLowerTeam()">
+            </select>
+            <h4>Team two:</h4>
+            <select name="selectTeam" id="selectUpperTeam" onchange="selectUpperTeam()">
+            </select>
         </div>
     </div>
-    <div class="chose-team">
-        <label>Lower half of the field:</label><br>
-        <select name="selectTeam" id="selectLowerTeam" onchange="selectLowerTeam()">
-        </select>
-        <label>Upper half of the field:</label><br>
-        <select name="selectTeam" id="selectUpperTeam" onchange="selectUpperTeam()">
-        </select>
-    </div>
-
-
-	<script src="js/gameplay.js"></script>
+    <script src="js/gameplay.js"></script>
 </body>
 </html>
