@@ -8,6 +8,7 @@ window.onload = function(){
 	playerModal = document.getElementById("myPlayer");	
 }
 
+
 /*Create Managers*/
 
 function showManagerForm() {
@@ -36,12 +37,13 @@ function playGame() {
 }
 
 function createFootballManager() {
-	// provera da li je korisnik uneo nesto u input polje, ne pustati ga dalje ako nije
-	// return prekida metodu i ne nastavalja njeno izvrsavanje posle te komande
 	var inputValue = document.getElementById("currentManager").value;
+	var inputValueManager = document.getElementById("snackbar-manager");
+   
 	if (inputValue === null || inputValue === undefined || inputValue.trim() === '') {
-		alert("Please add manger name!");
-		return;
+		inputValueManager.className = "show";
+    	setTimeout(function(){ inputValueManager.className = inputValueManager.className.replace("show", ""); }, 3000);
+    	return;
 	}
 
 	var manager = createManager(inputValue);
@@ -114,7 +116,16 @@ function closeTeamModal() {
 function createSoccerTeam() {
 	console.log("Create soccer team!");
 	
-	var team = createTeam();
+	var inputValue = document.getElementById("currentTeam").value;
+	var inputValueTeam = document.getElementById("snackbar-team");
+
+	if (inputValue === null || inputValue === undefined || inputValue.trim() === '') {
+		inputValueTeam.className = "show";
+    	setTimeout(function(){ inputValueTeam.className = inputValueTeam.className.replace("show", ""); }, 3000);
+    	return;
+	}
+
+	var team = createTeam(inputValue);
 	/*
 	var existingTeam = checkTeam(team);
 
@@ -211,9 +222,31 @@ function closePlayerModal() {
 
 function createFootballer() { 
 	console.log("Create footballer!");
-	var player = createPlayer();
-	var existingPlayer = checkPlayerNumber(player);
 
+	var inputFirstName = document.getElementById("first-name").value;
+	var inputLastName = document.getElementById("last-name").value;
+	var inputNumber = document.getElementById("number").value;
+	var inputValuePlayer = document.getElementById("snackbar-player");
+
+	if (inputFirstName === null || inputFirstName === undefined || inputFirstName.trim() === '') {
+		inputValuePlayer.className = "show";
+    	setTimeout(function(){ inputValuePlayer.className = inputValuePlayer.className.replace("show", ""); }, 3000);
+		return;
+	}
+	if (inputLastName === null || inputLastName === undefined || inputLastName.trim() === '') {
+		inputValuePlayer.className = "show";
+    	setTimeout(function(){ inputValuePlayer.className = inputValuePlayer.className.replace("show", ""); }, 3000);
+		return;
+	}
+	if (inputNumber === null || inputNumber === undefined || inputNumber.trim() === '') {
+		inputValuePlayer.className = "show";
+    	setTimeout(function(){ inputValuePlayer.className = inputValuePlayer.className.replace("show", ""); }, 3000);
+		return;
+	}
+
+	var player = createPlayer(inputFirstName, inputLastName, inputNumber);
+
+	var existingPlayer = checkPlayerNumber(player);
 	if (existingPlayer) {
 		alert("That number alredy exist on the football team. The player who has that number is:" + existingPlayer.firstName + " " + existingPlayer.lastName);
 		return;
@@ -329,8 +362,6 @@ function populateTeamOptions() {
 
 
 /*Chose Team*/
-
-
 
 function displayLowerPlayers(teamID) {
 	console.log("Display players teamID: ", teamID);
