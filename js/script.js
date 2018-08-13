@@ -1,11 +1,13 @@
 var managerModal;
 var teamModal;
 var playerModal;
+var reservePlayerModal;
 
 window.onload = function(){
 	managerModal = document.getElementById("myManager");
 	teamModal = document.getElementById("myTeam");
-	playerModal = document.getElementById("myPlayer");	
+	playerModal = document.getElementById("myPlayer");
+	reservePlayerModal = document.getElementById("myReservePlayer");	
 }
 
 
@@ -20,15 +22,17 @@ function closeManagerModal() {
 }
 
 window.onclick = function(event) {
-
-	if (event.target == playerModal) {
-        playerModal.style.display = "none";
+	if (event.target == managerModal) {
+        managerModal.style.display = "none";
     }
     if (event.target == teamModal) {
         teamModal.style.display = "none";
     }
-    if (event.target == managerModal) {
-        managerModal.style.display = "none";
+    if (event.target == playerModal) {
+        playerModal.style.display = "none";
+    }
+    if (event.target == reservePlayerModal) {
+        reservePlayerModal.style.display = "none";
     }
 }
 
@@ -226,21 +230,21 @@ function createFootballer() {
 	var inputFirstName = document.getElementById("first-name").value;
 	var inputLastName = document.getElementById("last-name").value;
 	var inputNumber = document.getElementById("number").value;
-	var inputValuePlayer = document.getElementById("snackbar-player");
+	var playerSnackbar = document.getElementById("snackbar-player");
 
 	if (inputFirstName === null || inputFirstName === undefined || inputFirstName.trim() === '') {
-		inputValuePlayer.className = "show";
-    	setTimeout(function(){ inputValuePlayer.className = inputValuePlayer.className.replace("show", ""); }, 3000);
+		playerSnackbar.className = "show";
+    	setTimeout(function(){ playerSnackbar.className = playerSnackbar.className.replace("show", ""); }, 3000);
 		return;
 	}
 	if (inputLastName === null || inputLastName === undefined || inputLastName.trim() === '') {
-		inputValuePlayer.className = "show";
-    	setTimeout(function(){ inputValuePlayer.className = inputValuePlayer.className.replace("show", ""); }, 3000);
+		playerSnackbar.className = "show";
+    	setTimeout(function(){ playerSnackbar.className = playerSnackbar.className.replace("show", ""); }, 3000);
 		return;
 	}
 	if (inputNumber === null || inputNumber === undefined || inputNumber.trim() === '') {
-		inputValuePlayer.className = "show";
-    	setTimeout(function(){ inputValuePlayer.className = inputValuePlayer.className.replace("show", ""); }, 3000);
+		playerSnackbar.className = "show";
+    	setTimeout(function(){ playerSnackbar.className = playerSnackbar.className.replace("show", ""); }, 3000);
 		return;
 	}
 
@@ -260,7 +264,6 @@ function createFootballer() {
 }
 
 function createPlayer() {
-
 	var ime = document.getElementById("first-name").value;
 	var prezime = document.getElementById("last-name").value;
 	var broj = document.getElementById("number").value;
@@ -284,7 +287,7 @@ function createPlayer() {
 }
 
 function updatePlayers(player) {
-	console.log("Prosledjeni igrac u update player funkciju: ", player);
+	console.log("Prosledjeni igrac u update players funkciju: ", player);
 	var helper = localStorage.getItem("players");
 
 	if (helper) {
@@ -360,113 +363,6 @@ function populateTeamOptions() {
     }
 }
 
-
-/*Chose Team*/
-
-function displayLowerPlayers(teamID) {
-	console.log("Display players teamID: ", teamID);
-
-	var helper = localStorage.getItem("players");
-
-	if (helper) {
-		players = JSON.parse(helper);
-	} else {
-		players = [];
-	}
-
-	var newPlayers = [];
-
-	for (var i = 0; i < players.length; i++) {
-		var player = players[i];
-		console.log("Trenutni igrac u display players: ", player);
-
-		if (player.team == teamID) {
-			newPlayers.push(player);
-			console.log("Pushovani igraci: ", newPlayers);
-
-			appendLowerPlayerPosition(player);
-		}
-	}
-}
-
-function displayUpperPlayers(teamID) {
-	console.log("Display players teamID: ", teamID);
-	var helper = localStorage.getItem("players");
-
-	if (helper) {
-		players = JSON.parse(helper);
-	} else {
-		players = [];
-	}
-
-	var newPlayers = [];
-
-	for (var i = 0; i < players.length; i++) {
-		var player = players[i];
-		console.log("Trenutni igrac u display players: ", player);
-
-		if (player.team == teamID) {
-			newPlayers.push(player);
-			console.log("Pushovani igraci: ", newPlayers);
-
-			appendUpperPlayerPosition(player);
-		}
-	}
-}
-
-function appendLowerPlayerPosition(player) {
-	console.log("Ja sam prosledjeni igrac u append funkciju: ", player);
-	var positionInTeam = "LOWER" + "-" + player.position;
-
-	var template = '<div class="number">' + player.number +
-	'</div><div class="name">' + player.firstName + " " + player.lastName + 
-	'</div><div class="event-buttons"><div class="remove"><button class="remove-button" onClick=removePosition("'+ positionInTeam +'")><i class="fa fa-trash-o" aria-hidden="true"></i></button></div></div>' 
-
-	document.getElementById(positionInTeam).innerHTML = template;
-}
-
-function appendUpperPlayerPosition(player) {
-	console.log("Ja sam prosledjeni igrac u append funkciju: ", player);
-	var positionInTeam = "UPPER" + "-" + player.position;
-
-	var template = '<div class="number">' + player.number +
-	'</div><div class="name">' + player.firstName + " " + player.lastName + 
-	'</div><div class="event-buttons"><div class="remove"><button class="remove-button" onClick=removePosition("'+ positionInTeam +'")><i class="fa fa-trash-o" aria-hidden="true"></i></button></div></div>' 
-
-	document.getElementById(positionInTeam).innerHTML = template;
-}
-
-function removePosition(positionInTeam) {
-	var playerTeam = positionInTeam.split("-")[0];
-	var playerPosition = positionInTeam.split("-")[1];
-
-	console.log("Tim: ", playerTeam);
-	console.log("Pozicija: ", playerPosition);
-
-	var helper = localStorage.getItem("players");
-
-	if (helper) {
-		players = JSON.parse(helper);
-	} else {
-		players = [];
-	}
-
-	var newPlayers = [];
-	
-	for (var i = 0; i < players.length; i++) {
-		var currentPlayer = players[i];
-
-		if (currentPlayer.team != playerTeam || currentPlayer.position != playerPosition) {
-			newPlayers.push(currentPlayer);
-		}
-	}
-
-	localStorage.setItem("players", JSON.stringify(newPlayers));
-	document.getElementById(positionInTeam).innerHTML = '';
-	//displayLowerPlayers();
-	//displayUpperPlayers();
-}
-
 function checkPlayerNumber(player) {
 	var helper = localStorage.getItem("players");
 
@@ -509,3 +405,126 @@ function checkTeam(team) {
 
 	return false;
 }
+
+
+/*Create Reserve Players*/
+
+function showReservePlayerForm() {
+	populateReserveTeamOptions();
+    reservePlayerModal.style.display = "flex";
+}
+
+function closeReservePlayerModal() {
+	reservePlayerModal.style.display = "none";
+}
+
+function createReserveFootballer() { 
+	console.log("Create footballer!");
+
+	var inputReserveFirstName = document.getElementById("reserve-first-name").value;
+	var inputReserveLastName = document.getElementById("reserve-last-name").value;
+	var inputReserveNumber = document.getElementById("reserve-number").value;
+	var reservePlayerSnackbar = document.getElementById("snackbar-reserve-player");
+
+	if (inputReserveFirstName === null || inputReserveFirstName === undefined || inputReserveFirstName.trim() === '') {
+		reservePlayerSnackbar.className = "show";
+    	setTimeout(function(){ reservePlayerSnackbar.className = reservePlayerSnackbar.className.replace("show", ""); }, 3000);
+		return;
+	}
+	if (inputReserveLastName === null || inputReserveLastName === undefined || inputReserveLastName.trim() === '') {
+		reservePlayerSnackbar.className = "show";
+    	setTimeout(function(){ reservePlayerSnackbar.className = reservePlayerSnackbar.className.replace("show", ""); }, 3000);
+		return;
+	}
+	if (inputReserveNumber === null || inputReserveNumber === undefined || inputReserveNumber.trim() === '') {
+		reservePlayerSnackbar.className = "show";
+    	setTimeout(function(){ reservePlayerSnackbar.className = reservePlayerSnackbar.className.replace("show", ""); }, 3000);
+		return;
+	}
+
+	var reservePlayer = createReservePlayer(inputReserveFirstName, inputReserveLastName, inputReserveNumber);
+	/*
+	var existingPlayer = checkPlayerNumber(player);
+	if (existingPlayer) {
+		alert("That number alredy exist on the reserve football team. The player who has that number is:" + existingPlayer.firstName + " " + existingPlayer.lastName);
+		return;
+	}
+	*/
+	reservePlayers = updateReservePlayers(reservePlayer);
+	saveToLocalStorage(reservePlayers, "reservePlayers");
+    reservePlayerModal.style.display = "none";
+	alert("Reserve player is created!");
+	resetReservePlayerForm();
+}
+
+function createReservePlayer() {
+	var ime = document.getElementById("reserve-first-name").value;
+	var prezime = document.getElementById("reserve-last-name").value;
+	var broj = document.getElementById("reserve-number").value;
+	var tim = document.getElementById("choseTeam");
+	var izabraniTim = tim.options[tim.selectedIndex].value;
+	var pozicija = document.getElementById("position");
+	var izabranaPozicija = pozicija.options[pozicija.selectedIndex].value;
+
+	var reservePlayer = { 
+		firstName: ime,
+		lastName: prezime,
+		number: broj,
+		team: izabraniTim,
+		position: izabranaPozicija
+	};
+
+	console.log("Kreirani igrac: ", reservePlayer);
+	reservePlayer.id = generateID('reservePlayers');
+
+	return reservePlayer;
+}
+
+function updateReservePlayers(reservePlayer) {
+	console.log("Prosledjeni rezervni igrac u update reserve players funkciju: ", reservePlayer);
+	var helper = localStorage.getItem("reservePlayers");
+
+	if (helper) {
+		reservePlayers = JSON.parse(helper);
+	} else {
+		reservePlayers = [];
+	}
+
+	var newReservePlayers = [];
+
+	for (var i = 0; i < reservePlayers.length; i++) {
+		var currentReservePlayer = reservePlayers[i];
+		console.log("Trazeni rezervni igrac: ", currentReservePlayer);
+
+		if (currentReservePlayer != reservePlayer) {
+			newReservePlayers.push(currentReservePlayer);
+		}
+	}
+
+	newReservePlayers.push(reservePlayer);
+	return newReservePlayers;
+	localStorage.setItem("reservePlayers", JSON.stringify(newReservePlayers));
+}
+
+function resetReservePlayerForm() {
+	document.getElementById("reserve-first-name").value = ''; 
+	document.getElementById("reserve-last-name").value = ''; 
+	document.getElementById("reserve-number").value = '';
+}
+
+function populateReserveTeamOptions() {
+	var helper = localStorage.getItem("teams");
+
+	if (helper) {
+		reserveTeams = JSON.parse(helper);
+	} else {
+		reserveTeams = [];
+	}
+
+	document.getElementById("choseReserveTeam").innerHTML = '';
+
+    for (var i = 0; i < teams.length; i++) {
+    	var currentReserveTeam = teams[i];
+     	document.getElementById("choseReserveTeam").innerHTML += "<option value=" + currentReserveTeam.id + ">" + currentReserveTeam.name + "</option>";
+    }
+} 
