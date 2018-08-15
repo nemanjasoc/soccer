@@ -12,8 +12,7 @@
 		<div class="tiles-container">	
 			<div onClick="showManagerForm()">Create manager</div>
 			<div onClick="showTeamForm()">Create team</div>
-			<div onClick="showPlayerForm()">Create player</div>
-			<div onClick="showReservePlayerForm()">Create reserve player</div>		
+			<div onClick="showPlayerForm()">Create player</div>		
 			<div onClick="playGame()">Play game</div>	
 		</div>
 	</div>
@@ -73,42 +72,10 @@
 					<option value="LCF">LCF</option>
 				</select>
 				<br>
+				<input type="checkbox" id="reserve-player" name="playerType" value="player"><label>Reserve player</label>
+				<br><br>
 				<button type="button" onClick="createFootballer()">Create</button>
 				<div id="snackbar-player">You didn't fill one of create player inputs!</div>
-			</form>
-		</div>
-	</div>
-
-	<div id="myReservePlayer" class="modal">
-		<div class="modal-content">
-			<span class="close" onClick="closeReservePlayerModal()">&times;</span>
-			<form>
-				<label>First name:</label>
-				<input type="text" name="firstname" id="reserve-first-name">
-				<label>Last name:</label>
-				<input type="text" name="lastname" id="reserve-last-name">
-				<label>Number:</label>
-				<input type="number" name="dress" min="1" max="23" id="reserve-number">
-				<label>Teams:</label>
-				<select name="choseTeam" id="choseReserveTeam">
-				</select>
-				<label>Player position:</label>
-				<select name="position" id="position">
-					<option value="GK">GK</option>
-					<option value="RB">RB</option>
-					<option value="LB">LB</option>
-					<option value="RCB">RCB</option>
-					<option value="LCB">LCB</option>
-					<option value="RCM">RCM</option>
-					<option value="LCM">LCM</option>
-					<option value="RM">RM</option>
-					<option value="LM">LM</option>
-					<option value="RCF">RCF</option>
-					<option value="LCF">LCF</option>
-				</select>
-				<br>
-				<button type="button" onClick="createReserveFootballer()">Create</button>
-				<div id="snackbar-reserve-player">You didn't fill one of create reserve player inputs!</div>
 			</form>
 		</div>
 	</div>

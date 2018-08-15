@@ -204,154 +204,154 @@ select[name=position] {
     display: flex;
 }
 
-#LeftTeam-GK {
+#leftTeam-GK {
     position: absolute;
     top: 78%;
     left: 11%;
     font-size: 17px;
 }
 
-#LeftTeam-RB {
+#leftTeam-RB {
     position: absolute;
     top: 62%;
     left: 20%;
     font-size: 17px;
 }
 
-#LeftTeam-LB {
+#leftTeam-LB {
     position: absolute;
     top: 62%;
     left: 3%;
     font-size: 17px;
 }
 
-#LeftTeam-RCB {
+#leftTeam-RCB {
     position: absolute;
     top: 68%;
     left: 17%;
     font-size: 17px;
 }
 
-#LeftTeam-LCB {
+#leftTeam-LCB {
     position: absolute;
     top: 68%;
     left: 8%;
     font-size: 17px;
 }
 
-#LeftTeam-RCM {
+#leftTeam-RCM {
     position: absolute;
     top: 48%;
     left: 15%;
     font-size: 17px;
 }
 
-#LeftTeam-LCM {
+#leftTeam-LCM {
     position: absolute;
     top: 48%;
     left: 8%;
     font-size: 17px;
 }
 
-#LeftTeam-RM {
+#leftTeam-RM {
     position: absolute;
     top: 29%;
     left: 21%;
     font-size: 17px;
 }
 
-#LeftTeam-LM {
+#leftTeam-LM {
     position: absolute;
     top: 29%;
     left: 3%;
     font-size: 17px;
 }
 
-#LeftTeam-RCF {
+#leftTeam-RCF {
     position: absolute;
     top: 15%;
     left: 14%;
     font-size: 17px;
 }
 
-#LeftTeam-LCF {
+#leftTeam-LCF {
     position: absolute;
     top: 15%;
     left: 8%;
     font-size: 17px;
 }
 
-#RightTeam-GK {
+#rightTeam-GK {
     position: absolute;
     top: 78%;
     left: 61%;
     font-size: 17px;
 }
 
-#RightTeam-RB {
+#rightTeam-RB {
     position: absolute;
     top: 62%;
     left: 70%;
     font-size: 17px;
 }
 
-#RightTeam-LB {
+#rightTeam-LB {
     position: absolute;
     top: 62%;
     left: 53%;
     font-size: 17px;
 }
 
-#RightTeam-RCB {
+#rightTeam-RCB {
     position: absolute;
     top: 68%;
     left: 67%;
     font-size: 17px;
 }
 
-#RightTeam-LCB {
+#rightTeam-LCB {
     position: absolute;
     top: 68%;
     left: 58%;
     font-size: 17px;
 }
 
-#RightTeam-RCM {
+#rightTeam-RCM {
     position: absolute;
     top: 48%;
     left: 65%;
     font-size: 17px;
 }
 
-#RightTeam-LCM {
+#rightTeam-LCM {
     position: absolute;
     top: 48%;
     left: 58%;
     font-size: 17px;
 }
 
-#RightTeam-RM {
+#rightTeam-RM {
     position: absolute;
     top: 29%;
     left: 71%;
     font-size: 17px;
 }
 
-#RightTeam-LM {
+#rightTeam-LM {
     position: absolute;
     top: 29%;
     left: 53%;
     font-size: 17px;
 }
 
-#RightTeam-RCF {
+#rightTeam-RCF {
     position: absolute;
     top: 15%;
     left: 64%;
     font-size: 17px;
 }
 
-#RightTeam-LCF {
+#rightTeam-LCF {
     position: absolute;
     top: 15%;
     left: 58%;
@@ -462,28 +462,6 @@ h4 {
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-#snackbar-reserve-player {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    bottom: 30px;
-    font-size: 17px;
-}
-
-#snackbar-reserve-player.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;} 
     to {bottom: 30px; opacity: 1;}
@@ -504,154 +482,154 @@ h4 {
     to {bottom: 0; opacity: 0;}
 }
 
-#LeftTeamReserve-GK {
+#leftTeamReserve-GK {
     position: absolute;
     top: 5%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-RB {
+#leftTeamReserve-RB {
     position: absolute;
     top: 13%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-LB {
+#leftTeamReserve-LB {
     position: absolute;
     top: 21%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-RCB {
+#leftTeamReserve-RCB {
     position: absolute;
     top: 29%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-LCB {
+#leftTeamReserve-LCB {
     position: absolute;
     top: 37%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-RCM {
+#leftTeamReserve-RCM {
     position: absolute;
     top: 45%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-LCM {
+#leftTeamReserve-LCM {
     position: absolute;
     top: 53%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-RM {
+#leftTeamReserve-RM {
     position: absolute;
     top: 61%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-LM {
+#leftTeamReserve-LM {
     position: absolute;
     top: 69%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-RCF {
+#leftTeamReserve-RCF {
     position: absolute;
     top: 77%;
     left: 38%;
     font-size: 17px;
 }
 
-#LeftTeamReserve-LCF {
+#leftTeamReserve-LCF {
     position: absolute;
     top: 85%;
     left: 38%;
     font-size: 17px;
 }
 
-#RightTeamReserve-GK {
+#rightTeamReserve-GK {
     position: absolute;
     top: 5%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-RB {
+#rightTeamReserve-RB {
     position: absolute;
     top: 13%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-LB {
+#rightTeamReserve-LB {
     position: absolute;
     top: 21%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-RCB {
+#rightTeamReserve-RCB {
     position: absolute;
     top: 29%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-LCB {
+#rightTeamReserve-LCB {
     position: absolute;
     top: 37%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-RCM {
+#rightTeamReserve-RCM {
     position: absolute;
     top: 45%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-LCM {
+#rightTeamReserve-LCM {
     position: absolute;
     top: 53%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-RM {
+#rightTeamReserve-RM {
     position: absolute;
     top: 61%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-LM {
+#rightTeamReserve-LM {
     position: absolute;
     top: 69%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-RCF {
+#rightTeamReserve-RCF {
     position: absolute;
     top: 77%;
     left: 89%;
     font-size: 17px;
 }
 
-#RightTeamReserve-LCF {
+#rightTeamReserve-LCF {
     position: absolute;
     top: 85%;
     left: 89%;

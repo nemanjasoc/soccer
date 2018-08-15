@@ -130,14 +130,6 @@ function createSoccerTeam() {
 	}
 
 	var team = createTeam(inputValue);
-	/*
-	var existingTeam = checkTeam(team);
-
-	if (existingTeam) {
-		alert("That team alredy exist on the football pitch. That team is:" + existingTeam.name);
-		return;
-	}
-	*/
 	teams = updateTeams(team);
 	saveToLocalStorage(teams, "teams");
 	teamModal.style.display = "none";
@@ -267,6 +259,7 @@ function createPlayer() {
 	var ime = document.getElementById("first-name").value;
 	var prezime = document.getElementById("last-name").value;
 	var broj = document.getElementById("number").value;
+	var rezerva = document.getElementById("reserve-player").checked;
 	var tim = document.getElementById("choseTeam");
 	var izabraniTim = tim.options[tim.selectedIndex].value;
 	var pozicija = document.getElementById("position");
@@ -276,6 +269,7 @@ function createPlayer() {
 		firstName: ime,
 		lastName: prezime,
 		number: broj,
+		reserve: rezerva,
 		team: izabraniTim,
 		position: izabranaPozicija
 	};
@@ -383,84 +377,26 @@ function checkPlayerNumber(player) {
 	return false;
 }
 
-function checkTeam(team) {
-	console.log("Ovo je prosledjeni tim u check team funkciju: ", team);
-
-	var helper = localStorage.getItem("teams");
-
-	if (helper) {
-		teams = JSON.parse(helper);
-	} else {
-		teams = [];
-	}
-
-	for (var i = 0; i < teams.length; i++) {
-		var currentTeam = teams[i];
-		console.log("Ja sam current team: ", currentTeam);
-
-		if (currentTeam.name == team.name) {
-			return currentTeam;
-		}
-	}
-
-	return false;
-}
-
 
 /*Create Reserve Players*/
-
-function showReservePlayerForm() {
-	populateReserveTeamOptions();
-    reservePlayerModal.style.display = "flex";
-}
-
-function closeReservePlayerModal() {
-	reservePlayerModal.style.display = "none";
-}
-
+/*
 function createReserveFootballer() { 
-	console.log("Create footballer!");
+	console.log("Create reserve footballer!");
+	var reservePlayer = createReservePlayer();
 
-	var inputReserveFirstName = document.getElementById("reserve-first-name").value;
-	var inputReserveLastName = document.getElementById("reserve-last-name").value;
-	var inputReserveNumber = document.getElementById("reserve-number").value;
-	var reservePlayerSnackbar = document.getElementById("snackbar-reserve-player");
-
-	if (inputReserveFirstName === null || inputReserveFirstName === undefined || inputReserveFirstName.trim() === '') {
-		reservePlayerSnackbar.className = "show";
-    	setTimeout(function(){ reservePlayerSnackbar.className = reservePlayerSnackbar.className.replace("show", ""); }, 3000);
-		return;
-	}
-	if (inputReserveLastName === null || inputReserveLastName === undefined || inputReserveLastName.trim() === '') {
-		reservePlayerSnackbar.className = "show";
-    	setTimeout(function(){ reservePlayerSnackbar.className = reservePlayerSnackbar.className.replace("show", ""); }, 3000);
-		return;
-	}
-	if (inputReserveNumber === null || inputReserveNumber === undefined || inputReserveNumber.trim() === '') {
-		reservePlayerSnackbar.className = "show";
-    	setTimeout(function(){ reservePlayerSnackbar.className = reservePlayerSnackbar.className.replace("show", ""); }, 3000);
-		return;
-	}
-
-	var reservePlayer = createReservePlayer(inputReserveFirstName, inputReserveLastName, inputReserveNumber);
-	/*
-	var existingPlayer = checkPlayerNumber(player);
-	if (existingPlayer) {
-		alert("That number alredy exist on the reserve football team. The player who has that number is:" + existingPlayer.firstName + " " + existingPlayer.lastName);
-		return;
-	}
-	*/
 	reservePlayers = updateReservePlayers(reservePlayer);
+
 	saveToLocalStorage(reservePlayers, "reservePlayers");
-    reservePlayerModal.style.display = "none";
+    
 	alert("Reserve player is created!");
+
 	resetReservePlayerForm();
 }
 
 function createReservePlayer() {
-	var ime = document.getElementById("reserve-first-name").value;
-	var prezime = document.getElementById("reserve-last-name").value;
-	var broj = document.getElementById("reserve-number").value;
+	var ime = document.getElementById("first-name").value;
+	var prezime = document.getElementById("last-name").value;
+	var broj = document.getElementById("number").value;
 	var tim = document.getElementById("choseTeam");
 	var izabraniTim = tim.options[tim.selectedIndex].value;
 	var pozicija = document.getElementById("position");
@@ -474,7 +410,7 @@ function createReservePlayer() {
 		position: izabranaPozicija
 	};
 
-	console.log("Kreirani igrac: ", reservePlayer);
+	console.log("Kreirani rezervni igrac: ", reservePlayer);
 	reservePlayer.id = generateID('reservePlayers');
 
 	return reservePlayer;
@@ -507,9 +443,9 @@ function updateReservePlayers(reservePlayer) {
 }
 
 function resetReservePlayerForm() {
-	document.getElementById("reserve-first-name").value = ''; 
-	document.getElementById("reserve-last-name").value = ''; 
-	document.getElementById("reserve-number").value = '';
+	document.getElementById("first-name").value = ''; 
+	document.getElementById("last-name").value = ''; 
+	document.getElementById("number").value = '';
 }
 
 function populateReserveTeamOptions() {
@@ -521,10 +457,84 @@ function populateReserveTeamOptions() {
 		reserveTeams = [];
 	}
 
-	document.getElementById("choseReserveTeam").innerHTML = '';
+	document.getElementById("choseTeam").innerHTML = '';
 
     for (var i = 0; i < teams.length; i++) {
     	var currentReserveTeam = teams[i];
-     	document.getElementById("choseReserveTeam").innerHTML += "<option value=" + currentReserveTeam.id + ">" + currentReserveTeam.name + "</option>";
+     	document.getElementById("choseTeam").innerHTML += "<option value=" + currentReserveTeam.id + ">" + currentReserveTeam.name + "</option>";
     }
 } 
+*/
+
+/*Show reserve players*/
+/*
+function displayLeftTeamReservePlayers(teamID) {
+	console.log("Prosledjeni teamID u display funkciju za rezervne igrace: ", teamID);
+	var helper = localStorage.getItem("reservePlayers");
+
+	if (helper) {
+		reservePlayers = JSON.parse(helper);
+	} else {
+		reservePlayers = [];
+	}
+
+	var newReservePlayers = [];
+
+	for (var i = 0; i < reservePlayers.length; i++) {
+		var reservePlayer = reservePlayers[i];
+
+		if (reservePlayer.team == teamID) {
+			newReservePlayers.push(reservePlayer);
+			console.log("Pushovani rezervni igraci: ", newReservePlayers);
+
+			appendLeftTeamReservePlayerPosition(reservePlayer);
+		}
+	}
+}
+
+function appendLeftTeamReservePlayerPosition(reservePlayer) {
+	console.log("Ja sam prosledjeni rezervni igrac u append funkciju: ", reservePlayer);
+	var positionInTeam = "leftTeamReserve" + "-" + reservePlayer.position;
+
+	var template = '<div class="number">' + reservePlayer.number +
+	'</div><div class="name">' + reservePlayer.firstName + " " + reservePlayer.lastName + 
+	'</div><div class="event-buttons"><div class="remove"><button class="remove-button" onClick=removePosition("'+ positionInTeam +'")><i class="fa fa-trash-o" aria-hidden="true"></i></button></div></div>' 
+
+	document.getElementById(positionInTeam).innerHTML = template;
+}
+
+function displayRightTeamReservePlayers(teamID) {
+	console.log("Prosledjeni teamID u display funkciju za rezervne igrace: ", teamID);
+	var helper = localStorage.getItem("reservePlayers");
+
+	if (helper) {
+		reservePlayers = JSON.parse(helper);
+	} else {
+		reservePlayers = [];
+	}
+
+	var newReservePlayers = [];
+
+	for (var i = 0; i < reservePlayers.length; i++) {
+		var reservePlayer = reservePlayers[i];
+
+		if (reservePlayer.team == teamID) {
+			newReservePlayers.push(reservePlayer);
+			console.log("Pushovani rezervni igraci: ", newReservePlayers);
+
+			appendRightTeamReservePlayerPosition(reservePlayer);
+		}
+	}
+}
+
+function appendRightTeamReservePlayerPosition(reservePlayer) {
+	console.log("Ja sam prosledjeni rezervni igrac u append funkciju: ", reservePlayer);
+	var positionInTeam = "rightTeamReserve" + "-" + reservePlayer.position;
+
+	var template = '<div class="number">' + reservePlayer.number +
+	'</div><div class="name">' + reservePlayer.firstName + " " + reservePlayer.lastName + 
+	'</div><div class="event-buttons"><div class="remove"><button class="remove-button" onClick=removePosition("'+ positionInTeam +'")><i class="fa fa-trash-o" aria-hidden="true"></i></button></div></div>' 
+
+	document.getElementById(positionInTeam).innerHTML = template;
+}
+*/
