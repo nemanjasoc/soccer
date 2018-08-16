@@ -40,31 +40,8 @@ body {
     width: 100%;
 }
 
-select[name=selectTeam] {
-    background: white;
-    color: black;
-    font-size: 18px;
-    text-align: left;
-    max-width: 900px;
-    width: 20%;
-    margin-right: 25%;
-    height: 40px;
-}
 
-/*
-select[name=selectTeamTwo] {
-    background: #709863;
-    color: white;
-    font-size: 20px;
-    text-align: left;
-    max-width: 900px;
-    width: 50%;
-    padding: 9px 0px 11px 0px;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    margin-right: 20%;
-}
-*/
+/*Modals*/
 
 .modal {
     display: none;
@@ -111,8 +88,22 @@ select[name=selectTeamTwo] {
     cursor: pointer;
 }
 
+
+/*Inputs and selects*/
+
 label {
     color: black; 
+}
+
+select[name=selectTeam] {
+    background: white;
+    color: black;
+    font-size: 18px;
+    text-align: left;
+    max-width: 900px;
+    width: 20%;
+    margin-right: 25%;
+    height: 40px;
 }
 
 input[type=text] {
@@ -199,6 +190,14 @@ select[name=position] {
     margin-bottom: 5px;
 }
 
+h4 {
+    margin-top: 10px;
+    color: white;
+}
+
+
+/*Standard players position*/
+
 #players {
     position: relative;
     display: flex;
@@ -207,168 +206,157 @@ select[name=position] {
 #leftTeam-GK {
     position: absolute;
     top: 78%;
-    left: 11%;
-    font-size: 17px;
+    left: 12%;
 }
 
 #leftTeam-RB {
     position: absolute;
     top: 62%;
     left: 20%;
-    font-size: 17px;
 }
 
 #leftTeam-LB {
     position: absolute;
     top: 62%;
     left: 3%;
-    font-size: 17px;
 }
 
 #leftTeam-RCB {
     position: absolute;
     top: 68%;
     left: 17%;
-    font-size: 17px;
 }
 
 #leftTeam-LCB {
     position: absolute;
     top: 68%;
     left: 8%;
-    font-size: 17px;
 }
 
 #leftTeam-RCM {
     position: absolute;
     top: 48%;
-    left: 15%;
-    font-size: 17px;
+    left: 16%;
 }
 
 #leftTeam-LCM {
     position: absolute;
     top: 48%;
-    left: 8%;
-    font-size: 17px;
+    left: 9%;
 }
 
 #leftTeam-RM {
     position: absolute;
     top: 29%;
     left: 21%;
-    font-size: 17px;
 }
 
 #leftTeam-LM {
     position: absolute;
     top: 29%;
     left: 3%;
-    font-size: 17px;
 }
 
 #leftTeam-RCF {
     position: absolute;
     top: 15%;
-    left: 14%;
-    font-size: 17px;
+    left: 16%;
 }
 
 #leftTeam-LCF {
     position: absolute;
     top: 15%;
     left: 8%;
-    font-size: 17px;
 }
 
 #rightTeam-GK {
     position: absolute;
     top: 78%;
-    left: 61%;
-    font-size: 17px;
+    left: 62%;
 }
 
 #rightTeam-RB {
     position: absolute;
     top: 62%;
     left: 70%;
-    font-size: 17px;
 }
 
 #rightTeam-LB {
     position: absolute;
     top: 62%;
     left: 53%;
-    font-size: 17px;
 }
 
 #rightTeam-RCB {
     position: absolute;
     top: 68%;
     left: 67%;
-    font-size: 17px;
 }
 
 #rightTeam-LCB {
     position: absolute;
     top: 68%;
     left: 58%;
-    font-size: 17px;
 }
 
 #rightTeam-RCM {
     position: absolute;
     top: 48%;
-    left: 65%;
-    font-size: 17px;
+    left: 66%;
 }
 
 #rightTeam-LCM {
     position: absolute;
     top: 48%;
-    left: 58%;
-    font-size: 17px;
+    left: 59%;
 }
 
 #rightTeam-RM {
     position: absolute;
     top: 29%;
     left: 71%;
-    font-size: 17px;
 }
 
 #rightTeam-LM {
     position: absolute;
     top: 29%;
     left: 53%;
-    font-size: 17px;
 }
 
 #rightTeam-RCF {
     position: absolute;
     top: 15%;
-    left: 64%;
-    font-size: 17px;
+    left: 66%;
 }
 
 #rightTeam-LCF {
     position: absolute;
     top: 15%;
     left: 58%;
-    font-size: 17px;
 }
 
 .number {
     color: red;
     text-align: center;
-    font-size: 19px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .name {
     color: white;
-    font-size: 19px;
+    font-size: 14px;
     font-weight: bold;
+}
+
+button.remove-button {
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    background: #333;
+    color: white;
+    border: 1px solid #333;
+    max-width: 24px;
+    width: 100%;
 }
 
 .event-buttons {
@@ -381,18 +369,275 @@ select[name=position] {
     cursor: pointer;
 }
 
-button.remove-button {
-    font-size: 17px;
-    border-radius: 4px;
+.standard-position {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
     cursor: pointer;
-    background: #aaa;
-    color: black;
+    margin-right: 3px;
+    background: #0e50e6;
+    color: white;
+    border: 1px solid #0e50e6;
+    max-width: 40px;
+    width: 100%;
+    max-height: 15px;
+    height: 100%;
+    padding: 1px 0px 1px 0px;
 }
 
-h4 {
-    margin-top: 10px;
-    color: white;
+
+/*Reserve players position*/
+
+#leftTeamReserve-GK {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 5%;
+    left: 35%;
 }
+
+#leftTeamReserve-RB {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 13%;
+    left: 35%;
+}
+
+#leftTeamReserve-LB {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 21%;
+    left: 35%;
+}
+
+#leftTeamReserve-RCB {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 29%;
+    left: 35%;
+}
+
+#leftTeamReserve-LCB {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 37%;
+    left: 35%;
+}
+
+#leftTeamReserve-RCM {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 45%;
+    left: 35%;
+}
+
+#leftTeamReserve-LCM {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 53%;
+    left: 35%;
+}
+
+#leftTeamReserve-RM {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 61%;
+    left: 35%;
+}
+
+#leftTeamReserve-LM {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 69%;
+    left: 35%;
+}
+
+#leftTeamReserve-RCF {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 77%;
+    left: 35%;
+}
+
+#leftTeamReserve-LCF {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 85%;
+    left: 35%;
+}
+
+#rightTeamReserve-GK {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 5%;
+    left: 85%;
+}
+
+#rightTeamReserve-RB {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 13%;
+    left: 85%;
+}
+
+#rightTeamReserve-LB {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 21%;
+    left: 85%;
+}
+
+#rightTeamReserve-RCB {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 29%;
+    left: 85%;
+}
+
+#rightTeamReserve-LCB {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 37%;
+    left: 85%;
+}
+
+#rightTeamReserve-RCM {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 45%;
+    left: 85%;
+}
+
+#rightTeamReserve-LCM {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 53%;
+    left: 85%;
+}
+
+#rightTeamReserve-RM {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 61%;
+    left: 85%;
+}
+
+#rightTeamReserve-LM {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 69%;
+    left: 85%;
+}
+
+#rightTeamReserve-RCF {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 77%;
+    left: 85%;
+}
+
+#rightTeamReserve-LCF {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: 180px;
+    width: 100%;
+    top: 85%;
+    left: 85%;
+}
+
+.reserve-number {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 3px;
+}
+
+.reserve-name {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 3px;
+}
+
+.reserve-position {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 3px;
+    background: #0e50e6;
+    color: white;
+    border: 1px solid #0e50e6;
+    max-width: 40px;
+    width: 100%;
+    max-height: 15px;
+    height: 100%;
+}
+
 
 /*Snackbars/Toasts*/
 
@@ -482,156 +727,3 @@ h4 {
     to {bottom: 0; opacity: 0;}
 }
 
-#leftTeamReserve-GK {
-    position: absolute;
-    top: 5%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-RB {
-    position: absolute;
-    top: 13%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-LB {
-    position: absolute;
-    top: 21%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-RCB {
-    position: absolute;
-    top: 29%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-LCB {
-    position: absolute;
-    top: 37%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-RCM {
-    position: absolute;
-    top: 45%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-LCM {
-    position: absolute;
-    top: 53%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-RM {
-    position: absolute;
-    top: 61%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-LM {
-    position: absolute;
-    top: 69%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-RCF {
-    position: absolute;
-    top: 77%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#leftTeamReserve-LCF {
-    position: absolute;
-    top: 85%;
-    left: 38%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-GK {
-    position: absolute;
-    top: 5%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-RB {
-    position: absolute;
-    top: 13%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-LB {
-    position: absolute;
-    top: 21%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-RCB {
-    position: absolute;
-    top: 29%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-LCB {
-    position: absolute;
-    top: 37%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-RCM {
-    position: absolute;
-    top: 45%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-LCM {
-    position: absolute;
-    top: 53%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-RM {
-    position: absolute;
-    top: 61%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-LM {
-    position: absolute;
-    top: 69%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-RCF {
-    position: absolute;
-    top: 77%;
-    left: 89%;
-    font-size: 17px;
-}
-
-#rightTeamReserve-LCF {
-    position: absolute;
-    top: 85%;
-    left: 89%;
-    font-size: 17px;
-}
