@@ -20,6 +20,30 @@ body {
     justify-content: space-between;
 }
 
+.tiles-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%; 
+}
+
+.tiles-container > div {
+    width: 50%;
+    max-width: 600px;
+    font-size: 22px;
+    color: white;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    border: 1px solid #aac9ca;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
 .football-pitch {
     width: 100%;
     background: #a4a3a3b5;
@@ -156,30 +180,6 @@ button[type=button] {
     height: 25px;
 }
 
-.tiles-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    width: 100%; 
-}
-
-.tiles-container > div {
-    width: 50%;
-    max-width: 600px;
-    font-size: 22px;
-    color: white;
-    background-color: cadetblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-    border: 1px solid #aac9ca;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
 select[name=position] {
     background: #709863;
     color: black;
@@ -206,7 +206,7 @@ h4 {
 #leftTeam-GK {
     position: absolute;
     top: 78%;
-    left: 12%;
+    left: 13%;
 }
 
 #leftTeam-RB {
@@ -272,7 +272,7 @@ h4 {
 #rightTeam-GK {
     position: absolute;
     top: 78%;
-    left: 62%;
+    left: 63%;
 }
 
 #rightTeam-RB {
@@ -348,25 +348,9 @@ h4 {
     font-weight: bold;
 }
 
-button.remove-button {
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-    background: #333;
-    color: white;
-    border: 1px solid #333;
-    max-width: 24px;
-    width: 100%;
-}
-
 .event-buttons {
     display: flex;
     justify-content: center;
-}
-
-.remove {
-    text-align: center;
-    cursor: pointer;
 }
 
 .standard-position {
@@ -384,6 +368,24 @@ button.remove-button {
     height: 100%;
     padding: 1px 0px 1px 0px;
 }
+
+/*
+button.remove-button {
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    background: #333;
+    color: white;
+    border: 1px solid #333;
+    max-width: 24px;
+    width: 100%;
+}
+
+.remove {
+    text-align: center;
+    cursor: pointer;
+}
+*/
 
 
 /*Reserve players position*/
@@ -636,6 +638,44 @@ button.remove-button {
     width: 100%;
     max-height: 15px;
     height: 100%;
+}
+
+
+/*Player conditions*/
+
+.condition {
+    background: #2424a6;
+    padding: 1px 3px 1px 3px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.arrow-down {
+    color: #e211e2;
+}
+
+.arrow-lower-right {
+    color: #11d3e8;
+}
+
+.arrow-lower-right .fa-arrow-right {
+    transform: rotate(48deg);
+}
+
+.arrow-right {
+    color: #20ec0a;
+}
+
+.arrow-upper-right {
+    color: orange;
+}
+
+.arrow-upper-right .fa-arrow-up {
+    transform: rotate(42deg);
+}
+
+.arrow-up {
+    color: red;
 }
 
 

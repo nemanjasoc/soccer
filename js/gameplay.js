@@ -28,6 +28,7 @@ function displayLeftTeamPlayers(teamID) {
 
 			appendLeftStandardAndReserveTeam(player);
 		}
+
 		function appendLeftStandardAndReserveTeam(player) {
 			var helper;
 			if (!player.reserve) {
@@ -48,7 +49,7 @@ function appendLeftTeamPlayerPosition(player) {
 
 	var template = '<div class="number">' + player.number +
 	'</div><div class="name">' + player.firstName + " " + player.lastName + 
-	'</div><div class="event-buttons"><div class="standard-position">' + player.position + '</div><div class="remove"><button class="remove-button" onClick=removePosition("'+ positionInTeam +'")><i class="fa fa-trash-o" aria-hidden="true"></i></button></div></div>' 
+	'</div><div class="event-buttons"><div class="standard-position">' + player.position + '</div><div class="condition">' + player.condition + '</div></div>' 
 
 	document.getElementById(positionInTeam).innerHTML = template;
 }
@@ -58,9 +59,8 @@ function appendLeftTeamReservePlayerPosition(player) {
 	var positionInTeam = "leftTeamReserve" + "-" + player.position;
 
 	var template = '<div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +
-	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + 
-	'</div><div class="event-buttons"><div class="remove"><button class="remove-button" onClick=removePosition("'+ positionInTeam +'")><i class="fa fa-trash-o" aria-hidden="true"></i></button></div></div>' 
-
+	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + player.condition + '</div>'
+	 
 	document.getElementById(positionInTeam).innerHTML = template;
 }
 
@@ -86,6 +86,7 @@ function displayRightTeamPlayers(teamID) {
 
 			appendRightStandardAndReserveTeam(player);
 		}
+
 		function appendRightStandardAndReserveTeam(player) {
 			var helper;
 			if (!player.reserve) {
@@ -106,7 +107,7 @@ function appendRightTeamPlayerPosition(player) {
 
 	var template = '<div class="number">' + player.number +
 	'</div><div class="name">' + player.firstName + " " + player.lastName + 
-	'</div><div class="event-buttons"><div class="standard-position">' + player.position + '</div><div class="remove"><button class="remove-button" onClick=removePosition("'+ positionInTeam +'")><i class="fa fa-trash-o" aria-hidden="true"></i></button></div></div>' 
+	'</div><div class="event-buttons"><div class="standard-position">' + player.position + '</div><div class="condition">' + player.condition + '</div></div>' 
 
 	document.getElementById(positionInTeam).innerHTML = template;
 }
@@ -116,8 +117,7 @@ function appendRightTeamReservePlayerPosition(player) {
 	var positionInTeam = "rightTeamReserve" + "-" + player.position;
 
 	var template = '<div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +
-	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + 
-	'</div><div class="event-buttons"><div class="remove-reserve"><button class="remove-button" onClick=removePosition("'+ positionInTeam +'")><i class="fa fa-trash-o" aria-hidden="true"></i></button></div></div>' 
+	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + player.condition + '</div>' 
 
 	document.getElementById(positionInTeam).innerHTML = template;
 }

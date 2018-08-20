@@ -260,6 +260,7 @@ function createPlayer() {
 	var prezime = document.getElementById("last-name").value;
 	var broj = document.getElementById("number").value;
 	var rezerva = document.getElementById("reserve-player").checked;
+	var raspolozenje = playerCondition();
 	var tim = document.getElementById("choseTeam");
 	var izabraniTim = tim.options[tim.selectedIndex].value;
 	var pozicija = document.getElementById("position");
@@ -270,6 +271,7 @@ function createPlayer() {
 		lastName: prezime,
 		number: broj,
 		reserve: rezerva,
+		condition: raspolozenje,
 		team: izabraniTim,
 		position: izabranaPozicija
 	};
@@ -375,4 +377,24 @@ function checkPlayerNumber(player) {
 	}
 
 	return false;
+}
+
+function playerCondition() {
+	var condition = [
+					'<div class="arrow-down"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>', 
+					'<div class="arrow-down"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>',
+					'<div class="arrow-lower-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>',
+					'<div class="arrow-lower-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
+					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
+					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
+					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
+					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
+					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>',
+					'<div class="arrow-upper-right"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>',
+					'<div class="arrow-upper-right"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>',
+					'<div class="arrow-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>', 
+					'<div class="arrow-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>', 
+					];
+
+	return condition[Math.floor(Math.random()*condition.length)];
 }
