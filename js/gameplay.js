@@ -55,13 +55,14 @@ function appendLeftTeamPlayerPosition(player) {
 }
 
 function appendLeftTeamReservePlayerPosition(player) {
-	console.log("Ja sam prosledjeni rezervni igrac u append funkciju: ", player);
-	var positionInTeam = "leftTeamReserve" + "-" + player.position;
+	var resetSelectLeftTeamReserve = document.getElementById("selectLeftTeam");
 
-	var template = '<div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +
-	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + player.condition + '</div>'
-	 
-	document.getElementById(positionInTeam).innerHTML = template;
+	var template = '<div class="reserve-player-data"><div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +
+	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + player.condition + '</div></div>' 
+
+	leftTeamReserve.innerHTML = leftTeamReserve.innerHTML + template;
+
+	resetSelectLeftTeamReserve.value = "";
 }
 
 function displayRightTeamPlayers(teamID) {
@@ -113,13 +114,14 @@ function appendRightTeamPlayerPosition(player) {
 }
 
 function appendRightTeamReservePlayerPosition(player) {
-	console.log("Ja sam prosledjeni igrac u append funkciju: ", player);
-	var positionInTeam = "rightTeamReserve" + "-" + player.position;
+	var resetSelectRightTeamReserve = document.getElementById("selectRightTeam");
 
-	var template = '<div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +
-	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + player.condition + '</div>' 
+	var template = '<div class="reserve-player-data"><div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +
+	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + player.condition + '</div></div>' 
 
-	document.getElementById(positionInTeam).innerHTML = template;
+	rightTeamReserve.innerHTML = rightTeamReserve.innerHTML + template;
+
+	resetSelectRightTeamReserve.value = "";
 }
 
 function choseLeftTeam() {
@@ -204,5 +206,3 @@ function removePosition(positionInTeam) {
 	localStorage.setItem("players", JSON.stringify(newPlayers));
 	document.getElementById(positionInTeam).innerHTML = '';
 }
-
-

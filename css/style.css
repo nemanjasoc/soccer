@@ -390,224 +390,29 @@ button.remove-button {
 
 /*Reserve players position*/
 
-#leftTeamReserve-GK {
-    display: flex;
-    justify-content: space-between;
+#leftTeamReserve {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     max-width: 180px;
     width: 100%;
     top: 5%;
     left: 35%;
 }
 
-#leftTeamReserve-RB {
-    display: flex;
-    justify-content: space-between;
+#rightTeamReserve {
     position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 13%;
-    left: 35%;
-}
-
-#leftTeamReserve-LB {
     display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 21%;
-    left: 35%;
-}
-
-#leftTeamReserve-RCB {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 29%;
-    left: 35%;
-}
-
-#leftTeamReserve-LCB {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 37%;
-    left: 35%;
-}
-
-#leftTeamReserve-RCM {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 45%;
-    left: 35%;
-}
-
-#leftTeamReserve-LCM {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 53%;
-    left: 35%;
-}
-
-#leftTeamReserve-RM {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 61%;
-    left: 35%;
-}
-
-#leftTeamReserve-LM {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 69%;
-    left: 35%;
-}
-
-#leftTeamReserve-RCF {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 77%;
-    left: 35%;
-}
-
-#leftTeamReserve-LCF {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 85%;
-    left: 35%;
-}
-
-#rightTeamReserve-GK {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
+    flex-direction: column;
     max-width: 180px;
     width: 100%;
     top: 5%;
     left: 85%;
 }
 
-#rightTeamReserve-RB {
+.reserve-player-data {
     display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 13%;
-    left: 85%;
-}
-
-#rightTeamReserve-LB {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 21%;
-    left: 85%;
-}
-
-#rightTeamReserve-RCB {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 29%;
-    left: 85%;
-}
-
-#rightTeamReserve-LCB {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 37%;
-    left: 85%;
-}
-
-#rightTeamReserve-RCM {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 45%;
-    left: 85%;
-}
-
-#rightTeamReserve-LCM {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 53%;
-    left: 85%;
-}
-
-#rightTeamReserve-RM {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 61%;
-    left: 85%;
-}
-
-#rightTeamReserve-LM {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 69%;
-    left: 85%;
-}
-
-#rightTeamReserve-RCF {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 77%;
-    left: 85%;
-}
-
-#rightTeamReserve-LCF {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    max-width: 180px;
-    width: 100%;
-    top: 85%;
-    left: 85%;
+    margin-bottom: 10px;
 }
 
 .reserve-number {
