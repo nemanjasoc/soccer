@@ -256,6 +256,7 @@ function createFootballer() {
 }
 
 function createPlayer() {
+
 	var ime = document.getElementById("first-name").value;
 	var prezime = document.getElementById("last-name").value;
 	var broj = document.getElementById("number").value;

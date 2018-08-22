@@ -5,6 +5,8 @@ window.onload = function(){
 	choseRightTeam();
 }
 
+var playerToBeReplaced;
+
 function displayLeftTeamPlayers(teamID) {
 	console.log("Display players teamID: ", teamID);
 	
@@ -177,7 +179,78 @@ function selectRightTeam() {
     displayRightTeamPlayers(teamID);
 };
 
+function changePlayer(position) {
+	console.log("Ja sam prosledjena pozicija igraca u change player funkciju: ", position);
 
+	var helper = localStorage.getItem("players");
+
+	if (helper) {
+		players = JSON.parse(helper);
+	} else {
+		players = [];
+	}
+
+	if (playerToBeReplaced) {
+		console.log("if");
+		console.log("Ja sam igrac u if na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
+
+		var playerToReplace;
+		for (var i = 0; i < players.length; i++) {
+			var player = players[i];
+
+			if (player.position == position && player.reserve == false) {
+				playerToReplace = player;
+				console.log("Ja sam igrac u if na koga je drugo kliknuto i koji ce da zameni prvog: ", playerToReplace);
+			}
+		}
+		playersSubstitution(playerToBeReplaced, playerToReplace, players);
+
+		playerToBeReplaced = null;
+
+	} else {
+		console.log("else");
+		for (var i = 0; i < players.length; i++) {
+			var currentPlayer = players[i];
+
+			if (currentPlayer.position == position && currentPlayer.reserve == false) {
+				playerToBeReplaced = currentPlayer;
+				console.log("Ja sam igrac u else na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
+			}
+		}
+	}
+
+	function playersSubstitution(playerToBeReplaced, playerToReplace, players) {
+		console.log("Prosledjeni prvi kliknuti igrac u players substitution funkciju: ", playerToBeReplaced);
+		console.log("Prosledjeni drugi kliknuti igrac u players substitution funkciju: ", playerToReplace);
+		console.log("Prosledjeni niz u players substitution funkciju: ", players);
+
+		var newPlayerPositions = [];
+
+		for (var i = 0; i < players.length; i++) {
+			var currentPlayer = players[i];
+
+			if (currentPlayer.id == playerToBeReplaced.id) {
+				currentPlayer.position = playerToReplace.position;
+				newPlayerPositions.push(currentPlayer);
+			} 
+			
+
+			if (currentPlayer.id == playerToReplace.id) {
+				currentPlayer.position = playerToBeReplaced.position;
+				newPlayerPositions.push(currentPlayer);
+			} 
+			
+			else {
+				newPlayerPositions.push(currentPlayer);
+			}
+		}
+
+		localStorage.setItem("players", JSON.stringify(newPlayerPositions));
+	}
+}
+
+
+/*
 function removePosition(positionInTeam) {
 	var playerTeam = positionInTeam.split("-")[0];
 	var playerPosition = positionInTeam.split("-")[1];
@@ -206,3 +279,5 @@ function removePosition(positionInTeam) {
 	localStorage.setItem("players", JSON.stringify(newPlayers));
 	document.getElementById(positionInTeam).innerHTML = '';
 }
+*/
+
