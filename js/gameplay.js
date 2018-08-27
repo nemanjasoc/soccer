@@ -10,13 +10,7 @@ var playerToBeReplaced;
 function displayLeftTeamPlayers(teamID) {
 	console.log("Display players teamID: ", teamID);
 	
-	var helper = localStorage.getItem("players");
-
-	if (helper) {
-		players = JSON.parse(helper);
-	} else {
-		players = [];
-	}
+	var players = dbFunc.getPlayers();
 
 	var newPlayers = [];
 
@@ -47,35 +41,29 @@ function displayLeftTeamPlayers(teamID) {
 
 function appendLeftTeamPlayerPosition(player) {
 	console.log("Ja sam prosledjeni igrac u append funkciju: ", player);
-	var positionInTeam = "leftTeam" + "-" + player.position;
+	var positionInTeam = "left-team" + "-" + player.position;
 
 	var template = '<div class="number">' + player.number +
 	'</div><div class="name">' + player.firstName + " " + player.lastName + 
-	'</div><div class="event-buttons"><div class="standard-position">' + player.position + '</div><div class="condition">' + player.condition + '</div></div>' 
+	'</div><div class="event-buttons"><div class="standard-position">' + player.position + '</div><div class="condition">' + getPlayerCondition() + '</div></div>' 
 
 	document.getElementById(positionInTeam).innerHTML = template;
 }
 
 function appendLeftTeamReservePlayerPosition(player) {
-	var resetSelectLeftTeamReserve = document.getElementById("selectLeftTeam");
+	var leftTeamReserve = document.getElementById("left-team-reserve");
 
 	var template = '<div class="reserve-player-data"><div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +
-	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + player.condition + '</div></div>' 
+	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + getPlayerCondition() + '</div></div>' 
 
 	leftTeamReserve.innerHTML = leftTeamReserve.innerHTML + template;
 
-	resetSelectLeftTeamReserve.value = "";
 }
 
 function displayRightTeamPlayers(teamID) {
 	console.log("Display players teamID: ", teamID);
-	var helper = localStorage.getItem("players");
 
-	if (helper) {
-		players = JSON.parse(helper);
-	} else {
-		players = [];
-	}
+	var players = dbFunc.getPlayers(); 
 
 	var newPlayers = [];
 
@@ -106,89 +94,83 @@ function displayRightTeamPlayers(teamID) {
 
 function appendRightTeamPlayerPosition(player) {
 	console.log("Ja sam prosledjeni igrac u append funkciju: ", player);
-	var positionInTeam = "rightTeam" + "-" + player.position;
+	var positionInTeam = "right-team" + "-" + player.position;
 
 	var template = '<div class="number">' + player.number +
 	'</div><div class="name">' + player.firstName + " " + player.lastName + 
-	'</div><div class="event-buttons"><div class="standard-position">' + player.position + '</div><div class="condition">' + player.condition + '</div></div>' 
+	'</div><div class="event-buttons"><div class="standard-position">' + player.position + '</div><div class="condition">' + getPlayerCondition() + '</div></div>' 
 
 	document.getElementById(positionInTeam).innerHTML = template;
 }
 
 function appendRightTeamReservePlayerPosition(player) {
-	var resetSelectRightTeamReserve = document.getElementById("selectRightTeam");
+	var rightTeamReserve = document.getElementById("right-team-reserve");
 
 	var template = '<div class="reserve-player-data"><div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +
-	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + player.condition + '</div></div>' 
+	'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + getPlayerCondition() + '</div></div>' 
 
 	rightTeamReserve.innerHTML = rightTeamReserve.innerHTML + template;
-
-	resetSelectRightTeamReserve.value = "";
 }
 
 function choseLeftTeam() {
-	var helper = localStorage.getItem("teams");
+	var teams = dbFunc.getTeams();
 
-	if (helper) {
-		teams = JSON.parse(helper);
-	} else {
-		teams = [];
-
-		alert("There have not teams at the base, you should create teams!");
-	}
-
-	document.getElementById("selectLeftTeam").innerHTML = '';
+	document.getElementById("select-left-team").innerHTML = '<option value=""> -- select an option -- </option>';
 
     for (var i = 0; i < teams.length; i++) {
     	var currentTeam = teams[i];
-     	var template = document.getElementById("selectLeftTeam").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
+     	var template = document.getElementById("select-left-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
     }
 }
 
 function selectLeftTeam() {
-    var mojTim = document.getElementById("selectLeftTeam");
+	var mojTim = document.getElementById("select-left-team");
     var teamID =  mojTim.options[mojTim.selectedIndex].value;
-    console.log("!!!: ", teamID);
+ 
     displayLeftTeamPlayers(teamID);
 };
 
 function choseRightTeam() {
-	var helper = localStorage.getItem("teams");
+	var teams = dbFunc.getTeams();
 
-	if (helper) {
-		teams = JSON.parse(helper);
-	} else {
-		teams = [];
+	document.getElementById("select-right-team").innerHTML = '<option value=""> -- select an option -- </option>';
 
-		alert("There have not teams at the base, you should create teams!");
-	}
+    	for (var i = 0; i < teams.length; i++) {
+    		var currentTeam = teams[i];
 
-	document.getElementById("selectRightTeam").innerHTML = '';
-
-    for (var i = 0; i < teams.length; i++) {
-    	var currentTeam = teams[i];
-
-     	var template = document.getElementById("selectRightTeam").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
-    }
+     		var template = document.getElementById("select-right-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
+    	}
 }
 
 function selectRightTeam() {
-    var mojTim = document.getElementById("selectRightTeam");
+    var mojTim = document.getElementById("select-right-team");
     var teamID =  mojTim.options[mojTim.selectedIndex].value;
-    console.log("!!!: ", teamID);
+    
     displayRightTeamPlayers(teamID);
 };
+
+function getPlayerCondition() {
+	var conditions = [1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 4, 5, 5  ];
+	var currentForm = conditions[Math.floor(Math.random()*conditions.length)];
+
+	switch (currentForm) {
+	    case 1:
+	        return '<div class="arrow-down"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>'; 
+	    case 2:
+	        return '<div class="arrow-lower-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>';
+        case 3:
+	        return '<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>'; 
+	    case 4:
+	        return '<div class="arrow-upper-right"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>'; 
+	    case 5:
+	        return '<div class="arrow-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>'; 
+	};
+}
 
 function changePlayer(position) {
 	console.log("Ja sam prosledjena pozicija igraca u change player funkciju: ", position);
 
-	var helper = localStorage.getItem("players");
-
-	if (helper) {
-		players = JSON.parse(helper);
-	} else {
-		players = [];
-	}
+	var players = dbFunc.getPlayers();
 
 	if (playerToBeReplaced) {
 		console.log("if");
@@ -231,53 +213,23 @@ function changePlayer(position) {
 
 			if (currentPlayer.id == playerToBeReplaced.id) {
 				currentPlayer.position = playerToReplace.position;
-				newPlayerPositions.push(currentPlayer);
 			} 
-			
 
 			if (currentPlayer.id == playerToReplace.id) {
 				currentPlayer.position = playerToBeReplaced.position;
-				newPlayerPositions.push(currentPlayer);
 			} 
 			
-			else {
-				newPlayerPositions.push(currentPlayer);
-			}
-		}
+			newPlayerPositions.push(currentPlayer);
 
+		}
+		
 		localStorage.setItem("players", JSON.stringify(newPlayerPositions));
 	}
 }
 
 
-/*
-function removePosition(positionInTeam) {
-	var playerTeam = positionInTeam.split("-")[0];
-	var playerPosition = positionInTeam.split("-")[1];
 
-	console.log("Tim: ", playerTeam);
-	console.log("Pozicija: ", playerPosition);
 
-	var helper = localStorage.getItem("players");
 
-	if (helper) {
-		players = JSON.parse(helper);
-	} else {
-		players = [];
-	}
 
-	var newPlayers = [];
-	
-	for (var i = 0; i < players.length; i++) {
-		var currentPlayer = players[i];
-
-		if (currentPlayer.team != playerTeam || currentPlayer.position != playerPosition) {
-			newPlayers.push(currentPlayer);
-		}
-	}
-
-	localStorage.setItem("players", JSON.stringify(newPlayers));
-	document.getElementById(positionInTeam).innerHTML = '';
-}
-*/
 

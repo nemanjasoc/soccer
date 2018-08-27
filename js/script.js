@@ -4,9 +4,9 @@ var playerModal;
 var reservePlayerModal;
 
 window.onload = function(){
-	managerModal = document.getElementById("myManager");
-	teamModal = document.getElementById("myTeam");
-	playerModal = document.getElementById("myPlayer");
+	managerModal = document.getElementById("my-manager");
+	teamModal = document.getElementById("my-team");
+	playerModal = document.getElementById("my-player");
 	reservePlayerModal = document.getElementById("myReservePlayer");	
 }
 
@@ -41,7 +41,7 @@ function playGame() {
 }
 
 function createFootballManager() {
-	var inputValue = document.getElementById("currentManager").value;
+	var inputValue = document.getElementById("current-manager").value;
 	var inputValueManager = document.getElementById("snackbar-manager");
    
 	if (inputValue === null || inputValue === undefined || inputValue.trim() === '') {
@@ -72,13 +72,7 @@ function createManager(managerName) {
 function updateManagers(manager) {
 	console.log("Prosledjeni menadzer u Update manager funkciju: ", manager);
 
-	var helper = localStorage.getItem("managers");
-
-	if (helper) {
-		managers = JSON.parse(helper);
-	} else {
-		managers = [];
-	}
+	var managers = dbFunc.getManagers();
 
 	var newManagers = [];
 
@@ -102,7 +96,7 @@ function saveToLocalStorage(arr, table) {
 }
 
 function resetManagerForm() {
-	document.getElementById('currentManager').value = '';
+	document.getElementById('current-manager').value = '';
 }
 
 
@@ -120,7 +114,7 @@ function closeTeamModal() {
 function createSoccerTeam() {
 	console.log("Create soccer team!");
 	
-	var inputValue = document.getElementById("currentTeam").value;
+	var inputValue = document.getElementById("current-team").value;
 	var inputValueTeam = document.getElementById("snackbar-team");
 
 	if (inputValue === null || inputValue === undefined || inputValue.trim() === '') {
@@ -140,8 +134,8 @@ function createSoccerTeam() {
 function createTeam() {
 	console.log("Create team!");
 
-	var tim = document.getElementById("currentTeam").value;
-	var menadzer = document.getElementById("choseManager").value;
+	var tim = document.getElementById("current-team").value;
+	var menadzer = document.getElementById("chose-manager").value;
 
 	var team = {
 		name: tim,
@@ -157,13 +151,7 @@ function createTeam() {
 function updateTeams(team) {
 	console.log("Prosledjeni tim u update teams funkciju: ", team);
 	
-	var helper = localStorage.getItem("teams");
-
-	if (helper) {
-		teams = JSON.parse(helper);
-	} else {
-		teams = [];
-	}
+	var teams = dbFunc.getTeams();
 
 	var newTeams = [];
 
@@ -184,23 +172,17 @@ function updateTeams(team) {
 }
 
 function resetTeamForm() {	
-	document.getElementById("currentTeam").value = '';
+	document.getElementById("current-team").value = '';
 }
 
 function populateManagerOptions() {
-	var helper = localStorage.getItem("managers");
+	var managers = dbFunc.getManagers();
 
-	if (helper) {
-		managers = JSON.parse(helper);
-	} else {
-		managers = [];
-	}
-
-	document.getElementById("choseManager").innerHTML = '';
+	document.getElementById("chose-manager").innerHTML = '';
 
     for (var i = 0; i < managers.length; i++) {
     	var currentManager = managers[i];
-     	document.getElementById("choseManager").innerHTML += "<option value=" + currentManager.id + ">" + currentManager.name + "</option>";
+     	document.getElementById("chose-manager").innerHTML += "<option value=" + currentManager.id + ">" + currentManager.name + "</option>";
     }
 }
 
@@ -261,7 +243,6 @@ function createPlayer() {
 	var prezime = document.getElementById("last-name").value;
 	var broj = document.getElementById("number").value;
 	var rezerva = document.getElementById("reserve-player").checked;
-	var raspolozenje = playerCondition();
 	var tim = document.getElementById("choseTeam");
 	var izabraniTim = tim.options[tim.selectedIndex].value;
 	var pozicija = document.getElementById("position");
@@ -272,7 +253,6 @@ function createPlayer() {
 		lastName: prezime,
 		number: broj,
 		reserve: rezerva,
-		condition: raspolozenje,
 		team: izabraniTim,
 		position: izabranaPozicija
 	};
@@ -285,13 +265,8 @@ function createPlayer() {
 
 function updatePlayers(player) {
 	console.log("Prosledjeni igrac u update players funkciju: ", player);
-	var helper = localStorage.getItem("players");
-
-	if (helper) {
-		players = JSON.parse(helper);
-	} else {
-		players = [];
-	}
+	
+	var players = dbFunc.getPlayers();
 
 	var newPlayers = [];
 
@@ -344,13 +319,7 @@ function resetPlayerForm() {
 }
 
 function populateTeamOptions() {
-	var helper = localStorage.getItem("teams");
-
-	if (helper) {
-		teams = JSON.parse(helper);
-	} else {
-		teams = [];
-	}
+	var teams = dbFunc.getTeams();
 
 	document.getElementById("choseTeam").innerHTML = '';
 
@@ -361,13 +330,7 @@ function populateTeamOptions() {
 }
 
 function checkPlayerNumber(player) {
-	var helper = localStorage.getItem("players");
-
-	if (helper) {
-		players = JSON.parse(helper);
-	} else {
-		players = [];
-	}
+	var players = dbFunc.getPlayers();
 
 	for (var i = 0; i < players.length; i++) {
 		var currentPlayer = players[i];
@@ -378,24 +341,4 @@ function checkPlayerNumber(player) {
 	}
 
 	return false;
-}
-
-function playerCondition() {
-	var condition = [
-					'<div class="arrow-down"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>', 
-					'<div class="arrow-down"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>',
-					'<div class="arrow-lower-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>',
-					'<div class="arrow-lower-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
-					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
-					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
-					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
-					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>', 
-					'<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>',
-					'<div class="arrow-upper-right"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>',
-					'<div class="arrow-upper-right"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>',
-					'<div class="arrow-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>', 
-					'<div class="arrow-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>', 
-					];
-
-	return condition[Math.floor(Math.random()*condition.length)];
 }

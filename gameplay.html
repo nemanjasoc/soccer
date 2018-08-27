@@ -12,47 +12,46 @@
         <div class="football-pitch">
             <div id="players">
                 <img src="img/football-pitch.jpg">			
-                <div id="leftTeam-GK" onClick="changePlayer('GK')">GK</div>
-                <div id="leftTeam-RB" onClick="changePlayer('RB')">RB</div>
-                <div id="leftTeam-LB" onClick="changePlayer('LB')">LB</div>
-                <div id="leftTeam-RCB" onClick="changePlayer('RCB')">RCB</div>
-                <div id="leftTeam-LCB" onClick="changePlayer('LCB')">LCB</div>
-                <div id="leftTeam-RCM" onClick="changePlayer('RCM')">RCM</div>
-                <div id="leftTeam-LCM" onClick="changePlayer('LCM')">LCM</div>
-                <div id="leftTeam-RM" onClick="changePlayer('RM')">RM</div>
-                <div id="leftTeam-LM" onClick="changePlayer('LM')">LM</div>
-                <div id="leftTeam-RCF" onClick="changePlayer('RCF')">RCF</div>
-                <div id="leftTeam-LCF" onClick="changePlayer('LCF')">LCF</div>
+                <div id="left-team-GK" onClick="changePlayer('GK')">GK</div>
+                <div id="left-team-RB" onClick="changePlayer('RB')">RB</div>
+                <div id="left-team-LB" onClick="changePlayer('LB')">LB</div>
+                <div id="left-team-RCB" onClick="changePlayer('RCB')">RCB</div>
+                <div id="left-team-LCB" onClick="changePlayer('LCB')">LCB</div>
+                <div id="left-team-RCM" onClick="changePlayer('RCM')">RCM</div>
+                <div id="left-team-LCM" onClick="changePlayer('LCM')">LCM</div>
+                <div id="left-team-RM" onClick="changePlayer('RM')">RM</div>
+                <div id="left-team-LM" onClick="changePlayer('LM')">LM</div>
+                <div id="left-team-RCF" onClick="changePlayer('RCF')">RCF</div>
+                <div id="left-team-LCF" onClick="changePlayer('LCF')">LCF</div>
 
-                <div id="leftTeamReserve" onClick="changePlayer()">
-                </div>
-    
+                <div id="left-team-reserve" onClick="changePlayer()"></div>
+            
                 <img src="img/football-pitch.jpg">
-                <div id="rightTeam-GK">GK</div>
-                <div id="rightTeam-RB">RB</div>
-                <div id="rightTeam-LB">LB</div>
-                <div id="rightTeam-RCB">RCB</div>
-                <div id="rightTeam-LCB">LCB</div>
-                <div id="rightTeam-RCM">RCM</div>
-                <div id="rightTeam-LCM">LCM</div>
-                <div id="rightTeam-RM">RM</div>
-                <div id="rightTeam-LM">LM</div>
-                <div id="rightTeam-RCF">RCF</div>
-                <div id="rightTeam-LCF">LCF</div>
+                <div id="right-team-GK" onClick="changePlayer('GK')">GK</div>
+                <div id="right-team-RB" onClick="changePlayer('RB')">RB</div>
+                <div id="right-team-LB" onClick="changePlayer('LB')">LB</div>
+                <div id="right-team-RCB" onClick="changePlayer('RCB')">RCB</div>
+                <div id="right-team-LCB" onClick="changePlayer('LCB')">LCB</div>
+                <div id="right-team-RCM" onClick="changePlayer('RCM')">RCM</div>
+                <div id="right-team-LCM" onClick="changePlayer('LCM')">LCM</div>
+                <div id="right-team-RM" onClick="changePlayer('RM')">RM</div>
+                <div id="right-team-LM" onClick="changePlayer('LM')">LM</div>
+                <div id="right-team-RCF" onClick="changePlayer('RCF')">RCF</div>
+                <div id="right-team-LCF" onClick="changePlayer('LCF')">LCF</div>
 
-                <div id="rightTeamReserve">
-                </div>
+                <div id="right-team-reserve" onClick="changePlayer()"></div>
             </div>   
         </div>
         <div class="chose-team">
             <h4>Team one:</h4>
-            <select name="selectTeam" id="selectLeftTeam" onClick="selectLeftTeam()">
+            <select name="selectTeam-1" id="select-left-team" onchange="selectLeftTeam()">
             </select>
             <h4>Team two:</h4>
-            <select name="selectTeam" id="selectRightTeam" onClick="selectRightTeam()">
+            <select name="selectTeam-2" id="select-right-team" onchange="selectRightTeam()">
             </select>
         </div>
     </div>
+    <script src="js/databaseFunctions.js"></script>
     <script src="js/gameplay.js"></script>
 </body>
 </html>
