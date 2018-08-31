@@ -55,15 +55,15 @@ body {
 .football-pitch {
     width: 100%;
     background: #a4a3a3b5;
+    display: flex;
 }
 
 .football-pitch img {
     max-width: 900px;
-    width: 50%;
+    width: 100%;
     max-height: 600px;
     height: 100%;
-    margin-right: 20%;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
 }
 
 .chose-team {
@@ -71,7 +71,6 @@ body {
     justify-content: space-between;
     width: 100%;
 }
-
 
 /*Modals*/
 
@@ -133,9 +132,9 @@ select[name=selectTeam-2] {
     color: black;
     font-size: 18px;
     text-align: left;
-    max-width: 900px;
-    width: 20%;
-    margin-right: 25%;
+    max-width: 190px;
+    width: 100%;
+    margin-right: 34%;
     height: 40px;
 }
 
@@ -207,123 +206,138 @@ h4 {
 
 /*Standard players position (formation 4-4-2)*/
 
-#players {
+#left-team-standard {
     position: relative;
     display: flex;
-}
+    max-width: 420px;
+    width: 100%;
+    margin-right: 25%;
+} 
 
-#players > div {
+#left-team-standard > div {
     position: absolute;
 }
 
 #left-team-GK {
-    top: 78%;
-    left: 13%;
+    top: 82%;
+    left: 41%;
 }
 
 #left-team-RB {
-    top: 62%;
-    left: 22%;
+    top: 66%;
+    left: 69%;
 }
 
 #left-team-LB {
-    top: 62%;
-    left: 3%;
+    top: 66%;
+    left: 5%;
 }
 
 #left-team-RCB {
-    top: 68%;
-    left: 17%;
+    top: 75%;
+    left: 58%;
 }
 
 #left-team-LCB {
-    top: 68%;
-    left: 8%;
-}
-
-#left-team-RCM {
-    top: 48%;
-    left: 16%;
-}
-
-#left-team-LCM {
-    top: 48%;
-    left: 9%;
-}
-
-#left-team-RM {
-    top: 29%;
+    top: 75%;
     left: 21%;
 }
 
+#left-team-RCM {
+    top: 53%;
+    left: 55%;
+}
+
+#left-team-LCM {
+    top: 53%;
+    left: 27%;
+}
+
+#left-team-RM {
+    top: 32%;
+    left: 73%;;
+}
+
 #left-team-LM {
-    top: 29%;
-    left: 3%;
+    top: 32%;
+    left: 10%;
 }
 
 #left-team-RCF {
-    top: 15%;
-    left: 16%;
+    top: 14%;
+    left: 54%;
 }
 
 #left-team-LCF {
-    top: 15%;
-    left: 8%;
+    top: 14%;
+    left: 29%;
+}
+
+#right-team-standard {
+    position: relative;
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+    margin-right: 25%;
+} 
+
+#right-team-standard > div {
+    position: absolute;
 }
 
 #right-team-GK {
-    top: 78%;
-    left: 63%;
+    top: 82%;
+    left: 41%;
 }
 
 #right-team-RB {
-    top: 62%;
-    left: 72%;
+    top: 66%;
+    left: 68%;
 }
 
 #right-team-LB {
-    top: 62%;
-    left: 53%;
+    top: 66%;
+    left: 5%;
 }
 
 #right-team-RCB {
-    top: 68%;
-    left: 67%;
+    top: 75%;
+    left: 58%;
 }
 
 #right-team-LCB {
-    top: 68%;
-    left: 58%;
+    top: 75%;
+    left: 22%
 }
 
 #right-team-RCM {
-    top: 48%;
-    left: 66%;
+    top: 53%;
+    left: 56%;
 }
 
 #right-team-LCM {
-    top: 48%;
-    left: 59%;
+    top: 53%;
+    left: 26%;
 }
 
 #right-team-RM {
-    top: 29%;
-    left: 71%;
+    top: 32%;
+    left: 72%;
 }
 
 #right-team-LM {
-    top: 29%;
-    left: 53%;
+    top: 32%;
+    left: 9%;
 }
 
 #right-team-RCF {
-    top: 15%;
-    left: 66%;
+    top: 14%;
+    left: 54%;
 }
 
 #right-team-LCF {
-    top: 15%;
-    left: 58%;
+    top: 14%;
+    left: 27%;
 }
 
 .number {
@@ -387,7 +401,7 @@ button.remove-button {
     max-width: 180px;
     width: 100%;
     top: 5%;
-    left: 35%;
+    left: 117%;
 }
 
 #right-team-reserve {
@@ -396,7 +410,7 @@ button.remove-button {
     max-width: 180px;
     width: 100%;
     top: 5%;
-    left: 85%;
+    left: 120%;
 }
 
 .reserve-player-data {

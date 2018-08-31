@@ -3,6 +3,9 @@
 window.onload = function(){
 	choseLeftTeam();
 	choseRightTeam();
+
+	resetLeftTeam();
+	resetRightTeam();
 }
 
 var playerToBeReplaced;
@@ -21,7 +24,7 @@ function displayLeftTeamPlayers(teamID) {
 		if (player.team == teamID) {
 			newPlayers.push(player);
 			console.log("Pushovani igraci: ", newPlayers);
-
+			
 			appendLeftStandardAndReserveTeam(player);
 		}
 
@@ -125,9 +128,12 @@ function choseLeftTeam() {
 
 function selectLeftTeam() {
 	var mojTim = document.getElementById("select-left-team");
+
+    resetLeftTeam();
+
     var teamID =  mojTim.options[mojTim.selectedIndex].value;
- 
-    displayLeftTeamPlayers(teamID);
+
+   	displayLeftTeamPlayers(teamID);
 };
 
 function choseRightTeam() {
@@ -144,8 +150,11 @@ function choseRightTeam() {
 
 function selectRightTeam() {
     var mojTim = document.getElementById("select-right-team");
-    var teamID =  mojTim.options[mojTim.selectedIndex].value;
     
+    resetRightTeam();
+
+    var teamID =  mojTim.options[mojTim.selectedIndex].value;
+
     displayRightTeamPlayers(teamID);
 };
 
@@ -165,6 +174,44 @@ function getPlayerCondition() {
 	    case 5:
 	        return '<div class="arrow-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>'; 
 	};
+}
+
+function resetLeftTeam() {
+	 var template = `<img src="img/football-pitch.jpg">` +			
+        				`<div id="left-team-GK" onClick="changePlayer('GK')">GK</div>` +
+        				`<div id="left-team-RB" onClick="changePlayer('RB')">RB</div>` +
+        				`<div id="left-team-LB" onClick="changePlayer('LB')">LB</div>` +
+        				`<div id="left-team-RCB" onClick="changePlayer('RCB')">RCB</div>` +
+        				`<div id="left-team-LCB" onClick="changePlayer('LCB')">LCB</div>` +
+        				`<div id="left-team-RCM" onClick="changePlayer('RCM')">RCM</div>` +
+        				`<div id="left-team-LCM" onClick="changePlayer('LCM')">LCM</div>` +
+        				`<div id="left-team-RM" onClick="changePlayer('RM')">RM</div>` +
+        				`<div id="left-team-LM" onClick="changePlayer('LM')">LM</div>` +
+        				`<div id="left-team-RCF" onClick="changePlayer('RCF')">RCF</div>` +
+        				`<div id="left-team-LCF" onClick="changePlayer('LCF')">LCF</div>` +
+
+        				`<div id="left-team-reserve" onClick="changePlayer()"></div>`
+
+   document.getElementById("left-team-standard").innerHTML = template;
+}
+
+function resetRightTeam(player) {
+	 var template = `<img src="img/football-pitch.jpg">` +			
+        				`<div id="right-team-GK" onClick="changePlayer('GK')">GK</div>` +
+        				`<div id="right-team-RB" onClick="changePlayer('RB')">RB</div>` +
+        				`<div id="right-team-LB" onClick="changePlayer('LB')">LB</div>` +
+        				`<div id="right-team-RCB" onClick="changePlayer('RCB')">RCB</div>` +
+        				`<div id="right-team-LCB" onClick="changePlayer('LCB')">LCB</div>` +
+        				`<div id="right-team-RCM" onClick="changePlayer('RCM')">RCM</div>` +
+        				`<div id="right-team-LCM" onClick="changePlayer('LCM')">LCM</div>` +
+        				`<div id="right-team-RM" onClick="changePlayer('RM')">RM</div>` +
+        				`<div id="right-team-LM" onClick="changePlayer('LM')">LM</div>` +
+        				`<div id="right-team-RCF" onClick="changePlayer('RCF')">RCF</div>` +
+        				`<div id="right-team-LCF" onClick="changePlayer('LCF')">LCF</div>` +
+
+        				`<div id="right-team-reserve" onClick="changePlayer()"></div>`
+
+    document.getElementById("right-team-standard").innerHTML = template;
 }
 
 function changePlayer(position) {
