@@ -1,15 +1,12 @@
 var managerModal;
 var teamModal;
 var playerModal;
-var reservePlayerModal;
 
 window.onload = function(){
 	managerModal = document.getElementById("my-manager");
 	teamModal = document.getElementById("my-team");
 	playerModal = document.getElementById("my-player");
-	reservePlayerModal = document.getElementById("myReservePlayer");	
 }
-
 
 /*Create Managers*/
 
@@ -30,9 +27,6 @@ window.onclick = function(event) {
     }
     if (event.target == playerModal) {
         playerModal.style.display = "none";
-    }
-    if (event.target == reservePlayerModal) {
-        reservePlayerModal.style.display = "none";
     }
 }
 
@@ -73,7 +67,6 @@ function updateManagers(manager) {
 	console.log("Prosledjeni menadzer u Update manager funkciju: ", manager);
 
 	var managers = dbFunc.getManagers();
-
 	var newManagers = [];
 
 	for (var i = 0; i < managers.length; i++) {
@@ -84,9 +77,7 @@ function updateManagers(manager) {
 	}
 
 	newManagers.push(manager);
-
 	return newManagers;
-
 	localStorage.setItem('managers', JSON.stringify(newManagers));
 }
 
@@ -98,7 +89,6 @@ function saveToLocalStorage(arr, table) {
 function resetManagerForm() {
 	document.getElementById('current-manager').value = '';
 }
-
 
 /*Create Teams*/
 
@@ -144,7 +134,6 @@ function createTeam() {
 
 	console.log("Kreirani tim: ", team);
 	team.id = generateID('teams');
-
 	return team;
 }
 
@@ -152,7 +141,6 @@ function updateTeams(team) {
 	console.log("Prosledjeni tim u update teams funkciju: ", team);
 	
 	var teams = dbFunc.getTeams();
-
 	var newTeams = [];
 
 	for (var i = 0; i < teams.length; i++) {
@@ -165,9 +153,7 @@ function updateTeams(team) {
 	}
 
 	newTeams.push(team);
-
 	return newTeams;
-
 	localStorage.setItem("teams", JSON.stringify(newTeams));
 }
 
@@ -185,7 +171,6 @@ function populateManagerOptions() {
      	document.getElementById("chose-manager").innerHTML += "<option value=" + currentManager.id + ">" + currentManager.name + "</option>";
     }
 }
-
 
 /*Create Players*/	
 
@@ -238,7 +223,6 @@ function createFootballer() {
 }
 
 function createPlayer() {
-
 	var ime = document.getElementById("first-name").value;
 	var prezime = document.getElementById("last-name").value;
 	var broj = document.getElementById("number").value;
@@ -259,7 +243,6 @@ function createPlayer() {
 
 	console.log("Kreirani igrac: ", player);
 	player.id = generateID('players');
-
 	return player;
 }
 
@@ -267,7 +250,6 @@ function updatePlayers(player) {
 	console.log("Prosledjeni igrac u update players funkciju: ", player);
 	
 	var players = dbFunc.getPlayers();
-
 	var newPlayers = [];
 
 	for (var i = 0; i < players.length; i++) {
@@ -286,6 +268,7 @@ function updatePlayers(player) {
 
 function generateID(table) {
 	console.log("Table: ", table);
+
 	var helper = localStorage.getItem(table);
 	var tables; 
 
@@ -296,7 +279,6 @@ function generateID(table) {
 	}
 
 	var id = 1;
-
 	var max = 0;
 
 	for (var i = 0; i < tables.length; i++) {

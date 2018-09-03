@@ -119,7 +119,6 @@ body {
     cursor: pointer;
 }
 
-
 /*Inputs and selects*/
 
 label {
@@ -202,7 +201,6 @@ h4 {
     margin-top: 10px;
     color: white;
 }
-
 
 /*Standard players position (formation 4-4-2)*/
 
@@ -392,7 +390,6 @@ button.remove-button {
 }
 */
 
-
 /*Reserve players position*/
 
 #left-team-reserve {
@@ -448,7 +445,6 @@ button.remove-button {
     height: 100%;
 }
 
-
 /*Player conditions*/
 
 .condition {
@@ -485,7 +481,6 @@ button.remove-button {
 .arrow-up {
     color: red;
 }
-
 
 /*Snackbars/Toasts*/
 
