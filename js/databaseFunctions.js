@@ -35,6 +35,18 @@ var dbFunc = {
 
 		return managers;
 	},
+	getPositions: function () {
+		var helper = localStorage.getItem("positions");
+		var positions;
+
+		if (helper) {
+			positions = JSON.parse(helper);
+		} else {
+			positions = [];
+		}
+
+		return positions;
+	},
 	getItems: function (itemName) {
 		var helper = localStorage.getItem(itemName);
 		var items;

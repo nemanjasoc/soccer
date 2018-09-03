@@ -6,12 +6,13 @@ window.onload = function(){
 	managerModal = document.getElementById("my-manager");
 	teamModal = document.getElementById("my-team");
 	playerModal = document.getElementById("my-player");
+	createInitialPositions();
 }
 
 /*Create Managers*/
 
 function showManagerForm() {
-    managerModal.style.display = "flex";
+	managerModal.style.display = "flex";
 } 
 
 function closeManagerModal() {
@@ -20,14 +21,14 @@ function closeManagerModal() {
 
 window.onclick = function(event) {
 	if (event.target == managerModal) {
-        managerModal.style.display = "none";
-    }
-    if (event.target == teamModal) {
-        teamModal.style.display = "none";
-    }
-    if (event.target == playerModal) {
-        playerModal.style.display = "none";
-    }
+		managerModal.style.display = "none";
+	}
+	if (event.target == teamModal) {
+		teamModal.style.display = "none";
+	}
+	if (event.target == playerModal) {
+	playerModal.style.display = "none";
+	}
 }
 
 function playGame() {
@@ -37,11 +38,11 @@ function playGame() {
 function createFootballManager() {
 	var inputValue = document.getElementById("current-manager").value;
 	var inputValueManager = document.getElementById("snackbar-manager");
-   
+
 	if (inputValue === null || inputValue === undefined || inputValue.trim() === '') {
 		inputValueManager.className = "show";
-    	setTimeout(function(){ inputValueManager.className = inputValueManager.className.replace("show", ""); }, 3000);
-    	return;
+		setTimeout(function(){ inputValueManager.className = inputValueManager.className.replace("show", ""); }, 3000);
+		return;
 	}
 
 	var manager = createManager(inputValue);
@@ -94,7 +95,7 @@ function resetManagerForm() {
 
 function showTeamForm() {
 	populateManagerOptions();
-    teamModal.style.display = "flex";
+	teamModal.style.display = "flex";
 }
 
 function closeTeamModal() {
@@ -109,8 +110,8 @@ function createSoccerTeam() {
 
 	if (inputValue === null || inputValue === undefined || inputValue.trim() === '') {
 		inputValueTeam.className = "show";
-    	setTimeout(function(){ inputValueTeam.className = inputValueTeam.className.replace("show", ""); }, 3000);
-    	return;
+		setTimeout(function(){ inputValueTeam.className = inputValueTeam.className.replace("show", ""); }, 3000);
+		return;
 	}
 
 	var team = createTeam(inputValue);
@@ -166,17 +167,49 @@ function populateManagerOptions() {
 
 	document.getElementById("chose-manager").innerHTML = '';
 
-    for (var i = 0; i < managers.length; i++) {
-    	var currentManager = managers[i];
-     	document.getElementById("chose-manager").innerHTML += "<option value=" + currentManager.id + ">" + currentManager.name + "</option>";
-    }
+	for (var i = 0; i < managers.length; i++) {
+		var currentManager = managers[i];
+		document.getElementById("chose-manager").innerHTML += "<option value=" + currentManager.id + ">" + currentManager.name + "</option>";
+	}
+}
+
+/*Create Positions*/
+
+function createInitialPositions() {
+	var positions = [
+		{id: 1, position: "GK"},
+		{id: 2, position: "RB"},
+		{id: 3, position: "LB"},
+		{id: 4, position: "RCB"},
+		{id: 5, position: "LCB"},
+		{id: 6, position: "RCM"},
+		{id: 7, position: "LCM"},
+		{id: 8, position: "RM"},
+		{id: 9, position: "LM"},
+		{id: 10, position: "RCF"},
+		{id: 11, position: "LCF"}
+	];
+
+	localStorage.setItem("positions", JSON.stringify(positions));
+}
+
+function populatePositionOptions() {
+	var positions = dbFunc.getPositions();
+
+	document.getElementById("position").innerHTML = '';
+
+	for (var i = 0; i < positions.length; i++) {
+		var currentPosition = positions[i];
+		document.getElementById("position").innerHTML += "<option value=" + currentPosition.position + ">" + currentPosition.position + "</option>";
+	}
 }
 
 /*Create Players*/	
 
 function showPlayerForm() {
 	populateTeamOptions();
-    playerModal.style.display = "flex";
+	populatePositionOptions();
+	playerModal.style.display = "flex";
 } 
 
 function closePlayerModal() {
@@ -193,17 +226,17 @@ function createFootballer() {
 
 	if (inputFirstName === null || inputFirstName === undefined || inputFirstName.trim() === '') {
 		playerSnackbar.className = "show";
-    	setTimeout(function(){ playerSnackbar.className = playerSnackbar.className.replace("show", ""); }, 3000);
+		setTimeout(function(){ playerSnackbar.className = playerSnackbar.className.replace("show", ""); }, 3000);
 		return;
 	}
 	if (inputLastName === null || inputLastName === undefined || inputLastName.trim() === '') {
 		playerSnackbar.className = "show";
-    	setTimeout(function(){ playerSnackbar.className = playerSnackbar.className.replace("show", ""); }, 3000);
+		setTimeout(function(){ playerSnackbar.className = playerSnackbar.className.replace("show", ""); }, 3000);
 		return;
 	}
 	if (inputNumber === null || inputNumber === undefined || inputNumber.trim() === '') {
 		playerSnackbar.className = "show";
-    	setTimeout(function(){ playerSnackbar.className = playerSnackbar.className.replace("show", ""); }, 3000);
+		setTimeout(function(){ playerSnackbar.className = playerSnackbar.className.replace("show", ""); }, 3000);
 		return;
 	}
 
@@ -217,7 +250,7 @@ function createFootballer() {
 
 	players = updatePlayers(player);
 	saveToLocalStorage(players, "players");
-    playerModal.style.display = "none";
+	playerModal.style.display = "none";
 	alert("Player is created!");
 	resetPlayerForm();
 }
@@ -227,7 +260,7 @@ function createPlayer() {
 	var prezime = document.getElementById("last-name").value;
 	var broj = document.getElementById("number").value;
 	var rezerva = document.getElementById("reserve-player").checked;
-	var tim = document.getElementById("choseTeam");
+	var tim = document.getElementById("chose-team");
 	var izabraniTim = tim.options[tim.selectedIndex].value;
 	var pozicija = document.getElementById("position");
 	var izabranaPozicija = pozicija.options[pozicija.selectedIndex].value;
@@ -303,12 +336,12 @@ function resetPlayerForm() {
 function populateTeamOptions() {
 	var teams = dbFunc.getTeams();
 
-	document.getElementById("choseTeam").innerHTML = '';
+	document.getElementById("chose-team").innerHTML = '';
 
-    for (var i = 0; i < teams.length; i++) {
-    	var currentTeam = teams[i];
-     	document.getElementById("choseTeam").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
-    }
+	for (var i = 0; i < teams.length; i++) {
+		var currentTeam = teams[i];
+		document.getElementById("chose-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
+	}
 }
 
 function checkPlayerNumber(player) {

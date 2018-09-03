@@ -119,19 +119,19 @@ function choseLeftTeam() {
 
 	document.getElementById("select-left-team").innerHTML = '<option value=""> -- select an option -- </option>';
 
-    for (var i = 0; i < teams.length; i++) {
-    	var currentTeam = teams[i];
-     	var template = document.getElementById("select-left-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
-    }
+	for (var i = 0; i < teams.length; i++) {
+		var currentTeam = teams[i];
+		var template = document.getElementById("select-left-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
+	}
 }
 
 function selectLeftTeam() {
-    resetLeftTeam();
+	resetLeftTeam();
 
-    var mojTim = document.getElementById("select-left-team");
-    var teamID =  mojTim.options[mojTim.selectedIndex].value;
+	var mojTim = document.getElementById("select-left-team");
+	var teamID =  mojTim.options[mojTim.selectedIndex].value;
 
-   	displayLeftTeamPlayers(teamID);
+	displayLeftTeamPlayers(teamID);
 };
 
 function choseRightTeam() {
@@ -139,58 +139,58 @@ function choseRightTeam() {
 
 	document.getElementById("select-right-team").innerHTML = '<option value=""> -- select an option -- </option>';
 
-    for (var i = 0; i < teams.length; i++) {
-    	var currentTeam = teams[i];
+	for (var i = 0; i < teams.length; i++) {
+		var currentTeam = teams[i];
 
-     	var template = document.getElementById("select-right-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
-    }
+		var template = document.getElementById("select-right-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
+	}
 }
 
 function selectRightTeam() {
-    resetRightTeam();
+	resetRightTeam();
 
-    var mojTim = document.getElementById("select-right-team");
-    var teamID =  mojTim.options[mojTim.selectedIndex].value;
+	var mojTim = document.getElementById("select-right-team");
+	var teamID =  mojTim.options[mojTim.selectedIndex].value;
 
-    displayRightTeamPlayers(teamID);
+	displayRightTeamPlayers(teamID);
 };
 
 function resetLeftTeam() {
 	 var template = `<img src="img/football-pitch.jpg">` +			
-        				`<div id="left-team-GK" onClick="changePlayer('GK')">GK</div>` +
-        				`<div id="left-team-RB" onClick="changePlayer('RB')">RB</div>` +
-        				`<div id="left-team-LB" onClick="changePlayer('LB')">LB</div>` +
-        				`<div id="left-team-RCB" onClick="changePlayer('RCB')">RCB</div>` +
-        				`<div id="left-team-LCB" onClick="changePlayer('LCB')">LCB</div>` +
-        				`<div id="left-team-RCM" onClick="changePlayer('RCM')">RCM</div>` +
-        				`<div id="left-team-LCM" onClick="changePlayer('LCM')">LCM</div>` +
-        				`<div id="left-team-RM" onClick="changePlayer('RM')">RM</div>` +
-        				`<div id="left-team-LM" onClick="changePlayer('LM')">LM</div>` +
-        				`<div id="left-team-RCF" onClick="changePlayer('RCF')">RCF</div>` +
-        				`<div id="left-team-LCF" onClick="changePlayer('LCF')">LCF</div>` +
+						`<div id="left-team-GK" onClick="changePlayer('GK')">GK</div>` +
+						`<div id="left-team-RB" onClick="changePlayer('RB')">RB</div>` +
+						`<div id="left-team-LB" onClick="changePlayer('LB')">LB</div>` +
+						`<div id="left-team-RCB" onClick="changePlayer('RCB')">RCB</div>` +
+						`<div id="left-team-LCB" onClick="changePlayer('LCB')">LCB</div>` +
+						`<div id="left-team-RCM" onClick="changePlayer('RCM')">RCM</div>` +
+						`<div id="left-team-LCM" onClick="changePlayer('LCM')">LCM</div>` +
+						`<div id="left-team-RM" onClick="changePlayer('RM')">RM</div>` +
+						`<div id="left-team-LM" onClick="changePlayer('LM')">LM</div>` +
+						`<div id="left-team-RCF" onClick="changePlayer('RCF')">RCF</div>` +
+						`<div id="left-team-LCF" onClick="changePlayer('LCF')">LCF</div>` +
 
-        				`<div id="left-team-reserve" onClick="changePlayer()"></div>`
+						`<div id="left-team-reserve" onClick="changePlayer()"></div>`
 
-   document.getElementById("left-team-standard").innerHTML = template;
+	document.getElementById("left-team-standard").innerHTML = template;
 }
 
 function resetRightTeam() {
 	 var template = `<img src="img/football-pitch.jpg">` +			
-        				`<div id="right-team-GK" onClick="changePlayer('GK')">GK</div>` +
-        				`<div id="right-team-RB" onClick="changePlayer('RB')">RB</div>` +
-        				`<div id="right-team-LB" onClick="changePlayer('LB')">LB</div>` +
-        				`<div id="right-team-RCB" onClick="changePlayer('RCB')">RCB</div>` +
-        				`<div id="right-team-LCB" onClick="changePlayer('LCB')">LCB</div>` +
-        				`<div id="right-team-RCM" onClick="changePlayer('RCM')">RCM</div>` +
-        				`<div id="right-team-LCM" onClick="changePlayer('LCM')">LCM</div>` +
-        				`<div id="right-team-RM" onClick="changePlayer('RM')">RM</div>` +
-        				`<div id="right-team-LM" onClick="changePlayer('LM')">LM</div>` +
-        				`<div id="right-team-RCF" onClick="changePlayer('RCF')">RCF</div>` +
-        				`<div id="right-team-LCF" onClick="changePlayer('LCF')">LCF</div>` +
+						`<div id="right-team-GK" onClick="changePlayer('GK')">GK</div>` +
+						`<div id="right-team-RB" onClick="changePlayer('RB')">RB</div>` +
+						`<div id="right-team-LB" onClick="changePlayer('LB')">LB</div>` +
+						`<div id="right-team-RCB" onClick="changePlayer('RCB')">RCB</div>` +
+						`<div id="right-team-LCB" onClick="changePlayer('LCB')">LCB</div>` +
+		 				`<div id="right-team-RCM" onClick="changePlayer('RCM')">RCM</div>` +
+						`<div id="right-team-LCM" onClick="changePlayer('LCM')">LCM</div>` +
+						`<div id="right-team-RM" onClick="changePlayer('RM')">RM</div>` +
+						`<div id="right-team-LM" onClick="changePlayer('LM')">LM</div>` +
+						`<div id="right-team-RCF" onClick="changePlayer('RCF')">RCF</div>` +
+						`<div id="right-team-LCF" onClick="changePlayer('LCF')">LCF</div>` +
 
-        				`<div id="right-team-reserve" onClick="changePlayer()"></div>`
+						`<div id="right-team-reserve" onClick="changePlayer()"></div>`
 
-    document.getElementById("right-team-standard").innerHTML = template;
+		document.getElementById("right-team-standard").innerHTML = template;
 }
 
 function getPlayerCondition() {
@@ -198,16 +198,16 @@ function getPlayerCondition() {
 	var currentForm = conditions[Math.floor(Math.random()*conditions.length)];
 
 	switch (currentForm) {
-	    case 1:
-	        return '<div class="arrow-down"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>'; 
-	    case 2:
-	        return '<div class="arrow-lower-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>';
-        case 3:
-	        return '<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>'; 
-	    case 4:
-	        return '<div class="arrow-upper-right"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>'; 
-	    case 5:
-	        return '<div class="arrow-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>'; 
+		case 1:
+			return '<div class="arrow-down"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>'; 
+		case 2:
+			return '<div class="arrow-lower-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>';
+		case 3:
+			return '<div class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>'; 
+		case 4:
+			return '<div class="arrow-upper-right"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>'; 
+		case 5:
+			return '<div class="arrow-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>'; 
 	};
 }
 
