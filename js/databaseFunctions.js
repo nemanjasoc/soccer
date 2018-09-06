@@ -60,3 +60,36 @@ var dbFunc = {
 		return items;
 	}
 };
+
+function generateID(table) {
+	console.log("Table: ", table);
+
+	var helper = localStorage.getItem(table);
+	var tables; 
+
+	if (helper) {
+		tables = JSON.parse(helper);
+	} else {
+		tables = [];
+	}
+
+	var id = 1;
+	var max = 0;
+
+	for (var i = 0; i < tables.length; i++) {
+		var currentTable = tables[i];
+		console.log("Ja sam trenutni id u nizu: ", currentTable.id);
+
+		if (currentTable.id > max) {
+			max = currentTable.id;
+			console.log("MAX: ", max);
+		}
+	}
+
+	return max + 1;
+}
+
+function saveToLocalStorage(arr, table) {
+	console.log("Save to local storage!");
+	localStorage.setItem(table, JSON.stringify(arr));
+}

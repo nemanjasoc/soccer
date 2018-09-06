@@ -262,10 +262,9 @@ function changePlayer(position) {
 				currentPlayer.position = playerToBeReplaced.position;
 			} 
 			newPlayerPositions.push(currentPlayer);
-
 		}
+
 		localStorage.setItem("players", JSON.stringify(newPlayerPositions));
-		
 	}
 }
 
