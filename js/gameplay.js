@@ -9,6 +9,8 @@ window.onload = function(){
 }
 
 var playerToBeReplaced;
+var leftTeamID;
+var rightTeamID;
 
 function displayLeftTeamPlayers(teamID) {
 	console.log("Display players teamID: ", teamID);
@@ -129,9 +131,9 @@ function selectLeftTeam() {
 	resetLeftTeam();
 
 	var mojTim = document.getElementById("select-left-team");
-	var teamID =  mojTim.options[mojTim.selectedIndex].value;
+	leftTeamID =  mojTim.options[mojTim.selectedIndex].value;
 
-	displayLeftTeamPlayers(teamID);
+	displayLeftTeamPlayers(leftTeamID);
 };
 
 function choseRightTeam() {
@@ -150,24 +152,24 @@ function selectRightTeam() {
 	resetRightTeam();
 
 	var mojTim = document.getElementById("select-right-team");
-	var teamID =  mojTim.options[mojTim.selectedIndex].value;
+	rightTeamID =  mojTim.options[mojTim.selectedIndex].value;
 
-	displayRightTeamPlayers(teamID);
+	displayRightTeamPlayers(rightTeamID);
 };
 
 function resetLeftTeam() {
 	 var template = `<img src="img/football-pitch.jpg">` +			
-						`<div id="left-team-GK" onClick="changePlayer('GK')">GK</div>` +
-						`<div id="left-team-RB" onClick="changePlayer('RB')">RB</div>` +
-						`<div id="left-team-LB" onClick="changePlayer('LB')">LB</div>` +
-						`<div id="left-team-RCB" onClick="changePlayer('RCB')">RCB</div>` +
-						`<div id="left-team-LCB" onClick="changePlayer('LCB')">LCB</div>` +
-						`<div id="left-team-RCM" onClick="changePlayer('RCM')">RCM</div>` +
-						`<div id="left-team-LCM" onClick="changePlayer('LCM')">LCM</div>` +
-						`<div id="left-team-RM" onClick="changePlayer('RM')">RM</div>` +
-						`<div id="left-team-LM" onClick="changePlayer('LM')">LM</div>` +
-						`<div id="left-team-RCF" onClick="changePlayer('RCF')">RCF</div>` +
-						`<div id="left-team-LCF" onClick="changePlayer('LCF')">LCF</div>` +
+						`<div id="left-team-GK" onClick="changePlayer('GK', 'L')">GK</div>` +
+						`<div id="left-team-RB" onClick="changePlayer('RB', 'L')">RB</div>` +
+						`<div id="left-team-LB" onClick="changePlayer('LB', 'L')">LB</div>` +
+						`<div id="left-team-RCB" onClick="changePlayer('RCB', 'L')">RCB</div>` +
+						`<div id="left-team-LCB" onClick="changePlayer('LCB', 'L')">LCB</div>` +
+						`<div id="left-team-RCM" onClick="changePlayer('RCM', 'L')">RCM</div>` +
+						`<div id="left-team-LCM" onClick="changePlayer('LCM', 'L')">LCM</div>` +
+						`<div id="left-team-RM" onClick="changePlayer('RM', 'L')">RM</div>` +
+						`<div id="left-team-LM" onClick="changePlayer('LM', 'L')">LM</div>` +
+						`<div id="left-team-RCF" onClick="changePlayer('RCF', 'L')">RCF</div>` +
+						`<div id="left-team-LCF" onClick="changePlayer('LCF', 'L')">LCF</div>` +
 
 						`<div id="left-team-reserve" onClick="changePlayer()"></div>`
 
@@ -176,17 +178,17 @@ function resetLeftTeam() {
 
 function resetRightTeam() {
 	 var template = `<img src="img/football-pitch.jpg">` +			
-						`<div id="right-team-GK" onClick="changePlayer('GK')">GK</div>` +
-						`<div id="right-team-RB" onClick="changePlayer('RB')">RB</div>` +
-						`<div id="right-team-LB" onClick="changePlayer('LB')">LB</div>` +
-						`<div id="right-team-RCB" onClick="changePlayer('RCB')">RCB</div>` +
-						`<div id="right-team-LCB" onClick="changePlayer('LCB')">LCB</div>` +
-		 				`<div id="right-team-RCM" onClick="changePlayer('RCM')">RCM</div>` +
-						`<div id="right-team-LCM" onClick="changePlayer('LCM')">LCM</div>` +
-						`<div id="right-team-RM" onClick="changePlayer('RM')">RM</div>` +
-						`<div id="right-team-LM" onClick="changePlayer('LM')">LM</div>` +
-						`<div id="right-team-RCF" onClick="changePlayer('RCF')">RCF</div>` +
-						`<div id="right-team-LCF" onClick="changePlayer('LCF')">LCF</div>` +
+						`<div id="right-team-GK" onClick="changePlayer('GK', 'R')">GK</div>` +
+						`<div id="right-team-RB" onClick="changePlayer('RB', 'R')">RB</div>` +
+						`<div id="right-team-LB" onClick="changePlayer('LB', 'R')">LB</div>` +
+						`<div id="right-team-RCB" onClick="changePlayer('RCB', 'R')">RCB</div>` +
+						`<div id="right-team-LCB" onClick="changePlayer('LCB', 'R')">LCB</div>` +
+		 				`<div id="right-team-RCM" onClick="changePlayer('RCM', 'R')">RCM</div>` +
+						`<div id="right-team-LCM" onClick="changePlayer('LCM', 'R')">LCM</div>` +
+						`<div id="right-team-RM" onClick="changePlayer('RM', 'R')">RM</div>` +
+						`<div id="right-team-LM" onClick="changePlayer('LM', 'R')">LM</div>` +
+						`<div id="right-team-RCF" onClick="changePlayer('RCF', 'R')">RCF</div>` +
+						`<div id="right-team-LCF" onClick="changePlayer('LCF', 'R')">LCF</div>` +
 
 						`<div id="right-team-reserve" onClick="changePlayer()"></div>`
 
@@ -194,7 +196,7 @@ function resetRightTeam() {
 }
 
 function getPlayerCondition() {
-	var conditions = [1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 4, 5, 5  ];
+	var conditions = [1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 4, 5, 5];
 	var currentForm = conditions[Math.floor(Math.random()*conditions.length)];
 
 	switch (currentForm) {
@@ -211,8 +213,18 @@ function getPlayerCondition() {
 	};
 }
 
-function changePlayer(position) {
+function changePlayer(position, side) {
 	console.log("Ja sam prosledjena pozicija igraca u change player funkciju: ", position);
+	console.log("Ja sam prosledjena strana tima u change player funkciju: ", side);
+
+	var helper;
+
+	if (side = 'L') {
+		helper = leftTeamID;
+	} 
+	else if (side = 'R') {
+		helper = rightTeamID;
+	}
 
 	var players = dbFunc.getPlayers();
 
@@ -225,7 +237,7 @@ function changePlayer(position) {
 			var player = players[i];
 
 			if (player.position == position && player.reserve == false) {
-				playerToReplace = player;
+				playerToReplace = Object.assign({}, player);
 				console.log("Ja sam igrac u if na koga je drugo kliknuto i koji ce da zameni prvog: ", playerToReplace);
 			}
 		}
@@ -239,7 +251,7 @@ function changePlayer(position) {
 			var currentPlayer = players[i];
 
 			if (currentPlayer.position == position && currentPlayer.reserve == false) {
-				playerToBeReplaced = currentPlayer;
+				playerToBeReplaced = Object.assign({}, currentPlayer);
 				console.log("Ja sam igrac u else na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
 			}
 		}
