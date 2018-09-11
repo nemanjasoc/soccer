@@ -372,24 +372,6 @@ h4 {
     padding: 1px 0px 1px 0px;
 }
 
-/*
-button.remove-button {
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-    background: #333;
-    color: white;
-    border: 1px solid #333;
-    max-width: 24px;
-    width: 100%;
-}
-
-.remove {
-    text-align: center;
-    cursor: pointer;
-}
-*/
-
 /*Reserve players position*/
 
 #left-team-reserve {

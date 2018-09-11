@@ -47,7 +47,7 @@ function createFootballManager() {
 
 	var manager = createManager(inputValue);
 	managers = updateManagers(manager);
-	saveToLocalStorage(managers, "managers");
+	dbFunc.saveToLocalStorage(managers, "managers");
 	managerModal.style.display = "none";
 	alert("Manager is created!");
 	resetManagerForm();
@@ -59,14 +59,11 @@ function createManager(managerName) {
 	}
 
 	console.log("Kreirani menadzer: ", manager);
-	manager.id = generateID('managers');
-
+	manager.id = dbFunc.generateID('managers');
 	return manager;
 }
 
 function updateManagers(manager) {
-	console.log("Prosledjeni menadzer u Update manager funkciju: ", manager);
-
 	var managers = dbFunc.getManagers();
 	var newManagers = [];
 
@@ -88,7 +85,7 @@ function resetManagerForm() {
 /*Create Teams*/
 
 function showTeamForm() {
-	populateManagerOptions();
+	tpFunc.populateManagerOptions();
 	teamModal.style.display = "flex";
 }
 
@@ -97,8 +94,6 @@ function closeTeamModal() {
 }
 
 function createSoccerTeam() {
-	console.log("Create soccer team!");
-	
 	var inputValue = document.getElementById("current-team").value;
 	var inputValueTeam = document.getElementById("snackbar-team");
 
@@ -110,15 +105,13 @@ function createSoccerTeam() {
 
 	var team = createTeam(inputValue);
 	teams = updateTeams(team);
-	saveToLocalStorage(teams, "teams");
+	dbFunc.saveToLocalStorage(teams, "teams");
 	teamModal.style.display = "none";
 	alert("Team is created!");
 	resetTeamForm();
 }
 
 function createTeam() {
-	console.log("Create team!");
-
 	var tim = document.getElementById("current-team").value;
 	var menadzer = document.getElementById("chose-manager").value;
 
@@ -128,20 +121,16 @@ function createTeam() {
 	}
 
 	console.log("Kreirani tim: ", team);
-	team.id = generateID('teams');
+	team.id = dbFunc.generateID('teams');
 	return team;
 }
 
 function updateTeams(team) {
-	console.log("Prosledjeni tim u update teams funkciju: ", team);
-	
 	var teams = dbFunc.getTeams();
 	var newTeams = [];
 
 	for (var i = 0; i < teams.length; i++) {
-		var currentTeam = teams[i];
-		console.log("Trazeni tim: ", currentTeam);
-
+		var currentTeam = teams[i]
 		if (currentTeam != team) {
 			newTeams.push(currentTeam);
 		}
@@ -153,17 +142,6 @@ function updateTeams(team) {
 
 function resetTeamForm() {	
 	document.getElementById("current-team").value = '';
-}
-
-function populateManagerOptions() {
-	var managers = dbFunc.getManagers();
-
-	document.getElementById("chose-manager").innerHTML = '';
-
-	for (var i = 0; i < managers.length; i++) {
-		var currentManager = managers[i];
-		document.getElementById("chose-manager").innerHTML += "<option value=" + currentManager.id + ">" + currentManager.name + "</option>";
-	}
 }
 
 /*Create Positions*/
@@ -186,22 +164,11 @@ function createInitialPositions() {
 	localStorage.setItem("positions", JSON.stringify(positions));
 }
 
-function populatePositionOptions() {
-	var positions = dbFunc.getPositions();
-
-	document.getElementById("position").innerHTML = '';
-
-	for (var i = 0; i < positions.length; i++) {
-		var currentPosition = positions[i];
-		document.getElementById("position").innerHTML += "<option value=" + currentPosition.position + ">" + currentPosition.position + "</option>";
-	}
-}
-
 /*Create Players*/	
 
 function showPlayerForm() {
-	populateTeamOptions();
-	populatePositionOptions();
+	tpFunc.populateTeamOptions();
+	tpFunc.populatePositionOptions();
 	playerModal.style.display = "flex";
 } 
 
@@ -210,8 +177,6 @@ function closePlayerModal() {
 }
 
 function createFootballer() { 
-	console.log("Create footballer!");
-
 	var inputFirstName = document.getElementById("first-name").value;
 	var inputLastName = document.getElementById("last-name").value;
 	var inputNumber = document.getElementById("number").value;
@@ -242,7 +207,7 @@ function createFootballer() {
 	}
 
 	players = updatePlayers(player);
-	saveToLocalStorage(players, "players");
+	dbFunc.saveToLocalStorage(players, "players");
 	playerModal.style.display = "none";
 	alert("Player is created!");
 	resetPlayerForm();
@@ -268,20 +233,16 @@ function createPlayer() {
 	};
 
 	console.log("Kreirani igrac: ", player);
-	player.id = generateID('players');
+	player.id = dbFunc.generateID('players');
 	return player;
 }
 
 function updatePlayers(player) {
-	console.log("Prosledjeni igrac u update players funkciju: ", player);
-	
 	var players = dbFunc.getPlayers();
 	var newPlayers = [];
 
 	for (var i = 0; i < players.length; i++) {
 		var currentPlayer = players[i];
-		console.log("Trazeni igrac: ", currentPlayer);
-
 		if (currentPlayer != player) {
 			newPlayers.push(currentPlayer);
 		}
@@ -297,23 +258,11 @@ function resetPlayerForm() {
 	document.getElementById("number").value = '';
 }
 
-function populateTeamOptions() {
-	var teams = dbFunc.getTeams();
-
-	document.getElementById("chose-team").innerHTML = '';
-
-	for (var i = 0; i < teams.length; i++) {
-		var currentTeam = teams[i];
-		document.getElementById("chose-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
-	}
-}
-
 function checkPlayerNumber(player) {
 	var players = dbFunc.getPlayers();
 
 	for (var i = 0; i < players.length; i++) {
 		var currentPlayer = players[i];
-
 		if (currentPlayer.number == player.number && currentPlayer.team == player.team) {
 			return currentPlayer;
 		}
