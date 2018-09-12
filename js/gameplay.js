@@ -1,8 +1,8 @@
-/*Chose and show team*/
+/*Choose and show team*/
 
 window.onload = function(){
-	tpFunc.choseLeftTeam();
-	tpFunc.choseRightTeam();
+	tpFunc.populateSelectTeamOptions('left');
+	tpFunc.populateSelectTeamOptions('right');
 
 	tpFunc.resetLeftTeam();
 	tpFunc.resetRightTeam();
@@ -20,6 +20,7 @@ function displayLeftTeamPlayers(teamID, newGame) {
 
 	for (var i = 0; i < players.length; i++) {
 		var player = players[i];
+
 		if (player.team == teamID) {
 			newPlayers.push(player);
 			
@@ -28,12 +29,13 @@ function displayLeftTeamPlayers(teamID, newGame) {
 
 		function appendLeftStandardAndReserveTeam(player, newGame) {
 			var helper;
+
 			if (!player.reserve) {
 				helper = false;
-				tpFunc.appendLeftTeamPlayerPosition(player, newGame);
+				tpFunc.appendPlayerToPitch(player, newGame, 'left');
 			} else {
 				helper = true;
-				tpFunc.appendLeftTeamReservePlayerPosition(player, newGame);
+				tpFunc.appendReservePlayerToPitch(player, newGame, 'left');
 			}
 			return helper;
 		}
@@ -48,6 +50,7 @@ function displayRightTeamPlayers(teamID, newGame) {
 
 	for (var i = 0; i < players.length; i++) {
 		var player = players[i];
+
 		if (player.team == teamID) {
 			newPlayers.push(player);
 
@@ -56,12 +59,13 @@ function displayRightTeamPlayers(teamID, newGame) {
 
 		function appendRightStandardAndReserveTeam(player, newGame) {
 			var helper;
+
 			if (!player.reserve) {
 				helper = false;
-				tpFunc.appendRightTeamPlayerPosition(player, newGame);
+				tpFunc.appendPlayerToPitch(player, newGame, 'right');
 			} else {
 				helper = true;
-				tpFunc.appendRightTeamReservePlayerPosition(player, newGame);
+				tpFunc.appendReservePlayerToPitch(player, newGame, 'right');
 			}
 			return helper;
 		}
@@ -72,6 +76,7 @@ function selectLeftTeam() {
 	tpFunc.resetLeftTeam();
 
 	var mojTim = document.getElementById("select-left-team");
+
 	leftTeamID =  mojTim.options[mojTim.selectedIndex].value;
 
 	displayLeftTeamPlayers(leftTeamID, true);
@@ -81,6 +86,7 @@ function selectRightTeam() {
 	tpFunc.resetRightTeam();
 
 	var mojTim = document.getElementById("select-right-team");
+
 	rightTeamID =  mojTim.options[mojTim.selectedIndex].value;
 
 	displayRightTeamPlayers(rightTeamID, true);
@@ -117,10 +123,10 @@ function changePlayer(position, side) {
 
 	var helper;
 
-	if (side == 'L') {
+	if (side == 'left') {
 		helper = leftTeamID;
 	} 
-	else if (side == 'R') {
+	else if (side == 'right') {
 		helper = rightTeamID;
 	}
 
@@ -132,6 +138,7 @@ function changePlayer(position, side) {
 		var playerToReplace;
 		for (var i = 0; i < players.length; i++) {
 			var player = players[i];
+
 			if (player.position == position && player.team == helper && player.reserve == false) {
 				playerToReplace = Object.assign({}, player);
 				console.log("Ja sam igrac u if na koga je drugo kliknuto i koji ce da zameni prvog: ", playerToReplace);
@@ -140,10 +147,10 @@ function changePlayer(position, side) {
 
 		playersSubstitution(playerToBeReplaced, playerToReplace, players);
 
-		if (side == 'L') {
+		if (side == 'left') {
 			displayLeftTeamPlayers(leftTeamID, false);
 		} 
-		else if (side == 'R') {
+		else if (side == 'right') {
 			displayRightTeamPlayers(rightTeamID, false);
 		}
 
@@ -152,6 +159,7 @@ function changePlayer(position, side) {
 	} else {
 		for (var i = 0; i < players.length; i++) {
 			var currentPlayer = players[i];
+
 			if (currentPlayer.position == position && currentPlayer.team == helper && currentPlayer.reserve == false) {
 				playerToBeReplaced = Object.assign({}, currentPlayer);
 				console.log("Ja sam igrac u else na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
@@ -168,6 +176,7 @@ function changePlayer(position, side) {
 
 		for (var i = 0; i < players.length; i++) {
 			var currentPlayer = players[i];
+
 			if (currentPlayer.id == playerToBeReplaced.id) {
 				currentPlayer.position = playerToReplace.position;
 			} 
@@ -180,10 +189,3 @@ function changePlayer(position, side) {
 		localStorage.setItem("players", JSON.stringify(newPlayerPositions));
 	}
 }
-
-
-
-
-
-
-

@@ -69,6 +69,7 @@ function updateManagers(manager) {
 
 	for (var i = 0; i < managers.length; i++) {
 		var currentManager = managers[i];
+
 		if (currentManager != manager) {
 			newManagers.push(currentManager);
 		}
@@ -113,7 +114,7 @@ function createSoccerTeam() {
 
 function createTeam() {
 	var tim = document.getElementById("current-team").value;
-	var menadzer = document.getElementById("chose-manager").value;
+	var menadzer = document.getElementById("choose-manager").value;
 
 	var team = {
 		name: tim,
@@ -130,7 +131,8 @@ function updateTeams(team) {
 	var newTeams = [];
 
 	for (var i = 0; i < teams.length; i++) {
-		var currentTeam = teams[i]
+		var currentTeam = teams[i];
+
 		if (currentTeam != team) {
 			newTeams.push(currentTeam);
 		}
@@ -218,7 +220,7 @@ function createPlayer() {
 	var prezime = document.getElementById("last-name").value;
 	var broj = document.getElementById("number").value;
 	var rezerva = document.getElementById("reserve-player").checked;
-	var tim = document.getElementById("chose-team");
+	var tim = document.getElementById("choose-team");
 	var izabraniTim = tim.options[tim.selectedIndex].value;
 	var pozicija = document.getElementById("position");
 	var izabranaPozicija = pozicija.options[pozicija.selectedIndex].value;
@@ -243,6 +245,7 @@ function updatePlayers(player) {
 
 	for (var i = 0; i < players.length; i++) {
 		var currentPlayer = players[i];
+
 		if (currentPlayer != player) {
 			newPlayers.push(currentPlayer);
 		}
@@ -263,6 +266,7 @@ function checkPlayerNumber(player) {
 
 	for (var i = 0; i < players.length; i++) {
 		var currentPlayer = players[i];
+		
 		if (currentPlayer.number == player.number && currentPlayer.team == player.team) {
 			return currentPlayer;
 		}
