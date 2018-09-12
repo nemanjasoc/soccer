@@ -58,7 +58,7 @@ function createManager(managerName) {
 		name: managerName
 	}
 
-	console.log("Kreirani menadzer: ", manager);
+	console.log(`Kreirani menadzer ${manager}`);
 	manager.id = dbFunc.generateID('managers');
 	return manager;
 }
@@ -121,7 +121,7 @@ function createTeam() {
 		managerID: menadzer
 	}
 
-	console.log("Kreirani tim: ", team);
+	console.log(`Kreirani tim ${team}`);
 	team.id = dbFunc.generateID('teams');
 	return team;
 }
@@ -234,7 +234,7 @@ function createPlayer() {
 		position: izabranaPozicija
 	};
 
-	console.log("Kreirani igrac: ", player);
+	console.log(`Kreirani igrac ${player}`);
 	player.id = dbFunc.generateID('players');
 	return player;
 }

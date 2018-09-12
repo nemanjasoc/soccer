@@ -42,9 +42,9 @@ var tpFunc = {
 		document.getElementById("select-" + side + "-team").innerHTML = template;
 	},
 	appendPlayerToPitch: function (player, newGame, side) {
-		console.log("Ja sam prosledjeni igrac u append funkciju: ", player);
+		console.log('Ja sam prosledjeni igrac u append funkciju: ', player);
 
-		var positionInTeam = side + "-team" + "-" + player.position;
+		var positionInTeam = side + "-team-" + player.position;
 
 		var template = '<div class="number">' + player.number +
 		'</div><div class="name">' + player.firstName + " " + player.lastName + 
@@ -60,40 +60,22 @@ var tpFunc = {
 
 		leftTeamReserve.innerHTML = leftTeamReserve.innerHTML + template;
 	},
-	resetLeftTeam: function () {
+	resetTeam: function (side) {
 		var template = `<img src="img/football-pitch.jpg">` +			
-							`<div id="left-team-GK" onClick="changePlayer('GK', 'left')">GK</div>` +
-							`<div id="left-team-RB" onClick="changePlayer('RB', 'left')">RB</div>` +
-							`<div id="left-team-LB" onClick="changePlayer('LB', 'left')">LB</div>` +
-							`<div id="left-team-RCB" onClick="changePlayer('RCB', 'left')">RCB</div>` +
-							`<div id="left-team-LCB" onClick="changePlayer('LCB', 'left')">LCB</div>` +
-							`<div id="left-team-RCM" onClick="changePlayer('RCM', 'left')">RCM</div>` +
-							`<div id="left-team-LCM" onClick="changePlayer('LCM', 'left')">LCM</div>` +
-							`<div id="left-team-RM" onClick="changePlayer('RM', 'left')">RM</div>` +
-							`<div id="left-team-LM" onClick="changePlayer('LM', 'left')">LM</div>` +
-							`<div id="left-team-RCF" onClick="changePlayer('RCF', 'left')">RCF</div>` +
-							`<div id="left-team-LCF" onClick="changePlayer('LCF', 'left')">LCF</div>` +
+							`<div id="${side}-team-GK" onClick="changePlayer('GK', '${side}')">GK</div>` +
+							`<div id="${side}-team-RB" onClick="changePlayer('RB', '${side}')">RB</div>` +
+							`<div id="${side}-team-LB" onClick="changePlayer('LB', '${side}')">LB</div>` +
+							`<div id="${side}-team-RCB" onClick="changePlayer('RCB', '${side}')">RCB</div>` +
+							`<div id="${side}-team-LCB" onClick="changePlayer('LCB', '${side}')">LCB</div>` +
+							`<div id="${side}-team-RCM" onClick="changePlayer('RCM', '${side}')">RCM</div>` +
+							`<div id="${side}-team-LCM" onClick="changePlayer('LCM', '${side}')">LCM</div>` +
+							`<div id="${side}-team-RM" onClick="changePlayer('RM', '${side}')">RM</div>` +
+							`<div id="${side}-team-LM" onClick="changePlayer('LM', '${side}')">LM</div>` +
+							`<div id="${side}-team-RCF" onClick="changePlayer('RCF', '${side}')">RCF</div>` +
+							`<div id="${side}-team-LCF" onClick="changePlayer('LCF', '${side}')">LCF</div>` +
 
-							`<div id="left-team-reserve" onClick="changePlayer()"></div>`
+							`<div id="${side}-team-reserve" onClick="changePlayer()"></div>`
 
-		document.getElementById("left-team-standard").innerHTML = template;
+		document.getElementById(`${side}-team-standard`).innerHTML = template;
 	},
-	resetRightTeam: function () {
-		var template = `<img src="img/football-pitch.jpg">` +			
-							`<div id="right-team-GK" onClick="changePlayer('GK', 'right')">GK</div>` +
-							`<div id="right-team-RB" onClick="changePlayer('RB', 'right')">RB</div>` +
-							`<div id="right-team-LB" onClick="changePlayer('LB', 'right')">LB</div>` +
-							`<div id="right-team-RCB" onClick="changePlayer('RCB', 'right')">RCB</div>` +
-							`<div id="right-team-LCB" onClick="changePlayer('LCB', 'right')">LCB</div>` +
-				 			`<div id="right-team-RCM" onClick="changePlayer('RCM', 'right')">RCM</div>` +
-							`<div id="right-team-LCM" onClick="changePlayer('LCM', 'right')">LCM</div>` +
-							`<div id="right-team-RM" onClick="changePlayer('RM', 'right')">RM</div>` +
-							`<div id="right-team-LM" onClick="changePlayer('LM', 'right')">LM</div>` +
-							`<div id="right-team-RCF" onClick="changePlayer('RCF', 'right')">RCF</div>` +
-							`<div id="right-team-LCF" onClick="changePlayer('LCF', 'right')">LCF</div>` +
-
-							`<div id="right-team-reserve" onClick="changePlayer()"></div>`
-
-		document.getElementById("right-team-standard").innerHTML = template;
-	}
 };

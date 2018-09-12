@@ -60,7 +60,7 @@ var dbFunc = {
 		return items;
 	},
 	generateID: function (table) {
-		console.log("Table: ", table);
+		console.log(`Table ${table}`);
 
 		var helper = localStorage.getItem(table);
 		var tables; 
@@ -76,11 +76,11 @@ var dbFunc = {
 
 		for (var i = 0; i < tables.length; i++) {
 			var currentTable = tables[i];
-			console.log("Ja sam trenutni id u nizu: ", currentTable.id);
+			console.log(`Ja sam trenutni id u nizu ${currentTable.id}`);
 
 			if (currentTable.id > max) {
 				max = currentTable.id;
-				console.log("MAX: ", max);
+				console.log(`MAX ${max}`);
 			}
 		}
 
