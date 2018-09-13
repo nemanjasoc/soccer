@@ -52,7 +52,7 @@ var tpFunc = {
 
 		document.getElementById(positionInTeam).innerHTML = template;
 	},
-	appendReservePlayerToPitch: function (player, newGame, side) {
+	appendReservePlayerToBench: function (player, newGame, side) {
 		var leftTeamReserve = document.getElementById(side + "-team-reserve");
 
 		var template = '<div class="reserve-player-data"><div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +

@@ -12,6 +12,19 @@ var playerToBeReplaced;
 var leftTeamID;
 var rightTeamID;
 
+function appendStandardAndReserveTeam(player, newGame, side) {
+	var helper;
+
+	if (player.reserve) {
+ 		helper = true;
+ 		tpFunc.appendReservePlayerToBench(player, newGame, side);
+	} else {
+		helper = false;
+		tpFunc.appendPlayerToPitch(player, newGame, side);
+	}
+	return helper;
+}
+
 function displayLeftTeamPlayers(teamID, newGame) {
 	console.log(`Display players left teamID ${teamID}`);
 	
@@ -24,20 +37,7 @@ function displayLeftTeamPlayers(teamID, newGame) {
 		if (player.team == teamID) {
 			newPlayers.push(player);
 			
-			appendLeftStandardAndReserveTeam(player, newGame);
-		}
-
-		function appendLeftStandardAndReserveTeam(player, newGame) {
-			var helper;
-
-			if (!player.reserve) {
-				helper = false;
-				tpFunc.appendPlayerToPitch(player, newGame, 'left');
-			} else {
-				helper = true;
-				tpFunc.appendReservePlayerToPitch(player, newGame, 'left');
-			}
-			return helper;
+			appendStandardAndReserveTeam(player, newGame, 'left');
 		}
 	}
 }
@@ -54,20 +54,7 @@ function displayRightTeamPlayers(teamID, newGame) {
 		if (player.team == teamID) {
 			newPlayers.push(player);
 
-			appendRightStandardAndReserveTeam(player, newGame);
-		}
-
-		function appendRightStandardAndReserveTeam(player, newGame) {
-			var helper;
-
-			if (!player.reserve) {
-				helper = false;
-				tpFunc.appendPlayerToPitch(player, newGame, 'right');
-			} else {
-				helper = true;
-				tpFunc.appendReservePlayerToPitch(player, newGame, 'right');
-			}
-			return helper;
+			appendStandardAndReserveTeam(player, newGame, 'right');
 		}
 	}
 }
@@ -190,4 +177,8 @@ function changePlayer(position, side) {
 
 		localStorage.setItem("players", JSON.stringify(newPlayerPositions));
 	}
+}
+
+function toHomepage() {
+	window.location.href = './index.html';
 }

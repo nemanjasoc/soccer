@@ -1,0 +1,329 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.football-stadium {
+    background-image: url("../img/champions-league.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.football-pitch {
+    width: 100%;
+    background: #a4a3a3b5;
+    display: flex;
+}
+
+.football-pitch img {
+    max-width: 900px;
+    width: 100%;
+    max-height: 600px;
+    height: 100%;
+    margin-bottom: 4%;
+}
+
+/*Standard players position (formation 4-4-2)*/
+
+#left-team-standard {
+    position: relative;
+    display: flex;
+    max-width: 420px;
+    width: 100%;
+    margin-right: 25%;
+} 
+
+#left-team-standard > div {
+    position: absolute;
+}
+
+#left-team-GK {
+    top: 82%;
+    left: 41%;
+}
+
+#left-team-RB {
+    top: 66%;
+    left: 69%;
+}
+
+#left-team-LB {
+    top: 66%;
+    left: 5%;
+}
+
+#left-team-RCB {
+    top: 75%;
+    left: 58%;
+}
+
+#left-team-LCB {
+    top: 75%;
+    left: 21%;
+}
+
+#left-team-RCM {
+    top: 53%;
+    left: 55%;
+}
+
+#left-team-LCM {
+    top: 53%;
+    left: 27%;
+}
+
+#left-team-RM {
+    top: 32%;
+    left: 73%;;
+}
+
+#left-team-LM {
+    top: 32%;
+    left: 10%;
+}
+
+#left-team-RCF {
+    top: 14%;
+    left: 54%;
+}
+
+#left-team-LCF {
+    top: 14%;
+    left: 29%;
+}
+
+#right-team-standard {
+    position: relative;
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+    margin-right: 25%;
+} 
+
+#right-team-standard > div {
+    position: absolute;
+}
+
+#right-team-GK {
+    top: 82%;
+    left: 41%;
+}
+
+#right-team-RB {
+    top: 66%;
+    left: 68%;
+}
+
+#right-team-LB {
+    top: 66%;
+    left: 5%;
+}
+
+#right-team-RCB {
+    top: 75%;
+    left: 58%;
+}
+
+#right-team-LCB {
+    top: 75%;
+    left: 22%
+}
+
+#right-team-RCM {
+    top: 53%;
+    left: 56%;
+}
+
+#right-team-LCM {
+    top: 53%;
+    left: 26%;
+}
+
+#right-team-RM {
+    top: 32%;
+    left: 72%;
+}
+
+#right-team-LM {
+    top: 32%;
+    left: 9%;
+}
+
+#right-team-RCF {
+    top: 14%;
+    left: 54%;
+}
+
+#right-team-LCF {
+    top: 14%;
+    left: 27%;
+}
+
+.number {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.name {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.event-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.standard-position {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 3px;
+    background: #0e50e6;
+    color: white;
+    border: 1px solid #0e50e6;
+    max-width: 40px;
+    width: 100%;
+    max-height: 15px;
+    height: 100%;
+    padding: 1px 0px 1px 0px;
+}
+
+/*Reserve players position*/
+
+#left-team-reserve {
+    display: flex;
+    flex-direction: column;
+    max-width: 180px;
+    width: 100%;
+    top: 5%;
+    left: 117%;
+}
+
+#right-team-reserve {
+    display: flex;
+    flex-direction: column;
+    max-width: 180px;
+    width: 100%;
+    top: 5%;
+    left: 120%;
+}
+
+.reserve-player-data {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.reserve-number {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 3px;
+}
+
+.reserve-name {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 3px;
+}
+
+.reserve-position {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 3px;
+    background: #0e50e6;
+    color: white;
+    border: 1px solid #0e50e6;
+    max-width: 40px;
+    width: 100%;
+    max-height: 15px;
+    height: 100%;
+}
+
+/*Player conditions*/
+
+.condition {
+    background: #2424a6;
+    padding: 1px 3px 1px 3px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.arrow-down {
+    color: #e211e2;
+}
+
+.arrow-lower-right {
+    color: #11d3e8;
+}
+
+.arrow-lower-right .fa-arrow-right {
+    transform: rotate(48deg);
+}
+
+.arrow-right {
+    color: #20ec0a;
+}
+
+.arrow-upper-right {
+    color: orange;
+}
+
+.arrow-upper-right .fa-arrow-up {
+    transform: rotate(42deg);
+}
+
+.arrow-up {
+    color: red;
+}
+
+/*Select team*/
+
+.select-team {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+h4 {
+    margin-top: 10px;
+    color: white;
+}
+
+select[name=selectTeam-1],
+select[name=selectTeam-2] {
+    background: white;
+    color: black;
+    font-size: 18px;
+    text-align: left;
+    max-width: 190px;
+    width: 100%;
+    margin-right: 34%;
+    height: 40px;
+}
+
+/*Back on first page*/
+
+#home-page {
+    width: 100%;
+    max-width: 120px;
+    font-size: 14px;
+    color: white;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    border: 1px solid #aac9ca;
+    margin-top: 50px;
+    cursor: pointer;
+}
