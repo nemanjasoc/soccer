@@ -9,24 +9,17 @@ window.onload = function(){
 }
 
 var playerToBeReplaced;
-var leftTeamID;
-var rightTeamID;
 
 function appendStandardAndReserveTeam(player, newGame, side) {
-	var helper;
-
 	if (player.reserve) {
- 		helper = true;
  		tpFunc.appendReservePlayerToBench(player, newGame, side);
 	} else {
-		helper = false;
 		tpFunc.appendPlayerToPitch(player, newGame, side);
 	}
-	return helper;
 }
 
-function displayLeftTeamPlayers(teamID, newGame) {
-	console.log(`Display players left teamID ${teamID}`);
+function displayPlayers(teamID, newGame, side) {
+	console.log(`Display players teamID ${teamID}`);
 	
 	var players = dbFunc.getPlayers();
 	var newPlayers = [];
@@ -37,46 +30,24 @@ function displayLeftTeamPlayers(teamID, newGame) {
 		if (player.team == teamID) {
 			newPlayers.push(player);
 			
-			appendStandardAndReserveTeam(player, newGame, 'left');
+			appendStandardAndReserveTeam(player, newGame, side);
 		}
 	}
 }
 
-function displayRightTeamPlayers(teamID, newGame) {
-	console.log(`Display players right teamID ${teamID}`);
+function getSelectedTeamID(side) {
+	var mojTim = document.getElementById(`select-${side}-team`);
+	var teamID =  mojTim.options[mojTim.selectedIndex].value;
 
-	var players = dbFunc.getPlayers(); 
-	var newPlayers = [];
-
-	for (var i = 0; i < players.length; i++) {
-		var player = players[i];
-
-		if (player.team == teamID) {
-			newPlayers.push(player);
-
-			appendStandardAndReserveTeam(player, newGame, 'right');
-		}
-	}
+	return teamID;
 }
 
-function selectLeftTeam() {
-	tpFunc.resetTeam('left');
+function selectTeam(side) {
+	tpFunc.resetTeam(side);
 
-	var mojTim = document.getElementById("select-left-team");
-
-	leftTeamID =  mojTim.options[mojTim.selectedIndex].value;
-
-	displayLeftTeamPlayers(leftTeamID, true);
-};
-
-function selectRightTeam() {
-	tpFunc.resetTeam('right');
-
-	var mojTim = document.getElementById("select-right-team");
-
-	rightTeamID =  mojTim.options[mojTim.selectedIndex].value;
-
-	displayRightTeamPlayers(rightTeamID, true);
+	var teamID = getSelectedTeamID(side);
+	
+	displayPlayers(teamID, true, side);
 };
 
 function getPlayerCondition(newGame, playerID) {
@@ -108,58 +79,45 @@ function changePlayer(position, side) {
 	console.log(`Ja sam prosledjena pozicija igraca u change player funkciju ${position}`);
 	console.log(`Ja sam prosledjena strana tima u change player funkciju ${side}`);
 
-	var helper;
-
-	if (side == 'left') {
-		helper = leftTeamID;
-	} 
-	else if (side == 'right') {
-		helper = rightTeamID;
-	}
+	var selectedTeam = getSelectedTeamID(side);
 
 	var players = dbFunc.getPlayers();
 
 	if (playerToBeReplaced) {
-		console.log(`Ja sam igrac u if na koga je prvo kliknuto i koji ce biti zamenjen ${playerToBeReplaced}`);
+		console.log("Ja sam igrac u if na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
 
 		var playerToReplace;
 		for (var i = 0; i < players.length; i++) {
 			var player = players[i];
 
-			if (player.position == position && player.team == helper && player.reserve == false) {
+			if (player.position == position && player.team == selectedTeam && player.reserve == false) {
 				playerToReplace = Object.assign({}, player);
-				console.log(`Ja sam igrac u if na koga je drugo kliknuto i koji ce da zameni prvog ${playerToReplace}`);
+				console.log("Ja sam igrac u if na koga je drugo kliknuto i koji ce da zameni prvog: ", playerToReplace);
 			}
 		}
 
 		playersSubstitution(playerToBeReplaced, playerToReplace, players);
-
-		if (side == 'left') {
-			tpFunc.resetTeam('left');
-			displayLeftTeamPlayers(leftTeamID, false);
-		} 
-		else if (side == 'right') {
-			tpFunc.resetTeam('right');
-			displayRightTeamPlayers(rightTeamID, false);
-		}
-
+		
+		tpFunc.resetTeam(side);
+		displayPlayers(selectedTeam, false, side);
+	
 		playerToBeReplaced = null;
 
 	} else {
 		for (var i = 0; i < players.length; i++) {
 			var currentPlayer = players[i];
 
-			if (currentPlayer.position == position && currentPlayer.team == helper && currentPlayer.reserve == false) {
+			if (currentPlayer.position == position && currentPlayer.team == selectedTeam && currentPlayer.reserve == false) {
 				playerToBeReplaced = Object.assign({}, currentPlayer);
-				console.log(`Ja sam igrac u else na koga je prvo kliknuto i koji ce biti zamenjen ${playerToBeReplaced}`);
+				console.log("Ja sam igrac u else na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
 			}
 		}
 	}
 
 	function playersSubstitution(playerToBeReplaced, playerToReplace, players) {
-		console.log(`Prosledjeni prvi kliknuti igrac u players substitution funkciju ${playerToBeReplaced}`);
-		console.log(`Prosledjeni drugi kliknuti igrac u players substitution funkciju ${playerToReplace}`);
-		console.log(`Prosledjeni niz u players substitution funkciju ${players}`);
+		console.log("Prosledjeni prvi kliknuti igrac u players substitution funkciju: ", playerToBeReplaced);
+		console.log("Prosledjeni drugi kliknuti igrac u players substitution funkciju: ", playerToReplace);
+		console.log("Prosledjeni niz u players substitution funkciju: ", players);
 
 		var newPlayerPositions = [];
 
