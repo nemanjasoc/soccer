@@ -29,14 +29,16 @@ var tpFunc = {
 			document.getElementById("choose-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
 		}
 	},
-	populateSelectTeamOptions: function (side) {
+	populateSelectTeamOptions: function (side, selectedTeamID) {
 		var teams = dbFunc.getTeams();
 		var template = '<option value=""> -- select an option -- </option>';
 
 		for (var i = 0; i < teams.length; i++) {
 			var currentTeam = teams[i];
 
-			template += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
+			if (currentTeam.id != selectedTeamID) {
+				template += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
+			}
 		}
 
 		document.getElementById("select-" + side + "-team").innerHTML = template;

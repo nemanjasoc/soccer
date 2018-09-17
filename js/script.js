@@ -48,7 +48,7 @@ function createFootballManager() {
 	var manager = createManager(inputValue);
 	managers = updateManagers(manager);
 	dbFunc.saveToLocalStorage(managers, "managers");
-	managerModal.style.display = "none";
+	closeManagerModal();
 	alert("Manager is created!");
 	resetManagerForm();
 }
@@ -107,12 +107,12 @@ function createSoccerTeam() {
 	var team = createTeam(inputValue);
 	teams = updateTeams(team);
 	dbFunc.saveToLocalStorage(teams, "teams");
-	teamModal.style.display = "none";
+	closeTeamModal();
 	alert("Team is created!");
 	resetTeamForm();
 }
 
-function createTeam() {
+function createTeam(tim) {
 	var tim = document.getElementById("current-team").value;
 	var menadzer = document.getElementById("choose-manager").value;
 
@@ -210,12 +210,12 @@ function createFootballer() {
 
 	players = updatePlayers(player);
 	dbFunc.saveToLocalStorage(players, "players");
-	playerModal.style.display = "none";
+	closePlayerModal();
 	alert("Player is created!");
 	resetPlayerForm();
 }
 
-function createPlayer() {
+function createPlayer(ime, prezime, broj) {
 	var ime = document.getElementById("first-name").value;
 	var prezime = document.getElementById("last-name").value;
 	var broj = document.getElementById("number").value;

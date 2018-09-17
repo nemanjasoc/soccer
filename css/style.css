@@ -9,15 +9,12 @@ body {
 
 #game {
     background-image: url("../img/main-page-bcg.jpg");
-    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-#game {
     display: flex;
     justify-content: space-between;
+    height: 100%;
 }
 
 .tiles-container {
@@ -62,16 +59,11 @@ body {
 }
 
 .modal-content {
+    max-width: 275px;
+    width: 50%;
     background-color: white;
     border: 1px solid #888;
     padding: 10px 0px 15px 50px;
-    max-width: 275px;
-}
-
-.modals-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .close {
@@ -97,16 +89,7 @@ label {
     color: black; 
 }
 
-input[type=text] {
-    background: #709863;
-    color: black;
-    font-size: 18px;
-    text-align: left;
-    width: 80%;
-    padding: 4px 0px 4px 0px;
-    margin-bottom: 5px;
-}
-
+input[type=text],
 input[type=number] {
     background: #709863;
     color: black;
@@ -117,17 +100,9 @@ input[type=number] {
     margin-bottom: 5px;
 }
 
-select[name=choseManager] {
-    background: #709863;
-    color: black;
-    font-size: 18px;
-    text-align: left;
-    width: 82%;
-    padding: 4px 0px 4px 0px;
-    margin-bottom: 5px;
-}
-
-select[name=choseTeam] {
+select[name=choseManager],
+select[name=choseTeam],
+select[name=position] {
     background: #709863;
     color: black;
     font-size: 18px;
@@ -147,62 +122,10 @@ button[type=button] {
     height: 25px;
 }
 
-select[name=position] {
-    background: #709863;
-    color: black;
-    font-size: 18px;
-    text-align: left;
-    width: 82%;
-    padding: 4px 0px 4px 0px;
-    margin-bottom: 5px;
-}
-
 /*Snackbars/Toasts*/
 
-#snackbar-manager {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    bottom: 30px;
-    font-size: 17px;
-}
-
-#snackbar-manager.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-#snackbar-team {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    bottom: 30px;
-    font-size: 17px;
-}
-
-#snackbar-team.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
+#snackbar-manager,
+#snackbar-team,
 #snackbar-player {
     visibility: hidden;
     min-width: 250px;
@@ -219,6 +142,8 @@ select[name=position] {
     font-size: 17px;
 }
 
+#snackbar-manager.show,
+#snackbar-team.show,
 #snackbar-player.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;

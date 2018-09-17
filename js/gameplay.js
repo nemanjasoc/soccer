@@ -18,8 +18,8 @@ function appendStandardAndReserveTeam(player, newGame, side) {
 	}
 }
 
-function displayPlayers(teamID, newGame, side) {
-	console.log(`Display players teamID ${teamID}`);
+function displayPlayers(selectedTeamID, newGame, side) {
+	console.log(`Display players selectedTeamID ${selectedTeamID}`);
 	
 	var players = dbFunc.getPlayers();
 	var newPlayers = [];
@@ -27,7 +27,7 @@ function displayPlayers(teamID, newGame, side) {
 	for (var i = 0; i < players.length; i++) {
 		var player = players[i];
 
-		if (player.team == teamID) {
+		if (player.team == selectedTeamID) {
 			newPlayers.push(player);
 			
 			appendStandardAndReserveTeam(player, newGame, side);
@@ -37,17 +37,24 @@ function displayPlayers(teamID, newGame, side) {
 
 function getSelectedTeamID(side) {
 	var mojTim = document.getElementById(`select-${side}-team`);
-	var teamID =  mojTim.options[mojTim.selectedIndex].value;
+	var selectedTeamID = mojTim.options[mojTim.selectedIndex].value;
 
-	return teamID;
+	return selectedTeamID;
 }
 
 function selectTeam(side) {
 	tpFunc.resetTeam(side);
 
-	var teamID = getSelectedTeamID(side);
-	
-	displayPlayers(teamID, true, side);
+	var selectedTeamID = getSelectedTeamID(side);
+	/*
+	if (side == 'left') {
+		tpFunc.populateSelectTeamOptions('right', selectedTeamID);
+	} 
+	else if (side == 'right') {
+		tpFunc.populateSelectTeamOptions('left', selectedTeamID);
+	}
+	*/
+	displayPlayers(selectedTeamID, true, side);
 };
 
 function getPlayerCondition(newGame, playerID) {
@@ -79,10 +86,10 @@ function changePlayer(position, side) {
 	console.log(`Ja sam prosledjena pozicija igraca u change player funkciju ${position}`);
 	console.log(`Ja sam prosledjena strana tima u change player funkciju ${side}`);
 
-	var selectedTeam = getSelectedTeamID(side);
+	var selectedTeamID = getSelectedTeamID(side);
 
 	var players = dbFunc.getPlayers();
-
+	
 	if (playerToBeReplaced) {
 		console.log("Ja sam igrac u if na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
 
@@ -90,31 +97,37 @@ function changePlayer(position, side) {
 		for (var i = 0; i < players.length; i++) {
 			var player = players[i];
 
-			if (player.position == position && player.team == selectedTeam && player.reserve == false) {
+			if (player.position == position && player.team == playerToBeReplaced.team && selectedTeamID == playerToBeReplaced.team && player.reserve == false) {
 				playerToReplace = Object.assign({}, player);
 				console.log("Ja sam igrac u if na koga je drugo kliknuto i koji ce da zameni prvog: ", playerToReplace);
-			}
+				document.getElementById("text-message").innerHTML = '';
+			} 	
 		}
 
-		playersSubstitution(playerToBeReplaced, playerToReplace, players);
-		
-		tpFunc.resetTeam(side);
-		displayPlayers(selectedTeam, false, side);
-	
-		playerToBeReplaced = null;
+		if (playerToReplace) {
+   			playersSubstitution(playerToBeReplaced, playerToReplace, players);
+   
+   			tpFunc.resetTeam(side);
+   			displayPlayers(selectedTeamID, false, side);
+  		} else {
+   			alert("You can't replace players who are not from the same team!");
+  		}
+
+  		playerToBeReplaced = null;
 
 	} else {
 		for (var i = 0; i < players.length; i++) {
 			var currentPlayer = players[i];
 
-			if (currentPlayer.position == position && currentPlayer.team == selectedTeam && currentPlayer.reserve == false) {
+			if (currentPlayer.position == position && currentPlayer.team == selectedTeamID && currentPlayer.reserve == false) {
 				playerToBeReplaced = Object.assign({}, currentPlayer);
 				console.log("Ja sam igrac u else na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
+				document.getElementById("text-message").innerHTML = "You have clicked on the " + currentPlayer.firstName + " " + currentPlayer.lastName + " and he will be replaced by the next clicked player!";
 			}
 		}
 	}
 
-	function playersSubstitution(playerToBeReplaced, playerToReplace, players) {
+	function playersSubstitution(playerToBeReplaced, playerToReplace, players, selectedTeamID) {
 		console.log("Prosledjeni prvi kliknuti igrac u players substitution funkciju: ", playerToBeReplaced);
 		console.log("Prosledjeni drugi kliknuti igrac u players substitution funkciju: ", playerToReplace);
 		console.log("Prosledjeni niz u players substitution funkciju: ", players);
@@ -129,7 +142,8 @@ function changePlayer(position, side) {
 			} 
 			if (currentPlayer.id == playerToReplace.id) {
 				currentPlayer.position = playerToBeReplaced.position;
-			} 
+			}
+			 
 			newPlayerPositions.push(currentPlayer);
 		}
 

@@ -57,38 +57,38 @@ var dbFunc = {
 			items = [];
 		}
 
-		return items;
+		return items
 	},
-	generateID: function (table) {
-		console.log(`Table ${table}`);
+	generateID: function (item) {
+		console.log(`item ${item}`);
 
-		var helper = localStorage.getItem(table);
-		var tables; 
+		var helper = localStorage.getItem(item);
+		var items; 
 
 		if (helper) {
-			tables = JSON.parse(helper);
+			items = JSON.parse(helper);
 		} else {
-			tables = [];
+			items = [];
 		}
 
 		var id = 1;
 		var max = 0;
 
-		for (var i = 0; i < tables.length; i++) {
-			var currentTable = tables[i];
-			console.log(`Ja sam trenutni id u nizu ${currentTable.id}`);
+		for (var i = 0; i < items.length; i++) {
+			var currentItem = items[i];
+			console.log(`Ja sam trenutni id u nizu ${currentItem.id}`);
 
-			if (currentTable.id > max) {
-				max = currentTable.id;
+			if (currentItem.id > max) {
+				max = currentItem.id;
 				console.log(`MAX ${max}`);
 			}
 		}
 
 		return max + 1;
 	},
-	saveToLocalStorage: function (arr, table) {
+	saveToLocalStorage: function (arr, item) {
 		console.log("Save to local storage!");
-		localStorage.setItem(table, JSON.stringify(arr));
+		localStorage.setItem(item, JSON.stringify(arr));
 	},
 	setPlayersForm: function (playerID, currentForm) {
 		var players = this.getPlayers();
