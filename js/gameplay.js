@@ -35,25 +35,18 @@ function displayPlayers(selectedTeamID, newGame, side) {
 	}
 }
 
-function getSelectedTeamID(side) {
-	var mojTim = document.getElementById(`select-${side}-team`);
-	var selectedTeamID = mojTim.options[mojTim.selectedIndex].value;
-
-	return selectedTeamID;
-}
-
 function selectTeam(side) {
 	tpFunc.resetTeam(side);
 
-	var selectedTeamID = getSelectedTeamID(side);
-	/*
+	var selectedTeamID = tpFunc.getSelectedTeamID(side);
+	
 	if (side == 'left') {
 		tpFunc.populateSelectTeamOptions('right', selectedTeamID);
 	} 
 	else if (side == 'right') {
 		tpFunc.populateSelectTeamOptions('left', selectedTeamID);
 	}
-	*/
+	
 	displayPlayers(selectedTeamID, true, side);
 };
 
@@ -86,7 +79,7 @@ function changePlayer(position, side) {
 	console.log(`Ja sam prosledjena pozicija igraca u change player funkciju ${position}`);
 	console.log(`Ja sam prosledjena strana tima u change player funkciju ${side}`);
 
-	var selectedTeamID = getSelectedTeamID(side);
+	var selectedTeamID = tpFunc.getSelectedTeamID(side);
 
 	var players = dbFunc.getPlayers();
 	
@@ -127,7 +120,7 @@ function changePlayer(position, side) {
 		}
 	}
 
-	function playersSubstitution(playerToBeReplaced, playerToReplace, players, selectedTeamID) {
+	function playersSubstitution(playerToBeReplaced, playerToReplace, players) {
 		console.log("Prosledjeni prvi kliknuti igrac u players substitution funkciju: ", playerToBeReplaced);
 		console.log("Prosledjeni drugi kliknuti igrac u players substitution funkciju: ", playerToReplace);
 		console.log("Prosledjeni niz u players substitution funkciju: ", players);

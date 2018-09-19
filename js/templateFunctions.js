@@ -29,19 +29,24 @@ var tpFunc = {
 			document.getElementById("choose-team").innerHTML += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
 		}
 	},
-	populateSelectTeamOptions: function (side, selectedTeamID) {
+	populateSelectTeamOptions: function (side, opositeTeamID) {
+		var teamID = this.getSelectedTeamID(side);
+
 		var teams = dbFunc.getTeams();
-		var template = '<option value=""> -- select an option -- </option>';
+		
+		var template = '<option value="0"> -- select an option -- </option>';
 
 		for (var i = 0; i < teams.length; i++) {
 			var currentTeam = teams[i];
 
-			if (currentTeam.id != selectedTeamID) {
+			if (currentTeam.id != opositeTeamID) {
 				template += "<option value=" + currentTeam.id + ">" + currentTeam.name + "</option>";
 			}
 		}
 
 		document.getElementById("select-" + side + "-team").innerHTML = template;
+
+		this.setSelectedTeamID(side, teamID);
 	},
 	appendPlayerToPitch: function (player, newGame, side) {
 		console.log('Ja sam prosledjeni igrac u append funkciju: ', player);
@@ -80,4 +85,17 @@ var tpFunc = {
 
 		document.getElementById(`${side}-team-standard`).innerHTML = template;
 	},
+	getSelectedTeamID: function (side, teamID) {
+		var mojTim = document.getElementById(`select-${side}-team`);
+		var selectedTeamID = 0;
+
+		if (mojTim.options[mojTim.selectedIndex] != undefined) {
+			selectedTeamID = mojTim.options[mojTim.selectedIndex].value;
+		} 
+	
+		return selectedTeamID;
+	},
+	setSelectedTeamID: function (side, currentTeamID) {
+		document.getElementById(`select-${side}-team`).value = currentTeamID;
+	}
 };
