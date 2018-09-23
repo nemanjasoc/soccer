@@ -96,6 +96,7 @@ var dbFunc = {
 
 		for (var i = 0; i < players.length; i++) {
 			var currentPlayer = players[i];
+
 			if (currentPlayer.id == playerID) {
 				currentPlayer.form = currentForm; 
 			}
@@ -108,8 +109,20 @@ var dbFunc = {
 
 		for (var i = 0; i < players.length; i++) {
 			var currentPlayer = players[i];
+
 			if (currentPlayer.id == playerID) {
 				return currentPlayer.form;
+			}
+		}
+	},
+	getPlayerByID: function (playerID) {
+		var players = this.getPlayers();
+
+		for (var i = 0; i < players.length; i++) {
+			var currentPlayer = players[i];
+
+			if (currentPlayer.id == playerID) {
+				return currentPlayer;
 			}
 		}
 	}

@@ -51,37 +51,38 @@ var tpFunc = {
 	appendPlayerToPitch: function (player, newGame, side) {
 		console.log('Ja sam prosledjeni igrac u append funkciju: ', player);
 
-		var positionInTeam = side + "-team-" + player.position;
+		var positionInTeam = document.getElementById(side + "-team-" + player.position);
+		positionInTeam.setAttribute('data-id', player.id);
 
 		var template = '<div class="number">' + player.number +
 		'</div><div class="name">' + player.firstName + " " + player.lastName + 
 		'</div><div class="event-buttons"><div class="standard-position">' + player.position + '</div><div class="condition">' + getPlayerCondition(newGame, player.id) + '</div></div>' 
 
-		document.getElementById(positionInTeam).innerHTML = template;
+		positionInTeam.innerHTML += template;
 	},
 	appendReservePlayerToBench: function (player, newGame, side) {
-		var leftTeamReserve = document.getElementById(side + "-team-reserve");
+		var reserveTeam = document.getElementById(side + "-team-reserve");
 
-		var template = '<div class="reserve-player-data"><div class="reserve-position">' + player.position + '</div><div class="reserve-number">' + player.number +
+		var template = `<div id="reserve-player-data" onClick="changePlayer(this, '${side}')" data-id="${player.id}"><div class="reserve-position">` + player.position + '</div><div class="reserve-number">' + player.number +
 		'</div><div class="reserve-name">' + player.firstName + " " + player.lastName + '</div><div class="condition">' + getPlayerCondition(newGame, player.id) + '</div></div>' 
 
-		leftTeamReserve.innerHTML = leftTeamReserve.innerHTML + template;
+		reserveTeam.innerHTML += template;
 	},
 	resetTeam: function (side) {
 		var template = `<img src="img/football-pitch.jpg">` +			
-							`<div id="${side}-team-GK" onClick="changePlayer('GK', '${side}')">GK</div>` +
-							`<div id="${side}-team-RB" onClick="changePlayer('RB', '${side}')">RB</div>` +
-							`<div id="${side}-team-LB" onClick="changePlayer('LB', '${side}')">LB</div>` +
-							`<div id="${side}-team-RCB" onClick="changePlayer('RCB', '${side}')">RCB</div>` +
-							`<div id="${side}-team-LCB" onClick="changePlayer('LCB', '${side}')">LCB</div>` +
-							`<div id="${side}-team-RCM" onClick="changePlayer('RCM', '${side}')">RCM</div>` +
-							`<div id="${side}-team-LCM" onClick="changePlayer('LCM', '${side}')">LCM</div>` +
-							`<div id="${side}-team-RM" onClick="changePlayer('RM', '${side}')">RM</div>` +
-							`<div id="${side}-team-LM" onClick="changePlayer('LM', '${side}')">LM</div>` +
-							`<div id="${side}-team-RCF" onClick="changePlayer('RCF', '${side}')">RCF</div>` +
-							`<div id="${side}-team-LCF" onClick="changePlayer('LCF', '${side}')">LCF</div>` +
+							`<div id="${side}-team-GK" onClick="changePlayer(this, '${side}')">GK</div>` +
+							`<div id="${side}-team-RB" onClick="changePlayer(this, '${side}')">RB</div>` +
+							`<div id="${side}-team-LB" onClick="changePlayer(this, '${side}')">LB</div>` +
+							`<div id="${side}-team-RCB" onClick="changePlayer(this, '${side}')">RCB</div>` +
+							`<div id="${side}-team-LCB" onClick="changePlayer(this, '${side}')">LCB</div>` +
+							`<div id="${side}-team-RCM" onClick="changePlayer(this, '${side}')">RCM</div>` +
+							`<div id="${side}-team-LCM" onClick="changePlayer(this, '${side}')">LCM</div>` +
+							`<div id="${side}-team-RM" onClick="changePlayer(this, '${side}')">RM</div>` +
+							`<div id="${side}-team-LM" onClick="changePlayer(this, '${side}')">LM</div>` +
+							`<div id="${side}-team-RCF" onClick="changePlayer(this, '${side}')">RCF</div>` +
+							`<div id="${side}-team-LCF" onClick="changePlayer(this, '${side}')">LCF</div>` +
 
-							`<div id="${side}-team-reserve" onClick="changePlayer()"></div>`
+							`<div id="${side}-team-reserve"></div>`
 
 		document.getElementById(`${side}-team-standard`).innerHTML = template;
 	},
@@ -89,13 +90,13 @@ var tpFunc = {
 		var mojTim = document.getElementById(`select-${side}-team`);
 		var selectedTeamID = 0;
 
-		if (mojTim.options[mojTim.selectedIndex] != undefined) {
+		if (mojTim.options[mojTim.selectedIndex] !== undefined) {
 			selectedTeamID = mojTim.options[mojTim.selectedIndex].value;
 		} 
 	
 		return selectedTeamID;
 	},
-	setSelectedTeamID: function (side, currentTeamID) {
-		document.getElementById(`select-${side}-team`).value = currentTeamID;
+	setSelectedTeamID: function (side, teamID) {
+		document.getElementById(`select-${side}-team`).value = teamID;
 	}
 };
