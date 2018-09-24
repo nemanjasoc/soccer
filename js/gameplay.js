@@ -120,12 +120,19 @@ function changePlayer(clickedElement, side) {
 			if (currentPlayer.id == playerToBeReplaced.id) {
 				currentPlayer.position = playerToReplace.position;
 				currentPlayer.reserve = playerToReplace.reserve;
+
+				if (currentPlayer.reserve) {
+					currentPlayer.position = playerToBeReplaced.originalPosition;
+				}	
 			}
 			if (currentPlayer.id == playerToReplace.id) {
 				currentPlayer.position = playerToBeReplaced.position;
 				currentPlayer.reserve = playerToBeReplaced.reserve;
+
+				if (currentPlayer.reserve) {
+					currentPlayer.position = playerToReplace.originalPosition;
+				}	
 			}
-			
 			newPlayerPositions.push(currentPlayer);
 		}
 

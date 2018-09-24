@@ -231,7 +231,8 @@ function createPlayer(ime, prezime, broj) {
 		number: broj,
 		reserve: rezerva,
 		team: izabraniTim,
-		position: izabranaPozicija
+		position: izabranaPozicija,
+		originalPosition: izabranaPozicija
 	};
 
 	console.log(`Kreirani igrac ${player}`);
