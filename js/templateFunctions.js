@@ -69,18 +69,18 @@ var tpFunc = {
 		reserveTeam.innerHTML += template;
 	},
 	resetTeam: function (side) {
-		var template = `<img src="img/football-pitch.jpg">` +			
-							`<div id="${side}-team-GK" onClick="changePlayer(this, '${side}')">GK</div>` +
-							`<div id="${side}-team-RB" onClick="changePlayer(this, '${side}')">RB</div>` +
-							`<div id="${side}-team-LB" onClick="changePlayer(this, '${side}')">LB</div>` +
-							`<div id="${side}-team-RCB" onClick="changePlayer(this, '${side}')">RCB</div>` +
-							`<div id="${side}-team-LCB" onClick="changePlayer(this, '${side}')">LCB</div>` +
-							`<div id="${side}-team-RCM" onClick="changePlayer(this, '${side}')">RCM</div>` +
-							`<div id="${side}-team-LCM" onClick="changePlayer(this, '${side}')">LCM</div>` +
-							`<div id="${side}-team-RM" onClick="changePlayer(this, '${side}')">RM</div>` +
-							`<div id="${side}-team-LM" onClick="changePlayer(this, '${side}')">LM</div>` +
-							`<div id="${side}-team-RCF" onClick="changePlayer(this, '${side}')">RCF</div>` +
-							`<div id="${side}-team-LCF" onClick="changePlayer(this, '${side}')">LCF</div>` +
+		var template = `<img src="img/football_pitch.jpg">` +			
+							`<div id="${side}-team-GK" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-RB" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-LB" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-RCB" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-LCB" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-RCM" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-LCM" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-RM" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-LM" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-RCF" onClick="changePlayer(this, '${side}')"></div>` +
+							`<div id="${side}-team-LCF" onClick="changePlayer(this, '${side}')"></div>` +
 
 							`<div id="${side}-team-reserve"></div>`
 

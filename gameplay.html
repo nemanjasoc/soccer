@@ -10,22 +10,24 @@
 </head>
 <body>
     <div class="football-stadium">
-        <div class="football-pitch">
-            <div id="left-team-standard"></div> 
-            <div id="right-team-standard"></div> 
-        </div>
-
-        <div class="select-team">
-            <h4>Team one:</h4>
-            <select name="selectTeam-1" id="select-left-team" onchange="selectTeam('left')">
+        <div class="football-pitch-left">
+            <div id="home-page-left" onClick="toHomepage()">Home page</div>
+            <div id="left-team-standard"></div>
+            <select name="selectTeam-1" id="select-left-team" id="captain-1" onchange="selectTeam('left')">
             </select>
-            <h4>Team two:</h4>
-            <select name="selectTeam-2" id="select-right-team" onchange="selectTeam('right')">
-            </select>
+            <div class="message-left">
+                <div id="text-message-left"></div>
+            </div>
         </div>
-        <div id="home-page" onClick="toHomepage()">Home page</div>
-        <div class="message">
-            <div id="text-message"></div>
+        
+        <div class="football-pitch-right">
+            <div id="home-page-right" onClick="toHomepage()">Home page</div>
+            <div id="right-team-standard"></div>
+            <select name="selectTeam-2" id="select-right-team" id="captain-2" onchange="selectTeam('right')">
+            </select>
+            <div class="message-right">
+                <div id="text-message-right"></div>
+            </div>
         </div>
     </div>
     <script src="js/databaseFunctions.js"></script>

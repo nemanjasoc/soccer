@@ -5,23 +5,31 @@ body {
 .football-stadium {
     background-image: url("../img/champions-league.jpg");
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
-}
-
-.football-pitch {
-    width: 100%;
-    background: #a4a3a3b5;
     display: flex;
+	flex-wrap: wrap;
 }
 
-.football-pitch img {
-    max-width: 900px;
+.football-pitch-left,
+.football-pitch-right {
+    max-width: 745px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #a4a3a3b5;
+    margin: 4% auto;
+}
+
+.football-pitch-left img,
+.football-pitch-right img {
+	max-width: 900px;
     width: 100%;
     max-height: 600px;
-    height: 100%;
+    height: 80%;
     margin-bottom: 4%;
+    margin-left: 5%;
+    margin-top: 2%;
+    border: 3px solid white;
 }
 
 /*Left standard players position (formation 4-4-2)*/
@@ -32,7 +40,6 @@ body {
     display: flex;
     max-width: 410px;
     width: 100%;
-    margin-right: 25%;
 } 
 
 #left-team-standard > div,
@@ -41,115 +48,115 @@ body {
 }
 
 #left-team-GK {
-    top: 82%;
+    top: 79%;
     left: 39%;
 }
 
 #left-team-RB {
-    top: 66%;
-    left: 69%;
+    top: 61%;
+    left: 66%;
 }
 
 #left-team-LB {
-    top: 66%;
-    left: 5%;
+    top: 61%;
+    left: 7%;
 }
 
 #left-team-RCB {
-    top: 75%;
-    left: 58%;
+    top: 70%;
+    left: 54%;
 }
 
 #left-team-LCB {
-    top: 75%;
-    left: 21%;
+    top: 70%;
+    left: 26%;
 }
 
 #left-team-RCM {
-    top: 53%;
+    top: 48%;
     left: 55%;
 }
 
 #left-team-LCM {
-    top: 53%;
-    left: 27%;
+    top: 48%;
+    left: 26%;
 }
 
 #left-team-RM {
-    top: 32%;
-    left: 73%;;
+    top: 28%;
+    left: 67%;;
 }
 
 #left-team-LM {
-    top: 32%;
+    top: 28%;
     left: 10%;
 }
 
 #left-team-RCF {
-    top: 14%;
-    left: 54%;
+    top: 12%;
+    left: 59%;
 }
 
 #left-team-LCF {
-    top: 14%;
-    left: 29%;
+    top: 12%;
+    left: 18%;
 }
 
 /*Right standard players position (formation 4-4-2)*/
 
 #right-team-GK {
-    top: 82%;
-    left: 42%;
+    top: 79%;
+    left: 41%;
 }
 
 #right-team-RB {
-    top: 66%;
-    left: 68%;
+    top: 61%;
+    left: 67%;
 }
 
 #right-team-LB {
-    top: 66%;
-    left: 5%;
+    top: 61%;
+    left: 8%;
 }
 
 #right-team-RCB {
-    top: 75%;
-    left: 58%;
+    top: 70%;
+    left: 53%;
 }
 
 #right-team-LCB {
-    top: 75%;
+    top: 70%;
     left: 22%
 }
 
 #right-team-RCM {
-    top: 53%;
-    left: 56%;
+    top: 48%;
+    left: 54%;
 }
 
 #right-team-LCM {
-    top: 53%;
-    left: 26%;
+    top: 48%;
+    left: 24%;
 }
 
 #right-team-RM {
-    top: 32%;
-    left: 72%;
+    top: 28%;
+    left: 66%;
 }
 
 #right-team-LM {
-    top: 32%;
-    left: 9%;
+    top: 28%;
+    left: 10%;
 }
 
 #right-team-RCF {
-    top: 14%;
+    top: 12%;
     left: 54%;
 }
 
 #right-team-LCF {
-    top: 14%;
-    left: 27%;
+    top: 12%;
+    left: 15%;
 }
 
 .number {
@@ -271,56 +278,242 @@ body {
 
 /*Select team*/
 
-.select-team {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-h4 {
-    margin-top: 10px;
-    color: white;
-}
-
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    background: white;
-    color: black;
+    background: #102bee8a;
+    color: white;
     font-size: 18px;
     text-align: left;
     max-width: 190px;
     width: 100%;
-    margin-right: 34%;
     height: 40px;
+    margin-left: 3%;
+    cursor: pointer;
 }
 
 /*Back on first page*/
 
-#home-page {
-    width: 100%;
-    max-width: 120px;
-    font-size: 14px;
+#home-page-left,
+#home-page-right {
+    max-width: 200px;
+    width: 40%;
+    font-size: 16px;
     color: white;
     background-color: cadetblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    border: 1px solid #aac9ca;
-    margin-top: 50px;
+    max-height: 25px;
+    height: 100%;
+ 	border: 1px solid #aac9ca;
     cursor: pointer;
+    text-align: center;
+    padding-top: 5px;
+    margin-left: 3%;
+    box-shadow: 3px 3px;
 }
 
-.message {
+.message-left,
+.message-right {
 	display: flex;
-	justify-content: center;
+    justify-content: flex-start;
+    margin-top: 5px;
+    margin-left: 3%;
 }
 
-#text-message {
+#text-message-left,
+#text-message-right {
 	color: white;
     font-size: 16px;
-    background: #0e50e6;
-    max-width: 400px;
-    width: 50%;
-    text-align: center;
+    background: #e60e3a7a;
+    max-width: 385px;
+    width: 100%;
+    max-height: 40px;
+    height: 100%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+/*Media query*/
+
+@media screen and (max-width: 800px) {
+.football-pitch-left,
+.football-pitch-right {
+    width: 90%;
+}
+
+.football-pitch-left img,
+.football-pitch-right img {
+    width: 91%;
+}
+
+#left-team-standard,
+#right-team-standard {
+    width: 80%;
+    font-size: 12px;
+}
+
+.number,
+.reserve-number {
+    font-size: 12px;
+}
+
+.name,
+.reserve-name {
+    font-size: 12px;
+}
+
+.standard-position,
+.reserve-position {
+    font-size: 12px;
+    max-width: 30px;
+}
+
+#left-team-reserve,
+#right-team-reserve {
+	max-width: 215px;
+    left: 100%;
+}
+
+select[name=selectTeam-1],
+select[name=selectTeam-2] {
+    font-size: 15px;
+    max-width: 160px;
+    height: 30px;
+}
+
+#home-page-left,
+#home-page-right {
+    max-width: 180px;
+    font-size: 14px;
+    max-height: 18px;
+}
+
+#text-message-left,
+#text-message-right {
+    font-size: 14px;
+    max-width: 380px;
+    max-height: 30px;
+}
+}
+
+@media screen and (max-width: 735px) {
+.football-pitch-left,
+.football-pitch-right {
+    width: 95%;
+}
+
+.football-pitch-left img,
+.football-pitch-right img {
+    width: 88%;
+}
+
+#left-team-standard,
+#right-team-standard {
+    width: 71%;
+    font-size: 11px;
+}
+
+.number,
+.reserve-number {
+    font-size: 10px;
+}
+
+.name,
+.reserve-name {
+    font-size: 10px;
+}
+
+.standard-position,
+.reserve-position {
+    font-size: 10px;
+    max-width: 25px;
+}
+
+#left-team-reserve,
+#right-team-reserve {
+	max-width: 200px;
+    left: 98%;
+}
+
+select[name=selectTeam-1],
+select[name=selectTeam-2] {
+    font-size: 13px;
+    max-width: 140px;
+    height: 25px;
+}
+
+#home-page-left,
+#home-page-right {
+    max-width: 160px;
+    font-size: 13px;
+    max-height: 17px;
+}
+
+#text-message-left,
+#text-message-right {
+    font-size: 13px;
+    max-width: 370px;
+    max-height: 28px;
+}
+}
+
+@media screen and (max-width: 650px) {
+.football-pitch-left,
+.football-pitch-right {
+    width: 98%;
+}
+
+.football-pitch-left img,
+.football-pitch-right img {
+    width: 80%;
+}
+
+#left-team-standard,
+#right-team-standard {
+    width: 75%;
+    font-size: 9px;
+}
+
+.number,
+.reserve-number {
+    font-size: 9px;
+}
+
+.name,
+.reserve-name {
+    font-size: 9px;
+}
+
+.standard-position,
+.reserve-position {
+    font-size: 9px;
+    max-width: 21px;
+}
+
+#left-team-reserve,
+#right-team-reserve {
+	max-width: 280px;
+	width: 40%;
+    left: 90%;
+}
+
+select[name=selectTeam-1],
+select[name=selectTeam-2] {
+    font-size: 12px;
+    max-width: 120px;
+    height: 23px;
+}
+
+#home-page-left,
+#home-page-right {
+    max-width: 140px;
+    font-size: 12px;
+    max-height: 16px;
+}
+
+#text-message-left,
+#text-message-right {
+    font-size: 12px;
+    max-width: 340px;
+    width: 65%;
+    max-height: 28px;
+}	
 }

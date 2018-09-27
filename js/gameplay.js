@@ -88,7 +88,7 @@ function changePlayer(clickedElement, side) {
 
 		var playerToReplace = dbFunc.getPlayerByID(playerID);
 		console.log("Ja sam igrac na koga je drugo kliknuto i koji ce da zameni prvog: ", playerToReplace);
-		document.getElementById("text-message").innerHTML = '';
+		document.getElementById("text-message-" + side).innerHTML = '';
 		
 		if (playerToReplace.team == playerToBeReplaced.team) {
    			playersSubstitution(playerToBeReplaced, playerToReplace, players);
@@ -104,7 +104,7 @@ function changePlayer(clickedElement, side) {
 	} else {
 		playerToBeReplaced = dbFunc.getPlayerByID(playerID);
 		console.log("Ja sam igrac na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
-		document.getElementById("text-message").innerHTML = "You have clicked on the " + playerToBeReplaced.firstName + " " + playerToBeReplaced.lastName + " and he will be replaced by the next clicked player!";
+		document.getElementById("text-message-" + side).innerHTML = "You have clicked on " + playerToBeReplaced.firstName + " " + playerToBeReplaced.lastName + " and he will be replaced by the next clicked player!";
 	}
 
 	function playersSubstitution(playerToBeReplaced, playerToReplace, players, selectedTeamID) {
