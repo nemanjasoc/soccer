@@ -15,7 +15,7 @@ function appendStandardAndReserveTeam(player, newGame, side) {
  		tpFunc.appendReservePlayerToBench(player, newGame, side);
 	} else {
 		tpFunc.appendPlayerToPitch(player, newGame, side);
-	}
+	} 
 }
 
 function displayPlayers(selectedTeamID, newGame, side) {

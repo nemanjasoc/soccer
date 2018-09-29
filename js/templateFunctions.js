@@ -34,7 +34,7 @@ var tpFunc = {
 
 		var teams = dbFunc.getTeams();
 		
-		var template = '<option value="0"> -- select an option -- </option>';
+		var template = '<option value="0">  select an option  </option>';
 
 		for (var i = 0; i < teams.length; i++) {
 			var currentTeam = teams[i];
