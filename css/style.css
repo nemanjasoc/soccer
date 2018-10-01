@@ -37,8 +37,9 @@ body {
     align-items: center;
     height: 60px;
     border: 1px solid #aac9ca;
-    margin-top: 10px;
+    margin-top: 15px;
     cursor: pointer;
+    box-shadow: 10px 10px 4px #000000b5;
 }
 
 /*Modals*/
