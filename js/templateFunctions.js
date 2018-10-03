@@ -82,7 +82,9 @@ var tpFunc = {
 							`<div id="${side}-team-RCF" onClick="changePlayer(this, '${side}')"></div>` +
 							`<div id="${side}-team-LCF" onClick="changePlayer(this, '${side}')"></div>` +
 
-							`<div id="${side}-team-reserve"></div>`
+							`<div id="${side}-team-reserve"></div>` +
+
+							`<div id="${side}-team-formation"></div>`
 
 		document.getElementById(`${side}-team-standard`).innerHTML = template;
 	},

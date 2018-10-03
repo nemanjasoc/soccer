@@ -38,8 +38,10 @@ function displayPlayers(selectedTeamID, newGame, side) {
 function selectTeam(side) {
 	tpFunc.resetTeam(side);
 
+	document.getElementById(side + "-team-formation").innerHTML = "4-4-2";
+
 	var selectedTeamID = tpFunc.getSelectedTeamID(side);
-	
+
 	if (side == 'left') {
 		tpFunc.populateSelectTeamOptions('right', selectedTeamID);
 	} 

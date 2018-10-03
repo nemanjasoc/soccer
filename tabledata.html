@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Data</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gameplay.css">
+    <link rel="stylesheet" href="css/tabledata.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+</head>
+<body>
+    <div class="table-header">
+        <div id="home-page" onClick="backToHomepage()"><i class="fa fa-home" aria-hidden="true"></i>
+         </div>
+        <h1>Data table<h1>
+    </div>
+
+    <div class="main-content">
+        <div class="data">
+            <div id="managers" onClick="getDataManagers()">Managers</div>
+            <div id="teams">Teams</div>
+            <div id="players">Players</div>
+            <div id="empty-box"></div>
+        </div>
+        <div id="data-show">
+            <table id="table-manager">
+            </table>
+        </div> 
+    </div>
+    <script src="js/tabledata.js"></script>
+    <script src="js/databaseFunctions.js"></script>
+    <script src="js/templateFunctions.js"></script>
+    <script src="js/gameplay.js"></script>
+</body>
+</html>

@@ -324,8 +324,6 @@ select[name=selectTeam-2] {
 
 .message-left,
 .message-right {
-	display: flex;
-    justify-content: flex-start;
     margin-top: 5px;
     margin-left: 3%;
 }
@@ -341,6 +339,15 @@ select[name=selectTeam-2] {
     height: 100%;
     border-radius: 3px;
     box-shadow: 8px 8px 6px #0000009c;
+}
+
+#left-team-formation,
+#right-team-formation {
+    margin-left: 80%;
+    margin-top: 121%;
+    font-size: 23px;
+    color: white;
+    font-weight: bold;
 }
 
 /*Media query*/
@@ -380,6 +387,13 @@ select[name=selectTeam-2] {
 #text-message-left,
 #text-message-right {
     max-width: 370px;
+}
+
+#left-team-formation,
+#right-team-formation {
+    margin-left: 78%;
+    margin-top: 124%;
+    font-size: 23px;
 }
 }
 
@@ -441,6 +455,13 @@ select[name=selectTeam-2] {
 #text-message-right {
     max-width: 310px;
     font-size: 15px;
+}
+
+#left-team-formation,
+#right-team-formation {
+    margin-left: 83%;
+    margin-top: 156%;
+    font-size: 20px;
 }
 }
 
@@ -504,6 +525,13 @@ select[name=selectTeam-2] {
     max-width: 296px;
     font-size: 13px;
 }
+
+#left-team-formation,
+#right-team-formation {
+	margin-left: 79%;
+	margin-top: 161%;
+	font-size: 20px;
+}
 }
 
 @media screen and (max-width: 1200px) {
@@ -563,6 +591,13 @@ select[name=selectTeam-2] {
 #text-message-right {
     max-width: 260px;
     font-size: 12px;
+}
+
+#left-team-formation,
+#right-team-formation {
+	margin-left: 77%;
+    margin-top: 180%;
+    font-size: 18px;
 }
 }
 
@@ -628,6 +663,13 @@ select[name=selectTeam-2] {
     font-size: 16px;
     max-width: 400px;
 }
+
+#left-team-formation,
+#right-team-formation {
+	margin-left: 81%;
+	margin-top: 121%;
+	font-size: 23px;
+}
 }
 
 @media screen and (max-width: 992px) {
@@ -664,6 +706,13 @@ select[name=selectTeam-2] {
 #text-message-left,
 #text-message-right {
     max-width: 380px;
+}
+
+#left-team-formation,
+#right-team-formation {
+    margin-left: 80%;
+    margin-top: 124%;
+    font-size: 23px;
 } 
 }
 
@@ -723,6 +772,13 @@ select[name=selectTeam-2] {
 #text-message-right {
     font-size: 14px;
     max-width: 310px;
+}
+
+#left-team-formation,
+#right-team-formation {
+	margin-left: 80%;
+	margin-top: 156%;
+	font-size: 20px;
 }
 }
 
@@ -785,6 +841,13 @@ select[name=selectTeam-2] {
     font-size: 11px;
     max-width: 260px;
 }
+
+#left-team-formation,
+#right-team-formation {
+	margin-left: 76%;
+	margin-top: 178%;
+	font-size: 18px;
+}
 }
 
 @media screen and (max-width: 530px) {
@@ -846,5 +909,12 @@ select[name=selectTeam-2] {
 #text-message-right {
     font-size: 10px;
     max-width: 200px;
+}
+
+#left-team-formation,
+#right-team-formation {
+    margin-left: 76%;
+    margin-top: 238%;
+    font-size: 15px;
 }
 }

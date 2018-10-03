@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/gameplay.css">
+	<link rel="stylesheet" href="css/tabledata.css">
 	<link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
 </head>
 <body>
@@ -13,7 +14,8 @@
 		<div class="tiles-container">	
 			<div onClick="showManagerForm()">Create manager</div>
 			<div onClick="showTeamForm()">Create team</div>
-			<div onClick="showPlayerForm()">Create player</div>		
+			<div onClick="showPlayerForm()">Create player</div>
+			<div onClick="toTableData()">Table data</div>		
 			<div onClick="playGame()">Play game</div>	
 		</div>
 	</div>
@@ -69,8 +71,10 @@
 			</form>
 		</div>
 	</div>
+	<script src="js/tabledata.js"></script>
 	<script src="js/databaseFunctions.js"></script>
 	<script src="js/templateFunctions.js"></script>
+	<script src="js/gameplay.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>

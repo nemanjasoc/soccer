@@ -275,3 +275,7 @@ function checkPlayerNumber(player) {
 
 	return false;
 }
+
+function toTableData() {
+	window.location.href = './tabledata.html';
+}
