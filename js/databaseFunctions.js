@@ -137,12 +137,7 @@ var dbFunc = {
 				newManagers.push(currentManager);
 			}
 		}
-
-		if (confirm("Are you sure you want to delete this row?")) {
-			localStorage.setItem("managers", JSON.stringify(newManagers));
-		} else {
-			false;
-		}
+		localStorage.setItem("managers", JSON.stringify(newManagers));
 	},
 	editManager: function (manager) {
 		console.log("Prosledjeni menadzer: ", manager);

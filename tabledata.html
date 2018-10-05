@@ -16,14 +16,16 @@
         <h1>Data table<h1>
     </div> 
 
-    <div class="main-content">
-        <div class="data">
+    <div class="main-container">
+        <div class="aside">
             <div id="managers" onClick="getDataManagers()">Managers</div>
             <div id="teams">Teams</div>
             <div id="players">Players</div>
             <div id="empty-box"></div>
         </div>
-        <div id="data-show">
+        <div id="main-content">
+            <div id="caption-manager">
+            </div>
             <table id="table-manager">
             </table>
         </div> 
@@ -41,18 +43,6 @@
             </form>
         </div>
     </div> 
-
-    <div id="my-manager" class="modal">
-        <div class="modal-content">
-            <span class="close" onClick="closeManagerModal()">&times;</span>
-            <form>
-                <label>Manager:</label>
-                <input type="text" name="manager" id="current-manager">
-                <button type="button" onClick="editManager()">Create</button>
-                <div id="snackbar-manager">You didn't create manager!</div>
-            </form>
-        </div>
-    </div>
 
     <script src="js/tabledata.js"></script>
     <script src="js/databaseFunctions.js"></script>

@@ -4,6 +4,8 @@ body {
     margin: 0;
 }
 
+/*Header*/
+
 .table-header {
 	display: flex;
 	justify-content: space-between;
@@ -29,28 +31,34 @@ h1 {
     margin-top: 8px;
 }
 
-.main-content {
+/*Aside and main-content*/
+
+.main-container {
 	display: flex;
 	justify-content: space-between;
 	height: 100%;
 }
 
-.data {
+/*Managers, teams, players buttons and empty box*/
+
+.aside {
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
 	max-width: 260px;
 	width: 30%;
+	background-color: #80808036;
+	border-right: 1px solid #aac9ca;
 }
 
-.data > div {
+#managers,
+#teams,
+#players {
     font-size: 22px;
     color: cadetblue;
-    background-color: #80808036;
     display: flex;
     justify-content: center;
-    height: 12%;
-    border-right: 1px solid #aac9ca;
+    height: 100px;
     border-bottom: 1px solid #aac9ca;
     cursor: pointer;
     text-align: center;
@@ -58,22 +66,53 @@ h1 {
     transition: 0.3s;
 }
 
-.data > div:hover {
+#managers:hover,
+#teams:hover,
+#players:hover {
 	background: cadetblue;
 	color: white;
 }
 
-#empty-box {
-	height: 64%;
+/*Caption and table*/
+
+#main-content {
+	display: flex;
+    flex-direction: column;
+    max-width: 1300px;
+    width: 100%;
+    margin-top: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
-#data-show {
-    display: flex;
-    justify-content: center;
-    width: 75%;
-    margin-top: 1%;
-    margin-left: 5%;
-    margin-right: 5%;
+#caption-manager {
+	display: flex;
+	justify-content: space-between;
+	max-width: 1300px;
+    width: 100%;
+}
+
+p {
+	font-size: 22px;
+}
+
+#create-manager {
+	display: flex;
+	justify-content: center;
+    width: 150px;
+    height: 40px;
+    color: white;
+    background: #709863b5;
+    font-size: 15px;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid black;
+    transition: 0.3s;  
+}
+
+#create-manager:hover {
+	background: cadetblue;
 }
 
 table, tr {
@@ -138,34 +177,6 @@ td {
 
 #delete-button:hover {
 	background: cadetblue;
-}
-
-.caption-manager {
-	display: flex;
-	justify-content: space-between;
-}
-
-#create-manager {
-	display: flex;
-	justify-content: center;
-    width: 150px;
-    height: 40px;
-    color: white;
-    background: #709863b5;
-    font-size: 15px;
-    align-items: center;
-    border-radius: 4px;
-    cursor: pointer;
-    border: 1px solid black;
-    transition: 0.3s;  
-}
-
-#create-manager:hover {
-	background: cadetblue;
-}
-
-.caption {
-
 }
 
 /*Modals*/

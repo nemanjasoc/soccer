@@ -83,17 +83,24 @@ function resetManagerForm() {
 	document.getElementById('current-manager').value = '';
 }
 
+function deleteManager(managerId) {
+	if (confirm("Are you sure you want to delete this row?")) {
+		dbFunc.deleteManager(managerId);
+		getDataManagers();
+	}
+}
+
 function getDataManagers() {
 	var managers = dbFunc.getManagers();
 
-	document.getElementById("table-manager").innerHTML = "<div class='caption-manager'><div class='caption'>Managers</div>" +
-	"<div id='create-manager' onClick='showManagerForm()'>Create manager</div></div>" + 
-	"<tr><th>ID</th><th>Name</th><th>Actions</th></tr>";
+	document.getElementById("caption-manager").innerHTML = "<p>Managers<p><div id='create-manager' onClick='showManagerForm()'>Create manager</div>"
+
+	document.getElementById("table-manager").innerHTML = "<tr><th>ID</th><th>Name</th><th>Actions</th></tr>";
 
 	for (var i = 0; i < managers.length; i++) {
 		var manager = managers[i];
 
 		document.getElementById("table-manager").innerHTML += "<tr><td>" + manager.id + "</td><td>" + manager.name + "</td>" + 
-		`<td><div class='action-buttons'><div id='edit-button' onClick='dbFunc.editManager("${manager}")'>Edit</div><div id='delete-button' onClick='dbFunc.deleteManager("${manager.id}")'>Delete</div></div></td></tr>`;  
+		`<td><div class='action-buttons'><div id='edit-button' onClick='editManager("${manager}")'>Edit</div><div id='delete-button' onClick='deleteManager("${manager.id}")'>Delete</div></div></td></tr>`;  
 	}
 }
