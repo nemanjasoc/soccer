@@ -125,5 +125,42 @@ var dbFunc = {
 				return currentPlayer;
 			}
 		}
+	},
+	deleteManager: function (managerId) {
+		var managers = dbFunc.getManagers();
+		var newManagers = [];
+
+		for (var i = 0; i < managers.length; i++) {
+			var currentManager = managers[i];
+
+			if (currentManager.id != managerId) {
+				newManagers.push(currentManager);
+			}
+		}
+
+		if (confirm("Are you sure you want to delete this row?")) {
+			localStorage.setItem("managers", JSON.stringify(newManagers));
+		} else {
+			false;
+		}
+	},
+	editManager: function (manager) {
+		console.log("Prosledjeni menadzer: ", manager);
+		managerModal.style.display = "flex";
+
+		var managers = dbFunc.getManagers();
+
+		var newManagers = [];
+		
+		for (var i = 0; i < managers.length; i++) {
+			var currentManager = managers[i];
+
+			if (currentManager.id == manager.id) {
+				
+			}
+			
+		}
+
+		localStorage.setItem("managers", JSON.stringify(newManagers));
 	}
 };

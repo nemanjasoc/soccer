@@ -14,7 +14,7 @@
         <div id="home-page" onClick="backToHomepage()"><i class="fa fa-home" aria-hidden="true"></i>
          </div>
         <h1>Data table<h1>
-    </div>
+    </div> 
 
     <div class="main-content">
         <div class="data">
@@ -28,9 +28,36 @@
             </table>
         </div> 
     </div>
+
+    <!-- MODALS -->
+    <div id="my-manager" class="modal">
+        <div class="modal-content">
+            <span class="close" onClick="closeManagerModal()">&times;</span>
+            <form>
+                <label>Manager:</label>
+                <input type="text" name="manager" id="current-manager">
+                <button type="button" onClick="createFootballManager()">Create</button>
+                <div id="snackbar-manager">You didn't create manager!</div>
+            </form>
+        </div>
+    </div> 
+
+    <div id="my-manager" class="modal">
+        <div class="modal-content">
+            <span class="close" onClick="closeManagerModal()">&times;</span>
+            <form>
+                <label>Manager:</label>
+                <input type="text" name="manager" id="current-manager">
+                <button type="button" onClick="editManager()">Create</button>
+                <div id="snackbar-manager">You didn't create manager!</div>
+            </form>
+        </div>
+    </div>
+
     <script src="js/tabledata.js"></script>
     <script src="js/databaseFunctions.js"></script>
     <script src="js/templateFunctions.js"></script>
     <script src="js/gameplay.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
