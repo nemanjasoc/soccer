@@ -6,7 +6,7 @@ var tpFunc = {
 
 		for (var i = 0; i < managers.length; i++) {
 			var currentManager = managers[i];
-			document.getElementById("choose-manager").innerHTML += "<option value=" + currentManager.id + ">" + currentManager.name + "</option>";
+			document.getElementById("choose-manager").innerHTML += "<option value=" + currentManager.id + ">" + currentManager.firstName +  " " + currentManager.lastName + "</option>";
 		}
 	},
 	populatePositionOptions: function () {

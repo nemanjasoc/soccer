@@ -35,30 +35,38 @@ window.onclick = function(event) {
 	}
 }
 
+function playGame() {
+	window.location.href = './gameplay.html';
+}
+
 function createFootballManager() {
-	var inputValue = document.getElementById("current-manager").value;
+	var inputValueFirstName = document.getElementById("current-manager-firstname").value;
+	var inputValueLastName = document.getElementById("current-manager-lastname").value;
 	var inputValueManager = document.getElementById("snackbar-manager");
 
-	if (inputValue === null || inputValue === undefined || inputValue.trim() === '') {
+	if (inputValueFirstName === null || inputValueFirstName === undefined || inputValueFirstName.trim() === ''  || inputValueLastName === null || inputValueLastName === undefined || inputValueLastName.trim() === '' ) {
 		inputValueManager.className = "show";
 		setTimeout(function(){ inputValueManager.className = inputValueManager.className.replace("show", ""); }, 3000);
 		return;
 	}
 
-	var manager = createManager(inputValue);
+	var manager = createManager(inputValueFirstName, inputValueLastName);
 	managers = updateManagers(manager);
 	dbFunc.saveToLocalStorage(managers, "managers");
+	getDataManagers();
 	closeManagerModal();
 	alert("Manager is created!");
 	resetManagerForm();
 }
 
-function createManager(managerName) {
+function createManager(managerFirstName, managerLastName) {
+	console.log("Prosledjeno: ",  managerFirstName, managerLastName)
 	var manager = {
-		name: managerName
+		firstName: managerFirstName,
+		lastName:  managerLastName
 	}
 
-	console.log(`Kreirani menadzer ${manager}`);
+	console.log(`Kreirani menadzer: `, manager);
 	manager.id = dbFunc.generateID('managers');
 	return manager;
 }
@@ -80,7 +88,8 @@ function updateManagers(manager) {
 }
 
 function resetManagerForm() {
-	document.getElementById('current-manager').value = '';
+	document.getElementById('current-manager-firstname').value = '';
+	document.getElementById('current-manager-lastname').value = '';
 }
 
 function deleteManager(managerId) {
@@ -93,14 +102,14 @@ function deleteManager(managerId) {
 function getDataManagers() {
 	var managers = dbFunc.getManagers();
 
-	document.getElementById("caption-manager").innerHTML = "<p>Managers<p><div id='create-manager' onClick='showManagerForm()'>Create manager</div>"
+	document.getElementById("caption-manager").innerHTML = "<div>Managers</div><div id='create-manager' onClick='showManagerForm()'>Create manager</div>"
 
 	document.getElementById("table-manager").innerHTML = "<tr><th>ID</th><th>Name</th><th>Actions</th></tr>";
 
 	for (var i = 0; i < managers.length; i++) {
 		var manager = managers[i];
 
-		document.getElementById("table-manager").innerHTML += "<tr><td>" + manager.id + "</td><td>" + manager.name + "</td>" + 
+		document.getElementById("table-manager").innerHTML += "<tr><td>" + manager.id + "</td><td>" + manager.firstName + " " + manager.lastName + "</td>" + 
 		`<td><div class='action-buttons'><div id='edit-button' onClick='editManager("${manager}")'>Edit</div><div id='delete-button' onClick='deleteManager("${manager.id}")'>Delete</div></div></td></tr>`;  
 	}
 }

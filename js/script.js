@@ -10,7 +10,7 @@ window.onload = function(){
 }
 
 /*Create Managers*/
-
+/*
 function showManagerForm() {
 	managerModal.style.display = "flex";
 } 
@@ -36,16 +36,17 @@ function playGame() {
 }
 
 function createFootballManager() {
-	var inputValue = document.getElementById("current-manager").value;
+	var inputValueFirstName = document.getElementById("current-manager-firstname").value;
+	var inputValueLastName = document.getElementById("current-manager-lastname").value;
 	var inputValueManager = document.getElementById("snackbar-manager");
 
-	if (inputValue === null || inputValue === undefined || inputValue.trim() === '') {
+	if (inputValueFirstName === null || inputValueFirstName === undefined || inputValueFirstName.trim() === ''  && nputValueLastName === null || inputValueLastName === undefined || inputValueLastName.trim() === '' ) {
 		inputValueManager.className = "show";
 		setTimeout(function(){ inputValueManager.className = inputValueManager.className.replace("show", ""); }, 3000);
 		return;
 	}
 
-	var manager = createManager(inputValue);
+	var manager = createManager(inputValueFirstName, inputValueLastName);
 	managers = updateManagers(manager);
 	dbFunc.saveToLocalStorage(managers, "managers");
 	closeManagerModal();
@@ -53,12 +54,14 @@ function createFootballManager() {
 	resetManagerForm();
 }
 
-function createManager(managerName) {
+function createManager(managerFirstName, managerLastName) {
+	console.log("Prosledjeno: ",  managerFirstName, managerLastName)
 	var manager = {
-		name: managerName
+		firstName: managerFirstName,
+		lastName:  managerLastName
 	}
 
-	console.log(`Kreirani menadzer ${manager}`);
+	console.log(`Kreirani menadzer: `, manager);
 	manager.id = dbFunc.generateID('managers');
 	return manager;
 }
@@ -80,9 +83,10 @@ function updateManagers(manager) {
 }
 
 function resetManagerForm() {
-	document.getElementById('current-manager').value = '';
+	document.getElementById('current-manager-firstname').value = '';
+	document.getElementById('current-manager-lastname').value = '';
 }
-
+*/
 /*Create Teams*/
 
 function showTeamForm() {
