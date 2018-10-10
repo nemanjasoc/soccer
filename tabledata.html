@@ -11,8 +11,9 @@
 </head>
 <body>
     <div class="table-header">
-        <div id="home-page" onClick="backToHomepage()"><i class="fa fa-home" aria-hidden="true"></i></div>
-        <h1>Data table</h1>
+        <div id="home-page" onClick="backToHomepage()"><i class="fa fa-home" aria-hidden="true"></i>
+         </div>
+        <h1>Data table<h1>
     </div> 
 
     <div class="main-container">
@@ -29,7 +30,7 @@
             </table>
         </div> 
     </div>
-    
+
     <!-- MODALS -->
     <div id="my-manager" class="modal">
         <div class="modal-content">
@@ -43,12 +44,25 @@
                 <div id="snackbar-manager">You didn't create manager!</div>
             </form>
         </div>
-    </div>  
+    </div>
 
+    <div id="manager-edit" class="modal">
+        <div class="modal-content">
+            <span class="close" onClick="closeManagerEditModal()">&times;</span>
+            <form onsubmit="updateManager()" action="javascript:void(0);">
+                <label>First name:</label>
+                <input type="text" name="manager-firstname" id="current-manager-firstname-edit">
+                <label>Last name:</label>
+                <input type="text" name="manager-lastname" id="current-manager-lastname-edit">
+                <input type="hidden" name="manager-id" id="manager-id">
+                <input type="submit" value="Save" />
+                <button type="button" onClick="closeManagerEditModal()">Cancel</button>
+            </form>
+        </div>
+    </div>  
     <script src="js/tabledata.js"></script>
     <script src="js/databaseFunctions.js"></script>
     <script src="js/templateFunctions.js"></script>
-    <script src="js/gameplay.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

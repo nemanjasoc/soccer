@@ -30,7 +30,6 @@ h1 {
     align-items:  center;
     color: white;
     font-weight: 800;
-    margin: 0 auto;
     font-size: 28px;
 }
 
@@ -170,6 +169,7 @@ th {
     text-align: left;
     padding-bottom: 5px;
     padding-top: 5px;
+    width: 47%;
 }
 
 td {
@@ -249,7 +249,7 @@ select[name=position] {
     margin-bottom: 5px;
 }
 
-button[type=button] {
+input[type=submit] {
     cursor: pointer;
     max-width: 100px;
     width: 100%;
@@ -306,6 +306,3 @@ button[type=button] {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
-
-
-

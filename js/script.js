@@ -1,3 +1,4 @@
+/*
 var managerModal;
 var teamModal;
 var playerModal;

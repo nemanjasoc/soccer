@@ -3,11 +3,13 @@ function backToHomepage() {
 }
 
 var managerModal;
+var managerEditModal;
 var teamModal;
 var playerModal;
 
 window.onload = function(){
 	managerModal = document.getElementById("my-manager");
+	managerEditModal = document.getElementById("manager-edit");
 	teamModal = document.getElementById("my-team");
 	playerModal = document.getElementById("my-player");
 	createInitialPositions();
@@ -17,15 +19,26 @@ window.onload = function(){
 
 function showManagerForm() {
 	managerModal.style.display = "flex";
-} 
+}
+
+function showManagerEditForm() {
+	managerEditModal.style.display = "flex";
+}  
 
 function closeManagerModal() {
 	managerModal.style.display = "none";
 }
 
+function closeManagerEditModal() {
+	managerEditModal.style.display = "none";
+}
+
 window.onclick = function(event) {
 	if (event.target == managerModal) {
 		managerModal.style.display = "none";
+	}
+	if (event.target == managerEditModal) {
+		managerEditModal.style.display = "none";
 	}
 	if (event.target == teamModal) {
 		teamModal.style.display = "none";
@@ -51,8 +64,7 @@ function createFootballManager() {
 	}
 
 	var manager = createManager(inputValueFirstName, inputValueLastName);
-	managers = updateManagers(manager);
-	dbFunc.saveToLocalStorage(managers, "managers");
+	dbFunc.addManagers(manager);
 	getDataManagers();
 	closeManagerModal();
 	alert("Manager is created!");
@@ -60,7 +72,6 @@ function createFootballManager() {
 }
 
 function createManager(managerFirstName, managerLastName) {
-	console.log("Prosledjeno: ",  managerFirstName, managerLastName)
 	var manager = {
 		firstName: managerFirstName,
 		lastName:  managerLastName
@@ -69,22 +80,6 @@ function createManager(managerFirstName, managerLastName) {
 	console.log(`Kreirani menadzer: `, manager);
 	manager.id = dbFunc.generateID('managers');
 	return manager;
-}
-
-function updateManagers(manager) {
-	var managers = dbFunc.getManagers();
-	var newManagers = [];
-
-	for (var i = 0; i < managers.length; i++) {
-		var currentManager = managers[i];
-
-		if (currentManager != manager) {
-			newManagers.push(currentManager);
-		}
-	}
-
-	newManagers.push(manager);
-	return newManagers;
 }
 
 function resetManagerForm() {
@@ -99,6 +94,32 @@ function deleteManager(managerId) {
 	}
 }
 
+function editManager(managerId) {
+	showManagerEditForm();
+
+	var manager = dbFunc.getManagerByID(managerId);
+
+	document.getElementById("current-manager-firstname-edit").value = manager.firstName;
+	document.getElementById("current-manager-lastname-edit").value = manager.lastName;
+	document.getElementById("manager-id").value = manager.id;
+}
+
+function updateManager() {
+	var managerFirstName = document.getElementById("current-manager-firstname-edit").value;
+	var managerLastName = document.getElementById("current-manager-lastname-edit").value;
+	var managerId = document.getElementById("manager-id").value;
+
+	var manager = {
+		firstName: managerFirstName,
+		lastName: managerLastName,
+		id: managerId 
+	}
+
+	dbFunc.updateManager(manager);
+	closeManagerEditModal();
+	getDataManagers();
+}
+
 function getDataManagers() {
 	var managers = dbFunc.getManagers();
 
@@ -110,6 +131,6 @@ function getDataManagers() {
 		var manager = managers[i];
 
 		document.getElementById("table-manager").innerHTML += "<tr><td>" + manager.id + "</td><td>" + manager.firstName + " " + manager.lastName + "</td>" + 
-		`<td><div class='action-buttons'><div id='edit-button' onClick='editManager("${manager}")'>Edit</div><div id='delete-button' onClick='deleteManager("${manager.id}")'>Delete</div></div></td></tr>`;  
+		`<td><div class='action-buttons'><div id='edit-button' onClick='editManager("${manager.id}")'>Edit</div><div id='delete-button' onClick='deleteManager("${manager.id}")'>Delete</div></div></td></tr>`;  
 	}
 }

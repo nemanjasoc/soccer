@@ -60,8 +60,6 @@ var dbFunc = {
 		return items
 	},
 	generateID: function (item) {
-		console.log(`item ${item}`);
-
 		var helper = localStorage.getItem(item);
 		var items; 
 
@@ -76,11 +74,9 @@ var dbFunc = {
 
 		for (var i = 0; i < items.length; i++) {
 			var currentItem = items[i];
-			console.log(`Ja sam trenutni id u nizu ${currentItem.id}`);
 
 			if (currentItem.id > max) {
 				max = currentItem.id;
-				console.log(`MAX ${max}`);
 			}
 		}
 
@@ -126,8 +122,19 @@ var dbFunc = {
 			}
 		}
 	},
+	getManagerByID: function (managerId) {
+		var managers = this.getManagers();
+
+		for (var i = 0; i < managers.length; i++) {
+			var currentManager = managers[i]; 
+
+			if (currentManager.id == managerId) {
+				return currentManager;
+			}
+		}
+	},
 	deleteManager: function (managerId) {
-		var managers = dbFunc.getManagers();
+		var managers = this.getManagers();
 		var newManagers = [];
 
 		for (var i = 0; i < managers.length; i++) {
@@ -137,25 +144,32 @@ var dbFunc = {
 				newManagers.push(currentManager);
 			}
 		}
-		localStorage.setItem("managers", JSON.stringify(newManagers));
+		this.saveToLocalStorage(newManagers, 'managers');
 	},
-	editManager: function (manager) {
-		console.log("Prosledjeni menadzer: ", manager);
-		managerModal.style.display = "flex";
-
-		var managers = dbFunc.getManagers();
-
-		var newManagers = [];
+	addManagers: function (manager) {
+		var managers = this.getManagers();
 		
+		managers.push(manager);
+		this.saveToLocalStorage(managers, 'managers');
+	},
+	updateManager: function (manager) {
+		console.log("Prosledjeni manager u update: ", manager);
+		var managers = this.getManagers();
+		var newManagers = [];
+
 		for (var i = 0; i < managers.length; i++) {
 			var currentManager = managers[i];
+			console.log("currentManager u update: ", currentManager);
 
 			if (currentManager.id == manager.id) {
-				
+				newManagers.push(manager);
+				console.log("newManagers u if: ", newManagers);
+			} else {
+				newManagers.push(currentManager);
+				console.log("newManagers u else: ", newManagers);
 			}
-			
 		}
-
-		localStorage.setItem("managers", JSON.stringify(newManagers));
+		
+		this.saveToLocalStorage(newManagers, "managers");
 	}
 };
