@@ -55,20 +55,23 @@ function playGame() {
 function createFootballManager() {
 	var inputValueFirstName = document.getElementById("current-manager-firstname").value;
 	var inputValueLastName = document.getElementById("current-manager-lastname").value;
-	var inputValueManager = document.getElementById("snackbar-manager");
-
+	
 	if (inputValueFirstName === null || inputValueFirstName === undefined || inputValueFirstName.trim() === ''  || inputValueLastName === null || inputValueLastName === undefined || inputValueLastName.trim() === '' ) {
-		inputValueManager.className = "show";
-		setTimeout(function(){ inputValueManager.className = inputValueManager.className.replace("show", ""); }, 3000);
+		utFunc.showSnack("snackbar-manager", "You did't create manager!");
 		return;
 	}
-
+	
 	var manager = createManager(inputValueFirstName, inputValueLastName);
+	
 	dbFunc.addManagers(manager);
 	getDataManagers();
 	closeManagerModal();
-	alert("Manager is created!");
 	resetManagerForm();
+
+	if (inputValueFirstName && inputValueLastName) {
+		utFunc.showSnack("snackbar-manager-created", "Manager is created!");
+		return;
+	}
 }
 
 function createManager(managerFirstName, managerLastName) {
@@ -90,6 +93,7 @@ function resetManagerForm() {
 function deleteManager(managerId) {
 	if (confirm("Are you sure you want to delete this row?")) {
 		dbFunc.deleteManager(managerId);
+		utFunc.showSnack("snackbar-manager-deleted", "Manager is deleted!");
 		getDataManagers();
 	}
 }
@@ -115,9 +119,19 @@ function updateManager() {
 		id: managerId 
 	}
 
+	if (managerFirstName === null || managerFirstName === undefined || managerFirstName.trim() === ''  || managerLastName === null || managerLastName === undefined || managerLastName.trim() === '' ) {
+		utFunc.showSnack("snackbar-manager-edit", "You did't edit manager!");
+		return;
+	}
+
 	dbFunc.updateManager(manager);
 	closeManagerEditModal();
 	getDataManagers();
+
+	if (managerFirstName && managerLastName) {
+		utFunc.showSnack("snackbar-manager-edited", "Manager is edited!");
+		return;
+	}
 }
 
 function getDataManagers() {

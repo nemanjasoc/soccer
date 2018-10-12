@@ -51,6 +51,7 @@ h1 {
     width: 30%;
     background-color: #80808036;
     border-right: 1px solid #aac9ca;
+    height: 800px;
 }
 
 #managers,
@@ -261,6 +262,10 @@ input[type=submit] {
 
 /*Snackbars/Toasts*/
 
+#snackbar-manager-deleted,
+#snackbar-manager-edited,
+#snackbar-manager-edit,
+#snackbar-manager-created,
 #snackbar-manager,
 #snackbar-team,
 #snackbar-player {
@@ -279,6 +284,10 @@ input[type=submit] {
     font-size: 17px;
 }
 
+#snackbar-manager-deleted.show,
+#snackbar-manager-edited.show,
+#snackbar-manager-edit.show,
+#snackbar-manager-created.show,
 #snackbar-manager.show,
 #snackbar-team.show,
 #snackbar-player.show {

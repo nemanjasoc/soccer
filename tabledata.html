@@ -28,7 +28,10 @@
             </div>
             <table id="table-manager">
             </table>
-        </div> 
+        </div>
+        <div id="snackbar-manager-created"></div>
+        <div id="snackbar-manager-edited"></div>
+        <div id="snackbar-manager-deleted"></div> 
     </div>
 
     <!-- MODALS -->
@@ -41,7 +44,8 @@
                 <label>Last name:</label>
                 <input type="text" name="manager-lastname" id="current-manager-lastname">
                 <input type="submit" value="Create" />
-                <div id="snackbar-manager">You didn't create manager!</div>
+                <button type="button" onClick="closeManagerModal()">Cancel</button>
+                <div id="snackbar-manager"></div>
             </form>
         </div>
     </div>
@@ -56,10 +60,12 @@
                 <input type="text" name="manager-lastname" id="current-manager-lastname-edit">
                 <input type="hidden" name="manager-id" id="manager-id">
                 <input type="submit" value="Save" />
+                <div id="snackbar-manager-edit"></div>
                 <button type="button" onClick="closeManagerEditModal()">Cancel</button>
             </form>
         </div>
-    </div>  
+    </div>
+    <script src="js/utilities.js"></script>  
     <script src="js/tabledata.js"></script>
     <script src="js/databaseFunctions.js"></script>
     <script src="js/templateFunctions.js"></script>
