@@ -4,36 +4,36 @@
     <title>Table Data</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/gameplay.css">
     <link rel="stylesheet" href="css/tabledata.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
 </head>
 <body>
     <div class="table-header">
-        <div id="home-page" onClick="backToHomepage()"><i class="fa fa-home" aria-hidden="true"></i>
-         </div>
-        <h1>Data table<h1>
+        <div id="gameplay" onClick="playGame()">Game play
+        </div>
+        <h1>Data table</h1>
     </div> 
 
     <div class="main-container">
         <div class="aside">
             <div id="managers" onClick="getDataManagers()">Managers</div>
-            <div id="teams">Teams</div>
-            <div id="players">Players</div>
+            <div id="teams" onClick="getDataTeams()">Teams</div>
+            <div id="players" onClick="getDataPlayers()">Players</div>
             <div id="empty-box"></div>
         </div>
         <div id="main-content">
-            <div id="caption-manager">
-            </div>
-            <table id="table-manager">
-            </table>
+            <div id="caption-manager"></div>
+            <table id="table-manager"></table>
+            <div id="caption-team"></div>
+            <table id="table-team"></table>
+            <div id="caption-player"></div>
+            <table id="table-player"></table>
         </div>
-        <div id="snackbar-manager-created"></div>
-        <div id="snackbar-manager-edited"></div>
-        <div id="snackbar-manager-deleted"></div> 
+        <div id="snackbar-manager"></div>
+        <div id="snackbar-team"></div>
+        <div id="snackbar-player"></div>
     </div>
-
     <!-- MODALS -->
     <div id="my-manager" class="modal">
         <div class="modal-content">
@@ -45,11 +45,9 @@
                 <input type="text" name="manager-lastname" id="current-manager-lastname">
                 <input type="submit" value="Create" />
                 <button type="button" onClick="closeManagerModal()">Cancel</button>
-                <div id="snackbar-manager"></div>
             </form>
         </div>
     </div>
-
     <div id="manager-edit" class="modal">
         <div class="modal-content">
             <span class="close" onClick="closeManagerEditModal()">&times;</span>
@@ -60,15 +58,94 @@
                 <input type="text" name="manager-lastname" id="current-manager-lastname-edit">
                 <input type="hidden" name="manager-id" id="manager-id">
                 <input type="submit" value="Save" />
-                <div id="snackbar-manager-edit"></div>
                 <button type="button" onClick="closeManagerEditModal()">Cancel</button>
             </form>
         </div>
     </div>
+
+    <div id="my-team" class="modal">
+        <div class="modal-content">
+            <span class="close" onClick="closeTeamModal()">&times;</span>
+            <form onsubmit="createSoccerTeam()" action="javascript:void(0);">
+                <label>Team:</label><br>
+                <input type="text" name="team" id="current-team">
+                <label>Managers:</label>
+                <select name="chooseManager" id="choose-manager">
+                </select>
+                <input type="submit" value="Create"/>
+                <button type="button" onClick="closeTeamModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <div id="team-edit" class="modal">
+        <div class="modal-content">
+            <span class="close" onClick="closeTeamEditModal()">&times;</span>
+            <form onsubmit="updateTeam()" action="javascript:void(0);">
+                <label>Team:</label><br>
+                <input type="text" name="team" id="current-team-edit">
+                <label>Managers:</label>
+                <select name="chooseManager" id="choose-manager-edit">
+                </select>
+                <input type="hidden" name="team-id" id="team-id">
+                <input type="submit" value="Save" />
+                <button type="button" onClick="closeTeamEditModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="my-player" class="modal">
+        <div class="modal-content">
+            <span class="close" onClick="closePlayerModal()">&times;</span>
+            <form onsubmit="createFootballer()" action="javascript:void(0);">
+                <label>First name:</label>
+                <input type="text" name="firstname" id="first-name">
+                <label>Last name:</label>
+                <input type="text" name="lastname" id="last-name">
+                <label>Number:</label>
+                <input type="number" name="dress" min="1" id="number">
+                <label>Teams:</label>
+                <select name="chooseTeam" id="choose-team">
+                </select>
+                <label>Player position:</label>
+                <select name="position" id="position">
+                </select>
+                <br>
+                <input type="checkbox" id="reserve-player" name="playerType" value="player"><label>Reserve player</label>
+                <br>
+                <input type="submit" value="Create"/>
+                <button type="button" onClick="closePlayerModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <div id="player-edit" class="modal">
+        <div class="modal-content">
+            <span class="close" onClick="closePlayerEditModal()">&times;</span>
+            <form onsubmit="updatePlayer()" action="javascript:void(0);">
+                <label>First name:</label>
+                <input type="text" name="firstname" id="first-name-edit">
+                <label>Last name:</label>
+                <input type="text" name="lastname" id="last-name-edit">
+                <label>Number:</label>
+                <input type="number" name="dress" min="1" id="number-edit">
+                <label>Teams:</label>
+                <select name="chooseTeam" id="choose-team-edit">
+                </select>
+                <label>Player position:</label>
+                <select name="position" id="position-edit">
+                </select>
+                <input type="hidden" name="team-id" id="player-id">
+                <br>
+                <input type="checkbox" id="reserve-player-edit" name="playerType" value="player"><label>Reserve player</label>
+                <br>
+                <input type="submit" value="Save"/>
+                <button type="button" onClick="closePlayerEditModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/gameplay.js"></script> 
     <script src="js/utilities.js"></script>  
     <script src="js/tabledata.js"></script>
     <script src="js/databaseFunctions.js"></script>
     <script src="js/templateFunctions.js"></script>
-    <script src="js/script.js"></script>
 </body>
 </html>

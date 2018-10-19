@@ -1,12 +1,12 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .football-stadium {
-    background-image: url("../img/champions-league.jpg");
-    background-position: center;
-    background-size: cover;
-    display: flex;
+	background-image: url("../img/champions-league.jpg");
+	background-position: center;
+	background-size: cover;
+	display: flex;
 	flex-wrap: wrap;
 	height: 783px;
 }
@@ -14,13 +14,13 @@ body {
 .football-pitch-left,
 .football-pitch-right {
 	display: flex;
-    flex-direction: column;
-    max-width: 745px;
-    width: 100%;
-    height: 685px;
-    background: #a4a3a3b5;
-    margin: 2% auto;
-    box-shadow: 9px 9px 7px #0000009c;
+	flex-direction: column;
+	max-width: 745px;
+	width: 100%;
+	height: 685px;
+	background: #a4a3a3b5;
+	margin: 2% auto;
+	box-shadow: 9px 9px 7px #0000009c;
 }
 
 .football-pitch-left img,
@@ -29,324 +29,337 @@ body {
 	width: 100%;
 	max-height: 520px;
 	height: 100%;
-    margin-bottom: 2%;
-    margin-left: 5%;
-    border: 3px solid white;
-    box-shadow: 10px 10px 7px #0000009c;
+	margin-bottom: 2%;
+	margin-left: 5%;
+	border: 3px solid white;
+	box-shadow: 10px 10px 7px #0000009c;
 }
 
 /*Left standard players position (formation 4-4-2)*/
 
 #left-team-standard,
 #right-team-standard {
-    position: relative;
-    display: flex;
-    max-width: 410px;
-    width: 100%;
+	position: relative;
+	display: flex;
+	max-width: 410px;
+	width: 100%;
 } 
 
 #left-team-standard > div,
 #right-team-standard > div {
-    position: absolute;
+	position: absolute;
 }
 
 #left-team-GK {
-    top: 81%;
-    left: 42%;
+	top: 81%;
+	left: 42%;
 }
 
 #left-team-RB {
-    top: 60%;
-    left: 68%;
+	top: 60%;
+	left: 68%;
 }
 
 #left-team-LB {
-    top: 60%;
-    left: 8%;
+	top: 60%;
+	left: 8%;
 }
 
 #left-team-RCB {
-    top: 70%;
-    left: 57%;
+	top: 70%;
+	left: 57%;
 }
 
 #left-team-LCB {
-    top: 70%;
-    left: 24%;
+	top: 70%;
+	left: 24%;
 }
 
 #left-team-RCM {
-    top: 48%;
-    left: 57%;
+	top: 48%;
+	left: 57%;
 }
 
 #left-team-LCM {
-    top: 48%;
-    left: 25%;
+	top: 48%;
+	left: 25%;
 }
 
 #left-team-RM {
-    top: 28%;
-    left: 68%;;
+	top: 28%;
+	left: 68%;
 }
 
 #left-team-LM {
-    top: 28%;
-    left: 14%;
+	top: 28%;
+	left: 14%;
 }
 
 #left-team-RCF {
-    top: 12%;
-    left: 61%;
+	top: 12%;
+	left: 61%;
 }
 
 #left-team-LCF {
-    top: 12%;
-    left: 15%;
+	top: 12%;
+	left: 15%;
 }
 
 /*Right standard players position (formation 4-4-2)*/
 
 #right-team-GK {
-    top: 81%;
-    left: 42%;
+	top: 81%;
+	left: 42%;
 }
 
 #right-team-RB {
-    top: 61%;
-    left: 65%;
+	top: 61%;
+	left: 65%;
 }
 
 #right-team-LB {
-    top: 61%;
-    left: 10%;
+	top: 61%;
+	left: 10%;
 }
 
 #right-team-RCB {
-    top: 70%;
-    left: 58%;
+	top: 70%;
+	left: 58%;
 }
 
 #right-team-LCB {
-    top: 70%;
-    left: 23%;
+	top: 70%;
+	left: 23%;
 }
 
 #right-team-RCM {
-    top: 48%;
-    left: 58%;
+	top: 48%;
+	left: 58%;
 }
 
 #right-team-LCM {
-    top: 48%;
-    left: 24%;
+	top: 48%;
+	left: 24%;
 }
 
 #right-team-RM {
-    top: 28%;
-    left: 64%;
+	top: 28%;
+	left: 64%;
 }
 
 #right-team-LM {
-    top: 28%;
-    left: 15%;
+	top: 28%;
+	left: 15%;
 }
 
 #right-team-RCF {
-    top: 12%;
-    left: 61%;
+	top: 12%;
+	left: 61%;
 }
 
 #right-team-LCF {
-    top: 12%;
-    left: 17%;
+	top: 12%;
+	left: 17%;
 }
 
 .number {
-    color: red;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
+	color: red;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .name {
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .event-buttons {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .standard-position {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    margin-right: 3px;
-    background: #0e50e6;
-    color: white;
-    border: 1px solid #0e50e6;
-    max-width: 40px;
-    width: 100%;
-    max-height: 15px;
-    height: 100%;
-    padding: 1px 0px 1px 0px;
-    box-shadow: 10px 10px 7px #0000009c;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+	margin-right: 3px;
+	background: #0e50e6;
+	color: white;
+	border: 1px solid #0e50e6;
+	max-width: 40px;
+	width: 100%;
+	max-height: 15px;
+	height: 100%;
+	padding: 1px 0px 1px 0px;
+	box-shadow: 10px 10px 7px #0000009c;
+}
+
+.standard-position:active {
+	background: #FF4136;
 }
 
 /*Reserve players position*/
 
 #left-team-reserve,
 #right-team-reserve {
-    display: flex;
-    flex-direction: column;
-    max-width: 260px;
-    width: 100%;
-    top: 5%;
-    left: 105%;
+	display: flex;
+	flex-direction: column;
+	max-width: 260px;
+	width: 100%;
+	top: 5%;
+	left: 105%;
 }
 
 #reserve-player-data {
-    display: flex;
-    margin-bottom: 10px;
+	display: flex;
+	margin-bottom: 10px;
 }
 
 .reserve-position {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    margin-right: 3px;
-    background: #0e50e6;
-    color: white;
-    border: 1px solid #0e50e6;
-    max-width: 40px;
-    width: 100%;
-    max-height: 15px;
-    height: 100%;
-    box-shadow: 9px 9px 7px #0000009c;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+	margin-right: 3px;
+	background: #0e50e6;
+	color: white;
+	border: 1px solid #0e50e6;
+	max-width: 40px;
+	width: 100%;
+	max-height: 15px;
+	height: 100%;
+	box-shadow: 9px 9px 7px #0000009c;
+}
+
+.reserve-position:active {
+	background: #FF4136;
 }
 
 .reserve-number {
-    color: red;
-    font-size: 14px;
-    font-weight: bold;
-    padding-right: 3px;
+	color: red;
+	font-size: 14px;
+	font-weight: bold;
+	padding-right: 3px;
 }
 
 .reserve-name {
-    color: black;
-    font-size: 14px;
-    font-weight: bold;
-    padding-right: 3px;
+	color: black;
+	font-size: 14px;
+	font-weight: bold;
+	padding-right: 3px;
 }
 
 /*Player conditions*/
 
 .condition {
-    background: #2424a6;
-    padding: 1px 3px 1px 3px;
-    font-weight: 600;
-    border-radius: 4px;
-    box-shadow: 9px 9px 7px #0000009c;
+	background: #2424a6;
+	padding: 1px 3px 1px 3px;
+	font-weight: 600;
+	border-radius: 4px;
+	box-shadow: 9px 9px 7px #0000009c;
 }
 
 .arrow-down {
-    color: #e211e2;
+	color: #e211e2;
 }
 
 .arrow-lower-right {
-    color: #11d3e8;
+	color: #11d3e8;
 }
 
 .arrow-lower-right .fa-arrow-right {
-    transform: rotate(48deg);
+	transform: rotate(48deg);
 }
 
 .arrow-right {
-    color: #20ec0a;
+	color: #20ec0a;
 }
 
 .arrow-upper-right {
-    color: orange;
+	color: orange;
 }
 
 .arrow-upper-right .fa-arrow-up {
-    transform: rotate(42deg);
+	transform: rotate(42deg);
 }
 
 .arrow-up {
-    color: red;
+	color: red;
 }
 
 /*Select team*/
 
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    background: #102bee8a;
-    color: white;
-    font-size: 18px;
-    text-align: left;
-    max-width: 195px;
-    width: 100%;
-    height: 34px;
-    margin-left: 3%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    box-shadow: 8px 8px 6px #0000009c;
+	background: #102bee8a;
+	color: white;
+	font-size: 18px;
+	text-align: left;
+	max-width: 195px;
+	width: 100%;
+	height: 34px;
+	margin-left: 3%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	box-shadow: 8px 8px 6px #0000009c;
 }
 
 /*Back on first page*/
 
 #home-page-left,
 #home-page-right {
-    max-width: 195px;
-    width: 40%;
-    font-size: 16px;
-    color: white;
-    background-color: cadetblue;
-    max-height: 25px;
-    height: 100%;
- 	border: 1px solid #aac9ca;
-    cursor: pointer;
-    text-align: center;
-    padding-top: 5px;
-    margin-left: 3%;
-    box-shadow: 3px 3px;
-    margin-bottom: 16px;
-    box-shadow: 9px 9px 7px #0000009c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	color: white;
+	background-color: cadetblue;
+	max-height: 25px;
+	border: 1px solid #aac9ca;
+	cursor: pointer;
+	margin-left: 3%;
+	margin-bottom: 16px;
+	box-shadow: 9px 9px 7px #0000009c;
+	width: 10%;
+	padding: 5px 0px;
+}
+
+#home-page-left:hover,
+#home-page-right:hover {
+	background: #001f3f;
+	color: cadetblue;
 }
 
 .message-left,
 .message-right {
-    margin-top: 5px;
-    margin-left: 3%;
+	margin-top: 5px;
+	margin-left: 3%;
 }
 
 #text-message-left,
 #text-message-right {
 	color: white;
-    font-size: 16px;
-    background: #e60e3a7a;
-    max-width: 400px;
-    width: 100%;
-    max-height: 40px;
-    height: 100%;
-    border-radius: 3px;
-    box-shadow: 8px 8px 6px #0000009c;
+	font-size: 16px;
+	background: #e60e3a7a;
+	max-width: 400px;
+	width: 100%;
+	max-height: 40px;
+	height: 100%;
+	border-radius: 3px;
+	box-shadow: 8px 8px 6px #0000009c;
 }
 
 #left-team-formation,
 #right-team-formation {
-    margin-left: 80%;
-    margin-top: 121%;
-    font-size: 23px;
-    color: white;
-    font-weight: bold;
+	margin-left: 80%;
+	margin-top: 121%;
+	font-size: 23px;
+	color: white;
+	font-weight: bold;
 }
 
 /*Media query*/
@@ -354,8 +367,8 @@ select[name=selectTeam-2] {
 @media screen and (max-width: 1550px) {
 .football-pitch-left,
 .football-pitch-right {
-    max-width: 670px;
- }
+	max-width: 670px;
+}
 
 .football-pitch-left img,
 .football-pitch-right img {
@@ -365,34 +378,29 @@ select[name=selectTeam-2] {
 
 #left-team-standard,
 #right-team-standard {
-    max-width: 400px;
+	max-width: 400px;
 }
 
 #left-team-reserve,
 #right-team-reserve {
-    left: 101%;
+	left: 101%;
 }
 
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    max-width: 180px;
-}
-
-#home-page-left,
-#home-page-right {
-    max-width: 180px;
+	max-width: 180px;
 }
 
 #text-message-left,
 #text-message-right {
-    max-width: 370px;
+	max-width: 370px;
 }
 
 #left-team-formation,
 #right-team-formation {
-    margin-left: 78%;
-    margin-top: 124%;
-    font-size: 23px;
+	margin-left: 78%;
+	margin-top: 124%;
+	font-size: 23px;
 }
 }
 
@@ -411,64 +419,58 @@ select[name=selectTeam-2] {
 
 #left-team-standard,
 #right-team-standard {
-    max-width: 320px;
-    font-size: 13px;
+	max-width: 320px;
+	font-size: 13px;
 }
 
 #left-team-reserve,
 #right-team-reserve {
-    left: 108%;
-    font-size: 13px;
+	left: 108%;
+	font-size: 13px;
 }
 
 .number,
 .reserve-number {
-    font-size: 13px;
+	font-size: 13px;
 }
 
 .name,
 .reserve-name {
-    font-size: 13px;
+	font-size: 13px;
 }
 
 .standard-position,
 .reserve-position {
-    font-size: 13px;
-    max-width: 30px;
+	font-size: 13px;
+	max-width: 30px;
 }
 
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    max-width: 150px;
-    font-size: 15px;
-    height: 32px;
-}
-
-#home-page-left,
-#home-page-right {
-    max-width: 150px;
-    font-size: 15px;
+	max-width: 150px;
+	font-size: 15px;
+	height: 32px;
 }
 
 #text-message-left,
 #text-message-right {
-    max-width: 310px;
-    font-size: 15px;
+	max-width: 310px;
+	font-size: 15px;
 }
 
 #left-team-formation,
 #right-team-formation {
-    margin-left: 83%;
-    margin-top: 156%;
-    font-size: 20px;
+	margin-left: 83%;
+	margin-top: 156%;
+	font-size: 20px;
 }
 }
 
 @media screen and (max-width: 1300px) {
 .football-pitch-left,
 .football-pitch-right {
-    max-width: 560px;
-    max-height: 660px;
+	max-width: 560px;
+	max-height: 660px;
  }
 
 .football-pitch-left img,
@@ -479,50 +481,43 @@ select[name=selectTeam-2] {
 
 #left-team-standard,
 #right-team-standard {
-    max-width: 310px;
-    font-size: 12px;
+	max-width: 310px;
+	font-size: 12px;
 }
 
 #left-team-reserve,
 #right-team-reserve {
-    left: 105%;
-    font-size: 12px;
+	left: 105%;
+	font-size: 12px;
 }
 
 .number,
 .reserve-number {
-    font-size: 12px;
+	font-size: 12px;
 }
 
 .name,
 .reserve-name {
-    font-size: 12px;
+	font-size: 12px;
 }
 
 .standard-position,
 .reserve-position {
-    font-size: 12px;
-    max-width: 30px;
+	font-size: 12px;
+	max-width: 30px;
 }
 
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    max-width: 143px;
-    font-size: 15px;
-    height: 30px; 
-}
-
-#home-page-left,
-#home-page-right {
-    max-width: 143px;
-    font-size: 14px;
-    max-height: 20px;
+	max-width: 143px;
+	font-size: 15px;
+	height: 30px; 
 }
 
 #text-message-left,
 #text-message-right {
-    max-width: 296px;
-    font-size: 13px;
+	max-width: 296px;
+	font-size: 13px;
 }
 
 #left-team-formation,
@@ -536,8 +531,8 @@ select[name=selectTeam-2] {
 @media screen and (max-width: 1200px) {
 .football-pitch-left,
 .football-pitch-right {
-    max-width: 510px;
- }
+	max-width: 510px;
+}
 
 .football-pitch-left img,
 .football-pitch-right img {
@@ -546,69 +541,62 @@ select[name=selectTeam-2] {
 
 #left-team-standard,
 #right-team-standard {
-    max-width: 278px;
-    font-size: 11px;
+	max-width: 278px;
+	font-size: 11px;
 }
 
 #left-team-reserve,
 #right-team-reserve {
-    left: 104%;
-    font-size: 11px;
+	left: 104%;
+	font-size: 11px;
 }
 
 .number,
 .reserve-number {
-    font-size: 11px;
+	font-size: 11px;
 }
 
 .name,
 .reserve-name {
-    font-size: 11px;
+	font-size: 11px;
 }
 
 .standard-position,
 .reserve-position {
-    font-size: 11px;
-    max-width: 28px;
+	font-size: 11px;
+	max-width: 28px;
 }
 
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    max-width: 125px;
-    font-size: 14px;
-    height: 28px; 
-}
-
-#home-page-left,
-#home-page-right {
-    max-width: 125px;
-    font-size: 13px;
-    max-height: 20px;
+	max-width: 125px;
+	font-size: 14px;
+	height: 28px; 
 }
 
 #text-message-left,
 #text-message-right {
-    max-width: 260px;
-    font-size: 12px;
+	max-width: 260px;
+	font-size: 12px;
 }
 
 #left-team-formation,
 #right-team-formation {
 	margin-left: 77%;
-    margin-top: 180%;
-    font-size: 18px;
+	margin-top: 180%;
+	font-size: 18px;
 }
 }
 
 @media screen and (max-width: 1150px) {
 .football-stadium {
-    height: 1500px;
+	height: 1500px;
 }
 
 .football-pitch-left,
 .football-pitch-right {
-    max-width: 745px;
-    max-height: 690px;
+	max-width: 745px;
+	max-height: 690px;
 }
 
 .football-pitch-left img,
@@ -618,49 +606,42 @@ select[name=selectTeam-2] {
 
 #left-team-standard,
 #right-team-standard {
-    max-width: 410px;
+	max-width: 410px;
 }
 
 #left-team-reserve,
 #right-team-reserve {
-    left: 106%;
-    font-size: 14px;
+	left: 106%;
+	font-size: 14px;
 }
 
 .number,
 .reserve-number {
-    font-size: 14px;
+	font-size: 14px;
 }
 
 .name,
 .reserve-name {
-    font-size: 14px;
+	font-size: 14px;
 }
 
 .standard-position,
 .reserve-position {
-    font-size: 14px;
-    max-width: 40px;
+	font-size: 14px;
+	max-width: 40px;
 }
 
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    font-size: 18px;
-    max-width: 195px;
-    height: 34px;
-}
-
-#home-page-left,
-#home-page-right {
-    max-width: 195px;
-    font-size: 16px;
-    max-height: 25px;
+	font-size: 18px;
+	max-width: 195px;
+	height: 34px;
 }
 
 #text-message-left,
 #text-message-right {
-    font-size: 16px;
-    max-width: 400px;
+	font-size: 16px;
+	max-width: 400px;
 }
 
 #left-team-formation,
@@ -674,8 +655,8 @@ select[name=selectTeam-2] {
 @media screen and (max-width: 992px) {
 .football-pitch-left,
 .football-pitch-right {
-    max-width: 680px;
- }
+	max-width: 680px;
+}
 
 .football-pitch-left img,
 .football-pitch-right img {
@@ -684,34 +665,29 @@ select[name=selectTeam-2] {
 
 #left-team-standard,
 #right-team-standard {
-    max-width: 400px;
+	max-width: 400px;
 }
 
 #left-team-reserve,
 #right-team-reserve {
-    left: 104%;
+	left: 104%;
 }
 
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    max-height: 185px;
-}
-
-#home-page-left,
-#home-page-right {
-    max-width: 185px;
+	max-height: 185px;
 }
 
 #text-message-left,
 #text-message-right {
-    max-width: 380px;
+	max-width: 380px;
 }
 
 #left-team-formation,
 #right-team-formation {
-    margin-left: 80%;
-    margin-top: 124%;
-    font-size: 23px;
+	margin-left: 80%;
+	margin-top: 124%;
+	font-size: 23px;
 } 
 }
 
@@ -729,28 +705,28 @@ select[name=selectTeam-2] {
 
 #left-team-standard,
 #right-team-standard {
-    max-width: 320px;
+	max-width: 320px;
 }
 
 #left-team-reserve,
 #right-team-reserve {
-    left: 106%;
+	left: 106%;
 }
 
 .number,
 .reserve-number {
-    font-size: 13px;
+	font-size: 13px;
 }
 
 .name,
 .reserve-name {
-    font-size: 13px;
+	font-size: 13px;
 }
 
 .standard-position,
 .reserve-position {
-    font-size: 13px;
-    max-width: 30px;
+	font-size: 13px;
+	max-width: 30px;
 }
 
 select[name=selectTeam-1],
@@ -760,17 +736,10 @@ select[name=selectTeam-2] {
 	height: 28px;
 }
 
-#home-page-left,
-#home-page-right {
-    max-width: 150px;
-    font-size: 12px;
-    max-height: 18px;
-}
-
 #text-message-left,
 #text-message-right {
-    font-size: 14px;
-    max-width: 310px;
+	font-size: 14px;
+	max-width: 310px;
 }
 
 #left-team-formation,
@@ -784,9 +753,9 @@ select[name=selectTeam-2] {
 @media screen and (max-width: 650px) {
 .football-pitch-left,
 .football-pitch-right {
-    max-width: 490px;
-    max-height: 650px;
- }
+	max-width: 490px;
+	max-height: 650px;
+}
 
 .football-pitch-left img,
 .football-pitch-right img {
@@ -795,50 +764,43 @@ select[name=selectTeam-2] {
 
 #left-team-standard,
 #right-team-standard {
-    max-width: 280px;
-    font-size: 11px;
+	max-width: 280px;
+	font-size: 11px;
 }
 
 #left-team-reserve,
 #right-team-reserve {
-    left: 103%;
-    font-size: 11px;
+	left: 103%;
+	font-size: 11px;
 }
 
 .number,
 .reserve-number {
-    font-size: 11px;
+	font-size: 11px;
 }
 
 .name,
 .reserve-name {
-    font-size: 11px;
+	font-size: 11px;
 }
 
 .standard-position,
 .reserve-position {
-    font-size: 11px;
-    max-width: 28px;
+	font-size: 11px;
+	max-width: 28px;
 }
 
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    font-size: 11px;
-    max-width: 125px;
-    height: 24px;
-}
-
-#home-page-left,
-#home-page-right {
-    max-width: 125px;
-    font-size: 11px;
-    max-height: 17px;
+	font-size: 11px;
+	max-width: 125px;
+	height: 24px;
 }
 
 #text-message-left,
 #text-message-right {
-    font-size: 11px;
-    max-width: 260px;
+	font-size: 11px;
+	max-width: 260px;
 }
 
 #left-team-formation,
@@ -852,8 +814,8 @@ select[name=selectTeam-2] {
 @media screen and (max-width: 530px) {
 .football-pitch-left,
 .football-pitch-right {
-    max-width: 410px;
-    max-height: 645px;
+	max-width: 410px;
+	max-height: 645px;
  }
 
 .football-pitch-left img,
@@ -863,57 +825,50 @@ select[name=selectTeam-2] {
 
 #left-team-standard,
 #right-team-standard {
-    max-width: 210px;
-    font-size: 10px;
+	max-width: 210px;
+	font-size: 10px;
 }
 
 #left-team-reserve,
 #right-team-reserve {
-    left: 105%;
-    font-size: 10px;
+	left: 105%;
+	font-size: 10px;
 }
 
 .number,
 .reserve-number {
-    font-size: 10px;
+	font-size: 10px;
 }
 
 .name,
 .reserve-name {
-    font-size: 10px;
+	font-size: 10px;
 }
 
 .standard-position,
 .reserve-position {
-    font-size: 10px;
-    max-width: 25px;
+	font-size: 10px;
+	max-width: 25px;
 }
 
 select[name=selectTeam-1],
 select[name=selectTeam-2] {
-    font-size: 11px;
-    max-width: 105px;
-    height: 23px;
-    margin-top: 6px;
-}
-
-#home-page-left,
-#home-page-right {
-    max-width: 95px;
-    font-size: 10px;
-    max-height: 15px;
+	font-size: 11px;
+	max-width: 105px;
+	height: 23px;
+	margin-top: 6px;
 }
 
 #text-message-left,
 #text-message-right {
-    font-size: 10px;
-    max-width: 200px;
+	font-size: 10px;
+	max-width: 200px;
 }
 
 #left-team-formation,
 #right-team-formation {
-    margin-left: 76%;
-    margin-top: 238%;
-    font-size: 15px;
+	margin-left: 76%;
+	margin-top: 238%;
+	font-size: 15px;
 }
 }

@@ -89,7 +89,7 @@ function resetManagerForm() {
 }
 */
 /*Create Teams*/
-
+/*
 function showTeamForm() {
 	tpFunc.populateManagerOptions();
 	teamModal.style.display = "flex";
@@ -150,29 +150,9 @@ function updateTeams(team) {
 function resetTeamForm() {	
 	document.getElementById("current-team").value = '';
 }
-
-/*Create Positions*/
-
-function createInitialPositions() {
-	var positions = [
-		{id: 1, position: "GK"},
-		{id: 2, position: "RB"},
-		{id: 3, position: "LB"},
-		{id: 4, position: "RCB"},
-		{id: 5, position: "LCB"},
-		{id: 6, position: "RCM"},
-		{id: 7, position: "LCM"},
-		{id: 8, position: "RM"},
-		{id: 9, position: "LM"},
-		{id: 10, position: "RCF"},
-		{id: 11, position: "LCF"}
-	];
-
-	localStorage.setItem("positions", JSON.stringify(positions));
-}
-
+*/
 /*Create Players*/	
-
+/*
 function showPlayerForm() {
 	tpFunc.populateTeamOptions();
 	tpFunc.populatePositionOptions();
@@ -280,7 +260,28 @@ function checkPlayerNumber(player) {
 
 	return false;
 }
+*/
+/*Create Positions*/
+/*
+function createInitialPositions() {
+	var positions = [
+		{id: 1, position: "GK"},
+		{id: 2, position: "RB"},
+		{id: 3, position: "LB"},
+		{id: 4, position: "RCB"},
+		{id: 5, position: "LCB"},
+		{id: 6, position: "RCM"},
+		{id: 7, position: "LCM"},
+		{id: 8, position: "RM"},
+		{id: 9, position: "LM"},
+		{id: 10, position: "RCF"},
+		{id: 11, position: "LCF"}
+	];
+
+	localStorage.setItem("positions", JSON.stringify(positions));
+}
 
 function toTableData() {
 	window.location.href = './tabledata.html';
 }
+*/

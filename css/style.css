@@ -1,3 +1,4 @@
+/*
 html, body, #game {
     height: 100%;
     margin: 0;
@@ -41,9 +42,9 @@ body {
     cursor: pointer;
     box-shadow: 10px 10px 4px #000000b5;
 }
-
+*/
 /*Modals*/
-
+/*
 .modal {
     display: none;
     justify-content: center;
@@ -83,9 +84,9 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
-
+*/
 /*Inputs and selects*/
-
+/*
 label {
     color: black; 
 }
@@ -122,9 +123,9 @@ button[type=button] {
     color: white;
     height: 25px;
 }
-
+*/
 /*Snackbars/Toasts*/
-
+/*
 #snackbar-manager,
 #snackbar-team,
 #snackbar-player {
@@ -170,3 +171,4 @@ button[type=button] {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+*/

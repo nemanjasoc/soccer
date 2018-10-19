@@ -12,7 +12,7 @@
 <body>
     <div class="football-stadium">
         <div class="football-pitch-left">
-            <div id="home-page-left" onClick="toHomepage()">Home page</div>
+            <div id="home-page-left" onClick="toHomepage()"><i class="fa fa-home" aria-hidden="true"></i></div>
             <div id="left-team-standard"></div>
             <select name="selectTeam-1" id="select-left-team" id="captain-1" onchange="selectTeam('left')">
             </select>
@@ -20,9 +20,9 @@
                 <div id="text-message-left"></div>
             </div>
         </div>
-        
+
         <div class="football-pitch-right">
-            <div id="home-page-right" onClick="toHomepage()">Home page</div>
+            <div id="home-page-right" onClick="toHomepage()"><i class="fa fa-home" aria-hidden="true"></i></div>
             <div id="right-team-standard"></div>
             <select name="selectTeam-2" id="select-right-team" id="captain-2" onchange="selectTeam('right')">
             </select>
@@ -30,7 +30,9 @@
                 <div id="text-message-right"></div>
             </div>
         </div>
+        <div id="snackbar-message"></div>
     </div>
+    <script src="js/utilities.js"></script> 
     <script src="js/databaseFunctions.js"></script>
     <script src="js/templateFunctions.js"></script>
     <script src="js/gameplay.js"></script>

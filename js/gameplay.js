@@ -12,7 +12,7 @@ var playerToBeReplaced;
 
 function appendStandardAndReserveTeam(player, newGame, side) {
 	if (player.reserve) {
- 		tpFunc.appendReservePlayerToBench(player, newGame, side);
+			tpFunc.appendReservePlayerToBench(player, newGame, side);
 	} else {
 		tpFunc.appendPlayerToPitch(player, newGame, side);
 	} 
@@ -83,25 +83,25 @@ function changePlayer(clickedElement, side) {
 	var players = dbFunc.getPlayers();
 
 	var playerID = clickedElement.getAttribute('data-id');
-	console.log("playerID: ", playerID);
-	
+
 	if (playerToBeReplaced) {
 		console.log("Ja sam igrac u if na koga je prvo kliknuto i koji ce biti zamenjen: ", playerToBeReplaced);
 
 		var playerToReplace = dbFunc.getPlayerByID(playerID);
 		console.log("Ja sam igrac na koga je drugo kliknuto i koji ce da zameni prvog: ", playerToReplace);
+		utFunc.showSnack("snackbar-message", "Player is replaced!");
 		document.getElementById("text-message-" + side).innerHTML = '';
-		
-		if (playerToReplace.team == playerToBeReplaced.team) {
-   			playersSubstitution(playerToBeReplaced, playerToReplace, players);
-   
-   			tpFunc.resetTeam(side);
-   			displayPlayers(selectedTeamID, false, side);
-  		} else {
-   			alert("Selected change is not allowed!");
-  		}
 
-  		playerToBeReplaced = null;
+		if (playerToReplace.team == playerToBeReplaced.team) {
+				playersSubstitution(playerToBeReplaced, playerToReplace, players);
+
+				tpFunc.resetTeam(side);
+				displayPlayers(selectedTeamID, false, side);
+			} else {
+				alert("Selected change is not allowed!");
+			}
+
+			playerToBeReplaced = null;
 
 	} else {
 		playerToBeReplaced = dbFunc.getPlayerByID(playerID);
@@ -143,5 +143,5 @@ function changePlayer(clickedElement, side) {
 }
 
 function toHomepage() {
-	window.location.href = './index.html';
+	window.location.href = './tabledata.html';
 }
