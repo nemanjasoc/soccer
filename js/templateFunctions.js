@@ -76,8 +76,6 @@ var tpFunc = {
 		this.setSelectedTeamID(side, teamID);
 	},
 	appendPlayerToPitch: function (player, newGame, side) {
-		console.log('Ja sam prosledjeni igrac u append funkciju: ', player);
-
 		var positionInTeam = document.getElementById(side + "-team-" + player.position);
 		positionInTeam.setAttribute('data-id', player.id);
 
@@ -129,31 +127,37 @@ var tpFunc = {
 		document.getElementById(`select-${side}-team`).value = teamID;
 	},
 	getDataManagers: function () {
-		resetGetDataTeams();
-		resetGetDataPlayers();
+		resetData();
+
+		document.getElementById("managers").classList.add("active");
+		document.getElementById("teams").classList.remove("active");
+		document.getElementById("players").classList.remove("active");
 
 		var managers = dbFunc.getManagers();
 
-		document.getElementById("caption-manager").innerHTML = "<div class='managers'>Managers</div><div id='create-manager' onClick='showManagerForm()'>Create manager</div>"
+		document.querySelector("#caption").innerHTML = "<div class='managers'>Managers</div><div id='create-manager' onClick='showManagerForm()'>Create manager</div>"
 
-		document.getElementById("table-manager").innerHTML = "<tr><th>ID</th><th>Name</th><th>Actions</th></tr>";
+		document.querySelector("#table > thead").innerHTML = "<tr><th>ID</th><th>Name</th><th class='table-head-actions'>Actions</th></tr>";
 
 		for (var i = 0; i < managers.length; i++) {
 			var manager = managers[i];
 
-			document.getElementById("table-manager").innerHTML += "<tr><td>" + manager.id + "</td><td>" + manager.firstName + " " + manager.lastName + "</td>" + 
+			document.querySelector("#table > tbody").innerHTML += "<tr><td>" + manager.id + "</td><td>" + manager.firstName + " " + manager.lastName + "</td>" + 
 			`<td><div class='action-buttons'><div id='edit-button' onClick='editManager("${manager.id}")'>Edit</div><div id='delete-button' onClick='deleteManager("${manager.id}")'>Delete</div></div></td></tr>`;  
 		}
 	},
 	getDataTeams: function () {
-		resetGetDataManagers();
-		resetGetDataPlayers();
+		resetData();
+
+		document.getElementById("teams").classList.add("active");
+		document.getElementById("managers").classList.remove("active");
+		document.getElementById("players").classList.remove("active");
 
 		var teams = dbFunc.getTeams();
 
-		document.getElementById("caption-team").innerHTML = "<div class='teams'>Teams</div><div id='create-team' onClick='showTeamForm()'>Create team</div>"
+		document.querySelector("#caption").innerHTML = "<div class='teams'>Teams</div><div id='create-team' onClick='showTeamForm()'>Create team</div>"
 
-		document.getElementById("table-team").innerHTML = "<tr><th>ID</th><th>Name</th><th>Manager</th><th>Actions</th></tr>";
+		document.querySelector("#table > thead").innerHTML = "<tr><th>ID</th><th>Name</th><th>Manager</th><th class='table-head-actions'>Actions</th></tr>";
 
 		for (var i = 0; i < teams.length; i++) {
 			var team = teams[i];
@@ -166,19 +170,22 @@ var tpFunc = {
 				managerName = "";
 			}
 
-			document.getElementById("table-team").innerHTML += "<tr><td>" + team.id + "</td><td>" + team.name + "</td><td>" + managerName + "</td>" + 
+			document.querySelector("#table > tbody").innerHTML += "<tr><td>" + team.id + "</td><td>" + team.name + "</td><td>" + managerName + "</td>" + 
 			`<td><div class='action-buttons'><div id='edit-button' onClick='editTeam("${team.id}")'>Edit</div><div id='delete-button' onClick='deleteTeam("${team.id}")'>Delete</div></div></td></tr>`;  
 		}
 	},
 	getDataPlayers: function () {
-		resetGetDataManagers();
-		resetGetDataTeams();
+		resetData();
+
+		document.getElementById("players").classList.add("active");
+		document.getElementById("managers").classList.remove("active");
+		document.getElementById("teams").classList.remove("active");
 
 		var players = dbFunc.getPlayers();
 
-		document.getElementById("caption-player").innerHTML = "<div class='players'>Players</div><div id='create-player' onClick='showPlayerForm()'>Create player</div>"
+		document.querySelector("#caption").innerHTML = "<div class='players'>Players</div><div id='create-player' onClick='showPlayerForm()'>Create player</div>"
 
-		document.getElementById("table-player").innerHTML = "<tr><th>ID</th><th>Name</th><th>Number</th><th>Team</th><th>Reserve</th><th>Position</th><th>Actions</th></tr>";
+		document.querySelector("#table > thead").innerHTML = "<tr><th>ID</th><th>Name</th><th>Number</th><th>Team</th><th>Reserve</th><th>Position</th><th class='table-head-actions'>Actions</th></tr>";
 
 		for (var i = 0; i < players.length; i++) {
 			var player = players[i];
@@ -197,7 +204,7 @@ var tpFunc = {
 				playerTeam = "";
 			}
 
-			document.getElementById("table-player").innerHTML += "<tr><td>" + player.id + "</td><td>" + player.firstName + " " + player.lastName + "</td><td>" + player.number + "</td><td>" + playerTeam + "</td><td>" + player.reserve + "</td><td>" + player.originalPosition + "</td>" + 
+			document.querySelector("#table > tbody").innerHTML += "<tr><td>" + player.id + "</td><td>" + player.firstName + " " + player.lastName + "</td><td>" + player.number + "</td><td>" + playerTeam + "</td><td>" + player.reserve + "</td><td>" + player.originalPosition + "</td>" + 
 			`<td><div class='action-buttons'><div id='edit-button' onClick='editPlayer("${player.id}")'>Edit</div><div id='delete-button' onClick='deletePlayer("${player.id}")'>Delete</div></div></td></tr>`;  
 		}
 	}

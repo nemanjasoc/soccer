@@ -20,13 +20,16 @@ window.onload = function() {
 
 	switch (location.hash) {
 		case "#managers":
-			return getDataManagers();
+			getDataManagers();
 			break;
 		case "#teams":
-			return getDataTeams();
+			getDataTeams();
 			break;
 		case "#players":
-			return getDataPlayers();
+			getDataPlayers();
+			break;
+		default:
+			getDataManagers();
 			break;
 	};
 }
@@ -156,9 +159,10 @@ function getDataManagers() {
 	location.hash = "managers";
 }
 
-function resetGetDataManagers() {
-	document.getElementById("caption-manager").innerHTML = '';
-	document.getElementById("table-manager").innerHTML = '';
+function resetData() {
+	document.querySelector("#caption").innerHTML = '';
+	document.querySelector("#table > tbody").innerHTML = '';
+	document.querySelector("#table > thead").innerHTML = '';
 }
 
 /*Create Teams*/
@@ -266,11 +270,6 @@ function getDataTeams() {
 	location.hash = "teams";
 }
 
-function resetGetDataTeams() {
-	document.getElementById("caption-team").innerHTML = '';
-	document.getElementById("table-team").innerHTML = '';
-}
-
 /*Create Players*/	
 
 function showPlayerForm() {
@@ -374,7 +373,7 @@ function editPlayer(playerID) {
 	document.getElementById("first-name-edit").value = player.firstName;
 	document.getElementById("last-name-edit").value = player.lastName;
 	document.getElementById("number-edit").value = player.number;
-	document.getElementById("reserve-player-edit").checked;
+	document.getElementById("reserve-player-edit").checked = player.reserve;
 	var tim = document.getElementById("choose-team-edit");
 	var izabraniTim = tim.options[tim.selectedIndex].value;
 	document.getElementById("position-edit").value = player.originalPosition;
@@ -429,11 +428,6 @@ function updatePlayer() {
 function getDataPlayers() {
 	tpFunc.getDataPlayers();
 	location.hash = "players";
-}
-
-function resetGetDataPlayers() {
-	document.getElementById("caption-player").innerHTML = '';
-	document.getElementById("table-player").innerHTML = '';
 }
 
 function checkPlayerNumber(player) {

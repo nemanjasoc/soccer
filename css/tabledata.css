@@ -12,23 +12,18 @@ body {
 	width: 100%;
 	height: 70px;
 	background: cadetblue;
+	position: relative;
+	box-shadow: 0px 0px 10px 1px #0000009c; 
 }
 
 #gameplay {
 	display: flex;
-	justify-content: center;
 	cursor: pointer;
 	color: white;
 	font-size: 22px;
 	font-weight: 800;
 	align-items: center;
 	padding: 0px 14px;
-}
-
-#gameplay:hover {
-	color: cadetblue;
-	background: #001f3f;
-	box-shadow: 9px 9px 7px #0000009c;
 }
 
 h1 {
@@ -44,10 +39,7 @@ h1 {
 
 .main-container {
 	display: flex;
-	justify-content: space-between;
 }
-
-/*Managers, teams, players buttons and empty box*/
 
 .aside {
 	display: flex;
@@ -55,8 +47,9 @@ h1 {
 	flex-direction: column;
 	max-width: 260px;
 	width: 30%;
-	background: #001f3f;
-	height: 800px;
+	background: #ddd;
+	min-height: calc(100vh - 70px);
+	box-shadow: 0px 0px 15px 0px #0000009c;
 }
 
 #managers,
@@ -67,19 +60,21 @@ h1 {
 	display: flex;
 	justify-content: center;
 	height: 100px;
-	border-bottom: 1px solid #aac9ca;
 	cursor: pointer;
 	text-align: center;
 	align-items: center;
 	transition: 0.3s;
+	border-bottom: 1px solid cadetblue;
 }
 
 #managers:hover,
 #teams:hover,
-#players:hover {
+#players:hover,
+#managers.active,
+#teams.active, 
+#players.active {
 	background: cadetblue;
 	color: white;
-	box-shadow: 9px 9px 7px #0000009c; 
 }
 
 /*Caption and table*/
@@ -87,32 +82,23 @@ h1 {
 #main-content {
 	display: flex;
 	flex-direction: column;
-	max-width: 1300px;
 	width: 100%;
 	height: 100%;
-	margin-top: 1%;
-	margin-left: 3%;
-	margin-right: 3%;
+	padding: 20px;
 }
 
-#caption-player,
-#caption-team,
-#caption-manager {
+#caption {
 	display: flex;
 	justify-content: space-between;
-	max-width: 1300px;
 	width: 100%;
 	padding-bottom: 20px;
-}
-
-#caption-manager {
-	padding:  15px 0px;
 }
 
 .players,
 .teams,
 .managers {
 	font-size: 22px;
+	font-weight: bold;
 }
 
 #create-player,
@@ -148,9 +134,12 @@ h1 {
 	box-shadow: 0px 0px 15px #0000009c;
 }
 
+.table-head-actions {
+	width: 20px;
+}
+
 .action-buttons {
 	display: flex;
-	justify-content: space-between;
 }
 
 #edit-button {
@@ -198,37 +187,9 @@ table, tr {
 	width: 100%;
 }
 
-#table-player th,
-#table-team th,
-#table-manager th {
+th, td {
+	padding: 5px;
 	text-align: left;
-	padding-bottom: 5px;
-	padding-top: 5px;
-	width: 50%;
-}
-
-#table-player td,
-#table-team td,
-#table-manager td {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	width: 50%;
-}
-
-#table-team th {
-	width: 33%;
-}
-	
-#table-team td {
-	width: 33%;
-}
-
-#table-player th {
-	width: 16%;
-}
-
-#table-player td {
-	width: 16%;
 }
 
 /*Modals*/
@@ -369,106 +330,131 @@ input[type=submit]:hover {
 /*Media query*/
 
 @media screen and (max-width: 1200px) {
-.players {
-	font-size: 20px;
-}
+	.players {
+		font-size: 20px;
+	}
 
-#create-player {
-	font-size: 14px;
-}
+	#create-player {
+		font-size: 14px;
+	}
 
-#delete-button,
-#edit-button {
-	font-size: 13px;
-}
+	#delete-button,
+	#edit-button {
+		font-size: 13px;
+	}
 
-#table-player td,
-#table-player th {
-	width: 16%;
-	font-size: 17px;
-}
+	th, td {
+		font-size: 17px;
+	}
 }
 
 @media screen and (max-width: 992px) {
-.players {
-	font-size: 18px;
-}
+	.players {
+		font-size: 18px;
+	}
+	
+	#create-team,
+	#create-player {
+		font-size: 14px;
+	}
 
-#create-player {
-	font-size: 14px;
-}
+	#delete-button,
+	#edit-button {
+		font-size: 13px;
+	}
 
-#delete-button,
-#edit-button {
-	font-size: 13px;
-}
-
-#table-player td,
-#table-player th {
-	width: 16%;
-	font-size: 15px;
-}
+	th, td {
+		font-size: 15px;
+	}
 }
 
 @media screen and (max-width: 768px) {
-.players,
-.teams,
-.managers {
-	font-size: 16px;
-}
+	.players,
+	.teams,
+	.managers {
+		font-size: 16px;
+	}
 
-#create-manager {
-	font-size: 13px;
-}
+	#create-manager {
+		font-size: 13px;
+	}
 
-#create-team {
-	font-size: 14px;
-	padding: 5px 11px;
-}
+	#create-team {
+		font-size: 14px;
+		padding: 5px 11px;
+	}
 
-#create-player {
-	font-size: 14px;
-}
+	#create-player {
+		font-size: 14px;
+	}
 
-#delete-button,
-#edit-button {
-	font-size: 13px;
-}
+	#delete-button,
+	#edit-button {
+		font-size: 13px;
+	}
 
-#table-manager td,
-#table-manager th {
-	font-size: 15px;
-}
+	th, td {
+		font-size: 13px;
+	}
 
-#table-team td,
-#table-team th {
-	font-size: 14px;
-}
-
-#table-player td,
-#table-player th {
-	width: 16%;
-	font-size: 13px;
-}
+	#managers,
+	#teams,
+	#players {
+		font-size: 20px;
+	}
 }
 
 @media screen and (max-width: 600px) {
-.players {
-	font-size: 16px;
+	.players {
+		font-size: 16px;
+	}
+
+	#create-player {
+		font-size: 14px;
+	}
+
+	#delete-button,
+	#edit-button {
+		font-size: 13px;
+	}
+
+	th, td {
+		font-size: 11px;
+	}
+
+	#managers,
+	#teams,
+	#players {
+		font-size: 19px;
+	}
 }
 
-#create-player {
-	font-size: 14px;
-}
+@media screen and (max-width: 550px) {
+	.players {
+		font-size: 16px;
+	}
 
-#delete-button,
-#edit-button {
-	font-size: 13px;
-}
+	#create-player,
+	#create-team {
+		font-size: 13px;
+	}
 
-#table-player td, 
-#table-player th {
-	width: 16%;
-	font-size: 11px;
-}
+	#create-manager {
+		font-size: 12px;
+	}
+
+	#delete-button,
+	#edit-button {
+		font-size: 11px;
+	}
+
+	th, td {
+		font-size: 10px;
+	}
+
+	#managers,
+	#teams,
+	#players {
+		font-size: 18px;
+	}
 }

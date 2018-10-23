@@ -72,7 +72,6 @@ var dbFunc = {
 		var id = 1;
 		var max = 0;
 
-
 		for (var i = 0; i < items.length; i++) {
 			var currentItem = items[i];
 
@@ -283,6 +282,7 @@ var dbFunc = {
 		for (var i = 0; i < players.length; i++) {
 			var currentPlayer = players[i];
 			console.log("currentPlayer u resetPlayerTeamByTeamID: ", currentPlayer);
+
 			if (currentPlayer.team == teamId) {
 				currentPlayer.team = undefined;
 				console.log("currentPlayer.team: ", currentPlayer.team);
