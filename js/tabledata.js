@@ -314,7 +314,13 @@ function createFootballer() {
 
 	var existingPlayer = checkPlayerNumber(player);
 	if (existingPlayer) {
-		alert("That number alredy exist on the football team. The player who has that number is:" + existingPlayer.firstName + " " + existingPlayer.lastName);
+		utFunc.showSnack("snackbar-player", "That number alredy exist on the football team. The player who has that number is:" + existingPlayer.firstName + " " + existingPlayer.lastName);
+		return;
+	}
+
+	var existingStandardPlayer = checkStandardPlayerPosition(player);
+	if (existingStandardPlayer) {
+		utFunc.showSnack("snackbar-player", "That player position alredy exist on the football pitch. The player who has that position is:" + existingStandardPlayer.firstName + " " + existingStandardPlayer.lastName)
 		return;
 	}
 
@@ -374,8 +380,7 @@ function editPlayer(playerID) {
 	document.getElementById("last-name-edit").value = player.lastName;
 	document.getElementById("number-edit").value = player.number;
 	document.getElementById("reserve-player-edit").checked = player.reserve;
-	var tim = document.getElementById("choose-team-edit");
-	var izabraniTim = tim.options[tim.selectedIndex].value;
+	document.getElementById("choose-team-edit").value = player.team;
 	document.getElementById("position-edit").value = player.originalPosition;
 	document.getElementById("player-id").value = player.id;
 }
@@ -415,6 +420,12 @@ function updatePlayer() {
 		return;
 	}
 
+	var existingStandardPlayer = checkStandardPlayerPosition(player);
+	if (existingStandardPlayer) {
+		utFunc.showSnack("snackbar-player", "That player position alredy exist on the football pitch. The player who has that position is:" + existingStandardPlayer.firstName + " " + existingStandardPlayer.lastName)
+		return;
+	}
+
 	dbFunc.updatePlayer(player);
 	closePlayerEditModal();
 	tpFunc.getDataPlayers();
@@ -437,6 +448,20 @@ function checkPlayerNumber(player) {
 		var currentPlayer = players[i];
 		
 		if (currentPlayer.number == player.number && currentPlayer.team == player.team) {
+			return currentPlayer;
+		}
+	}
+
+	return false;
+}
+
+function checkStandardPlayerPosition(player) {
+	var players = dbFunc.getPlayers();
+
+	for (var i = 0; i < players.length; i++) {
+		var currentPlayer = players[i];
+
+		if (currentPlayer.team == player.team && currentPlayer.reserve == false && player.reserve == false && currentPlayer.position == player.position) {
 			return currentPlayer;
 		}
 	}

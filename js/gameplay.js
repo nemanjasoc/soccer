@@ -84,7 +84,6 @@ function changePlayer(clickedElement, side) {
 		var playerToReplace = dbFunc.getPlayerByID(playerID);
 		console.log("Ja sam igrac na koga je drugo kliknuto i koji ce da zameni prvog: ", playerToReplace);
 		
-		
 		document.getElementById("text-message-" + side).innerHTML = '';
 		
 		if (playerToReplace.team == playerToBeReplaced.team) {
@@ -93,7 +92,7 @@ function changePlayer(clickedElement, side) {
 				tpFunc.resetTeam(side);
 				displayPlayers(selectedTeamID, false, side);
 			} else {
-				alert("Selected change is not allowed!");
+				utFunc.showSnack("snackbar-message", "Selected change is not allowed!");
 			}
 
 			playerToBeReplaced = null;

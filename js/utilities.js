@@ -4,6 +4,6 @@ var utFunc = {
 
 		element.className = "show";
 		element.innerHTML = message;
-		setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+		setTimeout(function(){ element.className = element.className.replace("show", ""); }, 6000);
 	}
 };
