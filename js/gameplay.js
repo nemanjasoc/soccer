@@ -139,5 +139,5 @@ function changePlayer(clickedElement, side) {
 }
 
 function toHomepage() {
-	window.location.href = './tabledata.html';
+	window.location.href = './index.html';
 }
